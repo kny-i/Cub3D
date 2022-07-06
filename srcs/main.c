@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <signal.h>
-#include <unistd.h>
+#include <libc.h>
 
-int main(void)
+int main(int argc, char **argv)
 {
 
 }
