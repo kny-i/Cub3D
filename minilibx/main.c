@@ -1,7 +1,10 @@
-#include <libc.h>
+#include "./cub.h"
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2)
-		printf("%s", argv[1]);
+	t_vars vars;
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello World!");
+	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
+	mlx_loop(vars.mlx);
 }
