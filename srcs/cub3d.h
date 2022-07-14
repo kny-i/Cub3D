@@ -22,4 +22,6 @@ typedef struct s_info
 	t_map map;
 } t_info;
 
+int keymap(int key, t_info *info);
+
 #endif

@@ -1,16 +1,5 @@
 #include "cub3d.h"
 
-int keymap(int key, t_info *info)
-{
-	if (key == 'a')//key
-		;
-	else if (key == 'd')
-		;
-	else if (key == 'w')
-		;
-	else if (key == 's')
-		;
-}
 
 int free_all(t_info *info)
 {
