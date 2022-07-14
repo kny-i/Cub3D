@@ -26,7 +26,7 @@ clean:
 
 fclean: clean
 	rm -rf $(mlxpath)/libmlx.a
-	rm -rf $(NAME) $(objs)
+	rm -rf $(NAME) $(objs)
 
 re:	fclean all
 

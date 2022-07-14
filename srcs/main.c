@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		usage();//exit 1
-	t_info info
+	t_info info;
 	init_info(&info);
 	info.mlx_ptr = mlx_init();
 	info.win_ptr = mlx_new_window(info.mlx_ptr, 1000, 1000, "cub3d");//1000 have no meaning size.
