@@ -1,6 +1,5 @@
 #include "cub3d.h"
 
-
 int free_all(t_info *info)
 {
 	//should deal with ft_free
@@ -16,9 +15,15 @@ void mlx_hooks_and_loop(t_info info)
 	mlx_loop(info.mlx_ptr);
 }
 
+void init_info(t_info *info)
+{
+	info = calloc(sizeof(t_info), 1);
+}
+
 int main(int argc, char **argv)
 {
 	t_info info;
+	init_info(&info);
 	info.mlx_ptr = mlx_init();
 	info.win_ptr = mlx_new_window(info.mlx_ptr, 1000, 1000, "cub3d");//1000 have no meaning size.
 
