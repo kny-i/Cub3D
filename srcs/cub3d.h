@@ -6,6 +6,7 @@
 
 typedef struct s_map
 {
+	char **map_strs;
 	size_t width;
 	size_t height;
 
@@ -22,7 +23,7 @@ typedef struct s_player
 
 typedef struct s_picture
 {
-	void *e;//empty
+	void *em;//empty
 	void *w;//wall
 	void *c;//collectible
 	void *e;//exit

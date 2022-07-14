@@ -18,14 +18,35 @@ void mlx_hooks_and_loop(t_info info)
 void init_info(t_info *info)
 {
 	info = calloc(sizeof(t_info), 1);
+	info->player.x_pos = 100;//have no meaning.
+	info->player.y_pos = 100;
+	//not perfect.
+}
+
+int usage(void)
+{
+	printf("invalid argument.\n"
+		   "./cub [.cub file]\n");
+	exit(EXIT_FAILURE);
+}
+
+char **init_map(char *map_str, t_info *info)
+{
+	//should get col & rol info
+//	info->map.map_strs = NULL;
+	return (info->map.map_strs);
 }
 
 int main(int argc, char **argv)
 {
-	t_info info;
+//	test();//this is only test...
+
+	if (argc != 2)
+		usage();//exit 1
+	t_info info
 	init_info(&info);
 	info.mlx_ptr = mlx_init();
 	info.win_ptr = mlx_new_window(info.mlx_ptr, 1000, 1000, "cub3d");//1000 have no meaning size.
-
+	info.map.map_strs = init_map(argv[1], &info);
 	mlx_hooks_and_loop(info);//↑want to get all info.
 }
