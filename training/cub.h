@@ -2,7 +2,7 @@
 #define CUB_H
 
 #include <libc.h>
-#include "mlx_linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
 
 #define KEYPRESSMASK 1L<<0
