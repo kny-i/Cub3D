@@ -25,8 +25,8 @@ void init_info(t_info *info)
 
 int usage(void)
 {
-	printf("invalid argument.\n"
-		   "./cub [.cub file]\n");
+	printf(RED"invalid argument.\n"
+		   "./cub [.cub file]\n"STOP);
 	exit(EXIT_FAILURE);
 }
 
