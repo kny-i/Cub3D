@@ -6,6 +6,7 @@ mlxpath = ./mlx_linux/
 mlxflag = -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
 mlxmake = make -C $(mlxpath)
 gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
+debug_flag = -g -sanitize=address
 
 
 all: $(NAME)
@@ -31,6 +32,6 @@ fclean: clean
 re:	fclean all
 
 test: all
-	./cub
+	./cub dotcub/normal.cub
 
 .PHONY: all clean fclean mlx re test
