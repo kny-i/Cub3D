@@ -7,7 +7,7 @@ static char	*get_output_line(char *save)
 
 	if (save[0] == '\0')
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(save) + 2));
+	str = malloc(sizeof(char) * (ft_strlen(save) + 2));//calloc使って後で改善予定
 	if (str == NULL)
 		return (NULL);
 	i = 0;
@@ -83,6 +83,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX < fd)
 		return (NULL);
 	save[fd] = read_line(fd, save[fd]);
+	if (save[fd] == NULL)
+		free(NULL);
 	line = get_output_line(save[fd]);
 	save[fd] = get_save(save[fd]);
 	return (line);

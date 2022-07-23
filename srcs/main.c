@@ -36,11 +36,16 @@ char **init_map(char *map_str, t_info *info)
 //	info->map.map_strs = NULL;
 	return (info->map.map_strs);
 }
-
+void gnl_test(int argc, char **argv);
+void launch_cub(int argc, char **argv);
 int main(int argc, char **argv)
 {
-//	test();//this is only test...
+//	gnl_test(argc, argv);//this is only test...
+	launch_cub(argc, argv);
+}
 
+void	launch_cub(int argc, char **argv)
+{
 	if (argc != 2)
 		usage();//exit 1
 	t_info info;
@@ -50,3 +55,25 @@ int main(int argc, char **argv)
 	info.map.map_strs = init_map(argv[1], &info);
 	mlx_hooks_and_loop(info);//↑want to get all info.
 }
+
+//void gnl_test(int argc, char **argv)
+//{
+//	char *file_path = argv[1];
+//	int fd = open(file_path, O_RDONLY);
+//	char *s = get_next_line(fd);
+//	char *n2 = get_next_line(fd);
+//	free(s);
+//	free(n2);
+//
+//	char *s = get_next_line(fd);
+//	printf("%s", s);
+//	free(s);
+//	while (s)//why leak
+//	{
+//		char *s = get_next_line(fd);
+//		if (s == NULL)
+//			return ;
+//		printf("%s", s);
+//		free(s);
+//	}
+//}
