@@ -42,4 +42,13 @@ typedef struct s_info
 
 int keymap(int key, t_info *info);
 
+#define BUFFER_SIZE 100
+#define READ_ERROR -1
+#define END_OF_FILE 0
+#define NOT_EOF 100
+/* gnl_utils.c */
+size_t ft_strlen(char *str);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+
 #endif
