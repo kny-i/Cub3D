@@ -32,7 +32,7 @@ int usage(void)
 
 char **init_map(char *map_str, t_info *info)
 {
-	//should get col & rol info
+
 //	info->map.map_strs = NULL;
 	return (info->map.map_strs);
 }
