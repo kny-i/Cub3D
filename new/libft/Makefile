@@ -7,7 +7,7 @@ ft_toupper.c ft_calloc.c ft_memchr.c ft_putstr_fd.c ft_strmapi.c ft_isalnum.c\
 ft_memcmp.c ft_split.c ft_strncmp.c ft_isalpha.c ft_memcpy.c ft_strchr.c\
 ft_strnstr.c ft_isascii.c ft_memmove.c ft_strdup.c ft_strrchr.c ft_striteri.c\
 ft_printf.c ft_putaddress_len.c ft_putchar_len.c ft_putnbr_convert_base.c\
-ft_putnbr_len.c ft_putstr_len.c ft_atoll.c
+ft_putnbr_len.c ft_putstr_len.c ft_atoll.c gnl.c gnl_utils.c
 
 
 OBJS = ${SRCS:.c=.o}

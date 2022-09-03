@@ -32,7 +32,7 @@ OBJ = $(SRC:.c=.o)
 
 INCLUDES = .
 
-CC = clang
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra -c
 
