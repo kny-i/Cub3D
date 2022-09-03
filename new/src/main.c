@@ -2,9 +2,9 @@
 
 bool is_valid_args(int argc, char **argv)
 {
-	if (argc != 3)
-		return (false);
-	return (true);
+	if (argc == 2)
+		return (true);
+	return (false);
 }
 
 int usage(void)
@@ -14,46 +14,33 @@ int usage(void)
 	return (FAILURE);
 }
 
-void init_map(t_map *map)
-{
-	map = ft_calloc(1, sizeof (t_map));
-	map->start_position = NULL;
-	map->ceiling_color = INIT_COLOR;
-	map->floor_color = INIT_COLOR;
-	map->path[north] = NULL;
-	map->path[south] = NULL;
-	map->path[east] = NULL;
-	map->path[west] = NULL;
-	map->path[sprite] = NULL;
-	map->sprite_position = NULL;
-	map->grid = NULL;
-	map->nb_sprites = SIZE_T_MAX;
-	map->width = SIZE_T_MAX;
-	map->height = SIZE_T_MAX;
-	map->nb_row = SIZE_T_MAX;
-	map->nb_col = SIZE_T_MAX;
-}
-
-void init(int argc, char **argv, t_cub3d *info)
-{
-	init_map(info->map);
-
-
-}
-
 int launch_cub3d(int argc, char **argv)
 {
-	t_cub3d game_info;
-	if (is_valid_args(argc, argv) == true)
+	t_cub3d info;
+	if (is_valid_args(argc, argv) == false)
 		return (usage());
-	init(&game_info);
-
-
+//	init_map(&game_info);//why
+	parser(argv[1], info.map);
 	return (SUCCESS);
 }
-
+void gnltest(char *file);
 int main(int argc, char **argv)
 {
-	launch_cub3d(argc, argv);
+//	setbuf(stdout, NULL);
+//	launch_cub3d(argc, argv);
+	gnltest(argv[1]);
 }
 
+void gnltest(char *file)
+{
+	char *line;
+	int fd = open(file, O_RDONLY);
+	while (true)
+	{
+		line = get_next_line(fd);
+		printf("%s",line);
+		if (line == NULL)
+			break ;
+	}
+
+}

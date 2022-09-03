@@ -8,6 +8,8 @@
 # include <math.h>
 # include <libc.h>
 # include <stdbool.h>
+# include <limits.h>
+# include <float.h>
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -103,19 +105,23 @@ typedef struct s_sprite {
 	size_t width;
 
 }				t_sprite;
+
+
 typedef struct s_cub3d {
 
 	/*mlx info*/
-
 	void *mlx;
 	void *window;
+
 	/* basic info */
 	t_data *data;
 
 	/* map info */
 	t_map *map;
 
+	/* point info */
 	t_point *point;
+
 	/* player info */
 	t_player *player;
 
@@ -129,5 +135,21 @@ typedef struct s_cub3d {
 	t_sprite	**sprite;
 }	t_cub3d;
 
+
+/* init.c */
+//void init_map(t_cub3d *info);
+//void init(t_cub3d *info);
+//void init_player(t_player *player);
+//void init_ray(t_ray **ray);
+//void init_texture(t_texture **texture);
+//void init_sprite(t_sprite **sprite);
+
+
+/* parser.c */
+void parser(char *file, t_map *map);
+
+/* message.c */
+void error_message(char *message);
+int success_message(char *message);
 
 #endif

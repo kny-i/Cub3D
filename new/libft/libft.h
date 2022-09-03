@@ -29,7 +29,7 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 int			ft_strcmp(const char *s1, const char *s2);
 char		*ft_strdup(const char *s1);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strjoin(char *s1, char *s2);
 void		ft_putnbr_fd(int n, int fd);
 int			ft_atoi(const char *str);
 long long	ft_atoll(const char *str);
@@ -51,7 +51,6 @@ int			ft_isascii(int c);
 int			ft_isalnum(int c);
 int			ft_isdigit(int c);
 int			ft_isalpha(int c);
-char		*ft_strrchr(const char *s, int c);
 char		*ft_strtrim(char const *s1, char const *set);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		ft_putstr_fd(char *s, int fd);
@@ -66,4 +65,15 @@ size_t		ft_putaddress_len(unsigned long long c);
 size_t		ft_putnbr_len(long long int nb);
 size_t		ft_putstr_len(char *str);
 size_t		ft_putnbr_convert_base(unsigned long long nb, char *base);
+
+/* gnl_utils.c */
+char	*ft_strchr(const char *s, int c);
+char	*get_next_line(int fd);
+char	*gnl_strjoin(char *s1, char *s2);
+
+#define BUFFER_SIZE 100
+#define READ_ERROR -1
+#define END_OF_FILE 0
+#define NOT_EOF 100
+
 #endif

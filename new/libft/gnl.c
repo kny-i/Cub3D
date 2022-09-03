@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "libft.h"
 
 static char	*get_output_line(char *save)
 {
@@ -69,7 +69,7 @@ static char	*read_line(int fd, char *save)
 			return (NULL);
 		}
 		buf[n] = '\0';
-		save = ft_strjoin(save, buf);
+		save = gnl_strjoin(save, buf);
 	}
 	free(buf);
 	return (save);

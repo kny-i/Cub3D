@@ -10,7 +10,7 @@ mlxmake = make -C $(mlxpath)
 gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 ############
 
-debug_flag = -g -sanitize=address
+debug_flag = -g3 -fsanitize=address
 
 all: $(NAME)
 
@@ -19,7 +19,8 @@ clone:
 
 $(NAME): $(mlxpath) $(objs)
 	$(mlxmake) 2> /dev/null
-	cc $(objs) $(mlxflag) -o $(NAME)
+	make -C ../libft
+	cc $(objs) ../libft/libft.a $(mlxflag) $(debug_flag) -o $(NAME)
 
 mlx:
 	$(mlxmake)

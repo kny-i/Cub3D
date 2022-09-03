@@ -1,34 +1,6 @@
-#include "cub3d.h"
+#include "libft.h"
 
-size_t ft_strlen(char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
-
-	i = 0;
-	if (s == NULL)
-		return (NULL);
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return (&((char *)s)[i]);
-		i++;
-	}
-	if ((char)c == '\0')
-		return (&((char *)s)[i]);
-	return (NULL);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
