@@ -14,6 +14,7 @@
 # define LEFT_ARROW_KEY 0x00ff51
 # define M_KEY 0x006d
 # define ESC_KEY 0x00ff1b
+# define INIT_COLOR -1
 
 typedef enum
 {
@@ -64,7 +65,7 @@ typedef struct s_map {
 	size_t nb_ray;
 	long long ceiling_color;
 	long long floor_color;
-	char **filepath;
+	char *path[5];
 
 	size_t nb_sprites;
 	t_point **sprite_position;
