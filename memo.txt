@@ -2,3 +2,4 @@ minilibx -> minilibxの練習ファイル
 srcs -> cub3d
 
 ↑最終チェックの段階でMakefileでwildcardを使っていないように注意すること
+.mini3d/.mini3dの消し忘れに注意
