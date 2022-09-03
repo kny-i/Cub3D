@@ -4,9 +4,16 @@
 
 # include "./color.h"
 # include "../libft/libft.h"
+# include <math>
 # include <libc.h>
 # include <stdbool.h>
 
+# define SUCCESS 0
+# define FAILURE 1
+# define RIGHT_ARROW_KEY 0x00ff53
+# define LEFT_ARROW_KEY 0x00ff51
+# define M_KEY 0x006d
+# define ESC_KEY 0x00ff1b
 typedef enum
 {
 	ray_up = 0,
