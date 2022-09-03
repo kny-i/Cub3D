@@ -85,9 +85,12 @@ typedef struct	s_map {
 	int			max_h;
 	int			n_column;
 	int			n_row;
+
 	t_point		*init_posit;
+
 	double		rotation_angle;
 	int			num_rays;
+
 	int			color_ceiling;
 	int			color_floor;
 	char		**path;
@@ -99,7 +102,9 @@ typedef struct	s_player {
 	t_point		*posit;
 	int			turn_direction;
 	int			walk_direction;
+
 	double		rotation_angle;
+
 	int			move_speed;
 	double		rotation_speed;
 	double		dist_proj_plane;
@@ -132,12 +137,18 @@ typedef struct	s_vars {
 	void		*mlx;
 	void		*win;
 	t_data		*data;
+
 	t_map		*map;
+
 	t_point		*point;
+
 	t_player	*player;
+
 	t_ray		**ray;
+
 	t_tex		**tex;
 	t_sprite	**sprite;
+
 	int			minimap;
 }				t_vars;
 
