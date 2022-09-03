@@ -1,4 +1,4 @@
-NAME = cub
+NAME = cub3d
 
 srcs = $(wildcard ./*.c)
 objs = $(srcs:.c=.o)
@@ -23,15 +23,18 @@ mlx:
 
 clean:
 	$(mlxmake) clean
-	rm -rf $(objs)
+	$(RM) $(objs)
 
 fclean: clean
-	rm -rf $(mlxpath)/libmlx.a
-	rm -rf $(NAME) $(objs)
+	$(RM) $(mlxpath)/libmlx.a
+	$(RM) $(NAME) $(objs)
 
 re:	fclean all
 
 test: all
-	./cub dotcub/normal.cub
+	./$(NAME) dotcub/normal.cub
+
+out: all
+	./$(NAME) dotcub/normal.cub 2>/dev/null
 
 .PHONY: all clean fclean mlx re test
