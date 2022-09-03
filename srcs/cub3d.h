@@ -49,10 +49,10 @@ size_t ft_strlen(char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
+
 #define BUFFER_SIZE 100
 #define READ_ERROR -1
 #define END_OF_FILE 0
 #define NOT_EOF 100
-
 
 #endif

@@ -37,4 +37,7 @@ test: all
 out: all
 	./$(NAME) dotcub/normal.cub 2>/dev/null
 
+leaks: all
+	leaks -q --atExit -- ./$(NAME) dotcub/normal.cub
+
 .PHONY: all clean fclean mlx re test
