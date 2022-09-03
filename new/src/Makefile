@@ -25,7 +25,7 @@ mlx:
 	$(mlxmake)
 
 clean:
-	$(mlxmake) clean
+	$(mlxmake) clean;
 	$(RM) $(objs)
 
 fclean: clean

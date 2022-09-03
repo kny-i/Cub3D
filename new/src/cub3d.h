@@ -7,6 +7,24 @@
 # include <libc.h>
 # include <stdbool.h>
 
+typedef enum
+{
+	ray_up = 0,
+	ray_down = 1,
+	ray_right = 2,
+	ray_left = 3
+
+} e_ray_direction;
+
+typedef enum
+{
+	north = 0,
+	south = 1,
+	east  = 2,
+	west = 3,
+	sprite = 4
+}e_texture;
+
 typedef struct s_data {
 	void *mlx;
 	void *window;
@@ -67,6 +85,16 @@ typedef struct s_texture {
 	size_t width;
 } t_texture;
 
+typedef struct s_sprite {
+
+	t_point *point;
+	double 	angle;
+	double 	angle_dif;
+	double  dest;
+	size_t height;
+	size_t width;
+
+}				t_sprite;
 typedef struct s_cub3d {
 	/* basic info */
 	t_data *data;
@@ -83,6 +111,9 @@ typedef struct s_cub3d {
 
 	/* texture info */
 	t_texture **texture;
+
+	/* sprite info */
+	t_sprite	**sprite;
 }	t_cub3d;
 
 
