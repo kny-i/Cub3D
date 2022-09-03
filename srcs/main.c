@@ -23,7 +23,7 @@ void init_info(t_info *info)
 	//not perfect.
 }
 
-int usage(void)
+int usage()
 {
 	printf(RED"invalid argument.\n"
 		   "./cub [.cub file]\n"STOP);
