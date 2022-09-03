@@ -2,7 +2,7 @@ NAME = cub3d
 
 srcs = $(wildcard ./*.c)
 #objsdir = ./objs
-#objs = $(addprefix $(objsdir)/, $(notdir $(srcs:.c=.o)))
+objs = $(srcs:.c=.o)
 
 ### mlx ###
 mlxpath = ./mlx_linux/
@@ -12,7 +12,6 @@ gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 ############
 
 debug_flag = -g -sanitize=address
-
 
 all: $(NAME)
 

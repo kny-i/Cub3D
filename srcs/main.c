@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 void	launch_cub(int argc, char **argv)
 {
 	if (argc != 2)
-		usage();//exit 1
+		usage();
 	t_info info;
 	init_info(&info);
 	info.mlx_ptr = mlx_init();
