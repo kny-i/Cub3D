@@ -4,7 +4,8 @@
 
 # include "./color.h"
 # include "../libft/libft.h"
-# include <math>
+# include "./mlx_linux/mlx.h"
+# include <math.h>
 # include <libc.h>
 # include <stdbool.h>
 
@@ -35,8 +36,6 @@ typedef enum
 }e_texture;
 
 typedef struct s_data {
-	void *mlx;
-	void *window;
 	void *image;
 	char *address;
 	size_t bpp;//bits per pixel
@@ -105,6 +104,11 @@ typedef struct s_sprite {
 
 }				t_sprite;
 typedef struct s_cub3d {
+
+	/*mlx info*/
+
+	void *mlx;
+	void *window;
 	/* basic info */
 	t_data *data;
 

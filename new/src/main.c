@@ -33,10 +33,12 @@ void init_map(t_map *map)
 	map->nb_row = SIZE_T_MAX;
 	map->nb_col = SIZE_T_MAX;
 }
-void init(t_cub3d *info)
+
+void init(int argc, char **argv, t_cub3d *info)
 {
 	init_map(info->map);
-	init_mlx(info);
+
+
 }
 
 int launch_cub3d(int argc, char **argv)
