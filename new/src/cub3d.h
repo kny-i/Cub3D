@@ -14,6 +14,7 @@
 # define LEFT_ARROW_KEY 0x00ff51
 # define M_KEY 0x006d
 # define ESC_KEY 0x00ff1b
+
 typedef enum
 {
 	ray_up = 0,
