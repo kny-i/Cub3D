@@ -38,9 +38,6 @@ fclean: clean
 
 re:	fclean all
 
-test: all
-	./$(NAME) dotcub/normal.cub
-
 out: all
 	./$(NAME) dotcub/normal.cub 2>/dev/null
 

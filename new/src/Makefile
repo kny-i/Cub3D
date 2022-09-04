@@ -38,17 +38,16 @@ fclean: clean
 re:	fclean all
 
 #################[debug]####################
-debug1: all
-	./$(NAME) ../test/test1.cub 1>/dev/null
+success1: all
+	./$(NAME) ../test/normal/00_simple_20_13.cub
 
-debug2: all
-	./$(NAME) ../test/test2.cub 1>/dev/null
+success2: all
+	./$(NAME) ../test/normal/06_maxsize_256_256.cub
+failure1: all
+	./$(NAME) ../test/error/06_rgb_many_20_13.cub
 
-debug3: all
-	./$(NAME) ../test/test3.cub 1>/dev/null
-
-debug4: all
-	./$(NAME) ../test/test3.cub 1>/dev/null
+failure2: all
+	./$(NAME) ../test/error/08_design_invalid_color_20_13.cub
 
 leaks: all
 	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
