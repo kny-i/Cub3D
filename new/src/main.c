@@ -37,7 +37,7 @@ int launch_cub3d(int argc, char **argv)
 	debug_parser(info.map);
 
 	/* start game! */
-	start_game(info);
+	start_game(&info);
 
 
 //	start_game(info);

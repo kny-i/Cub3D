@@ -40,9 +40,9 @@ typedef enum
 typedef struct s_data {
 	void *image;
 	char *address;
-	size_t bpp;//bits per pixel
-	size_t line_length;
-	size_t endian;
+	int bpp;//bits per pixel
+	int line_length;
+	int endian;
 } t_data;
 
 typedef struct	s_point {
@@ -53,8 +53,8 @@ typedef struct	s_point {
 
 typedef struct s_map {
 	char **grid;
-	size_t width;
-	size_t height;
+	int width;
+	int height;
 	int max_width;
 	int max_height;
 	size_t nb_col;
@@ -91,8 +91,8 @@ typedef struct s_ray {
 
 typedef struct s_texture {
 	t_data *data;
-	size_t height;
-	size_t width;
+	int height;
+	int width;
 } t_texture;
 
 typedef struct s_sprite {
@@ -162,5 +162,5 @@ char *xstrdup(const char *s1);
 bool ft_isspace(int c);
 
 /* start_game.c */
-void start_game(t_cub3d info);
+void start_game(t_cub3d *info);
 #endif
