@@ -29,11 +29,13 @@ int launch_cub3d(int argc, char **argv)
 
 	if (is_valid_args(argc, argv) == false)
 		return (usage());
-	/* init mlx */
-	initialize_mlx(&info);
 
 	/* parser */
 	info.map = parser(argv[1], info.map);
+	/* init mlx */
+
+	initialize_mlx(&info);
+
 	debug_parser(info.map);
 
 	/* start game! */
