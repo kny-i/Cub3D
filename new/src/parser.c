@@ -136,5 +136,4 @@ void parser(char *file, t_map *map)
 	}
 	map->grid[map_col_index] = NULL;
 	free(line);
-	debug_parser(map);
 }
