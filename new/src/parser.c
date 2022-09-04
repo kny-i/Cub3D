@@ -15,20 +15,39 @@ bool is_valid_map(int fd, t_map *map, size_t *nb_col)
 void	parse_direction(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "NO", 2) == 0)
-		map->path[north] = ft_strdup(line + 3);
+		map->path[north] = xstrdup(line + 3);
 	if (ft_strncmp(line, "SO", 2) == 0)
-		map->path[south] = ft_strdup(line + 3);
+		map->path[south] = xstrdup(line + 3);
 	if (ft_strncmp(line, "WE", 2) == 0)
-		map->path[west] = ft_strdup(line + 3);
+		map->path[west] = xstrdup(line + 3);
 	if (ft_strncmp(line, "EA", 2) == 0)
-		map->path[east] = ft_strdup(line + 3);
+		map->path[east] = xstrdup(line + 3);
 }
 
+int allocate_color(t_map *map, char *line)
+{
+	char **strs = ft_split(line, ',');
+	size_t i = 0;
+	int rgb[3];
+
+	rgb[0] = ft_atoi(strs[0]) << 16;
+	rgb[1] = ft_atoi(strs[1]) << 8;
+	rgb[2] = ft_atoi(strs[2]);
+	return (rgb[0] + rgb[1] + rgb[2]);
+}
+
+void parse_color(t_map *map, char *line)
+{
+	if (ft_strncmp(line, "F", 1) == 0)
+		map->floor_color = allocate_color(map, line + 2);
+	if (ft_strncmp(line, "C", 1) == 0)
+		map->ceiling_color = allocate_color(map, line + 2);
+}
 
 void allocate_map(t_map *map, char *line, size_t row)
 {
 	parse_direction(map, line);
-	//parse_color();
+	parse_color(map, line);
 	//parse_map();
 }
 
@@ -55,9 +74,8 @@ void parser(char *file, t_map *map)
 		line = get_next_line(fd2);
 		if (line == NULL)
 			break ;
-//		printf("%s", line);
 		allocate_map(map, line, row);
 		row++;
 	}
-	debug_direction_path(map);
+	debug_parser(map);
 }

@@ -12,6 +12,8 @@ gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 
 debug_flag = -g3 -fsanitize=address
 
+CC = cc
+
 all: $(NAME)
 
 clone:
@@ -20,7 +22,7 @@ clone:
 $(NAME): $(mlxpath) $(objs)
 	$(mlxmake) 2> /dev/null
 	make -C ../libft
-	cc $(objs) ../libft/libft.a $(mlxflag) $(debug_flag) -o $(NAME)
+	$(CC) $(objs) ../libft/libft.a $(mlxflag) $(debug_flag) -o $(NAME)
 
 mlx:
 	$(mlxmake)
@@ -34,6 +36,9 @@ fclean: clean
 	$(RM) $(NAME) $(objs)
 
 re:	fclean all
+
+debug: all
+	./$(NAME) ../test/test.txt 1>/dev/null
 
 #test: all
 #	./$(NAME) dotcub/normal.cub

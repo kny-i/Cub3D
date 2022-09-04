@@ -5,5 +5,5 @@ WE ./text/robot/8.xpm
 EA ./text/robot/2.xpm
 SO ./text/robot/7.xpm
 S ./text/robot/sp1.xpm
-F 95, 80, 50
+F 255,255,255
 C 0,0,50

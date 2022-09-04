@@ -64,8 +64,8 @@ typedef struct s_map {
 
 	double angle;
 	size_t nb_ray;
-	long long ceiling_color;
-	long long floor_color;
+	int ceiling_color;
+	int floor_color;
 	char *path[5];
 
 	size_t nb_sprites;
@@ -153,6 +153,10 @@ void error_message(char *message);
 int success_message(char *message);
 
 /* debug.c*/
-
 void debug_direction_path(t_map *map);
+void debug_parser(t_map *map);
+
+
+/* utils.c */
+char *xstrdup(const char *s1);
 #endif
