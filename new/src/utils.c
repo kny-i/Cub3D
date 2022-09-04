@@ -1,5 +1,10 @@
 #include "cub3d.h"
 
+
+bool ft_isspace(int c)
+{
+	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == ' ');
+}
 char	*xstrdup(const char *s1)
 {
 	char *ret;

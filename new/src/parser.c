@@ -3,7 +3,7 @@
 bool is_map_line(char *line)
 {
 	size_t i = 0;
-	while (ft_isprint(line[i]) == false)
+	while (ft_isspace(line[i]) == true)
 		i++;
 	if (line[i] == '1')
 		return (true);
@@ -82,6 +82,7 @@ bool parse_color(t_map *map, char *line)
 void allocate_map(t_map *map, char *line, size_t *map_col_index)
 {
 	map->grid[*map_col_index] = xstrdup(line);
+	//printf("[%s]\n", line);
 	(*map_col_index)++;
 }
 
@@ -123,7 +124,7 @@ void parser(char *file, t_map *map)
 	int fd2 = open(file, O_RDONLY);
 	map = ft_calloc(1, sizeof(t_map));
 
-	map->grid = ft_calloc(map->nb_col, sizeof(char *));
+	map->grid = ft_calloc(map->nb_col + 1, sizeof(char *));
 	size_t map_col_index = 0;
 	while (true)
 	{
