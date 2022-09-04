@@ -34,7 +34,6 @@ typedef enum
 	south = 1,
 	east  = 2,
 	west = 3,
-	sprite = 4
 }e_texture;
 
 typedef struct s_data {
@@ -68,8 +67,8 @@ typedef struct s_map {
 	int floor_color;
 	char *path[5];
 
-	size_t nb_sprites;
-	t_point **sprite_position;
+//	size_t nb_sprites;
+//	t_point **sprite_position;
 } t_map;
 
 typedef struct s_player {
@@ -132,7 +131,7 @@ typedef struct s_cub3d {
 	t_texture **texture;
 
 	/* sprite info */
-	t_sprite	**sprite;
+//	t_sprite	**sprite;
 }	t_cub3d;
 
 

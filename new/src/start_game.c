@@ -29,12 +29,10 @@ t_texture **initialize_texture(void *mlx_ptr, char **path)
 	texture[south] = load_texture(mlx_ptr, path[south]);
 	texture[east] = load_texture(mlx_ptr, path[east]);
 	texture[west] = load_texture(mlx_ptr, path[west]);
-	texture[sprite] = load_texture(mlx_ptr, path[sprite]);
 	if ((texture[north] == NULL)
 		|| (texture[south] == NULL)
 		|| (texture[east] == NULL)
-		|| (texture[west] == NULL)
-		|| (texture[sprite]) == NULL)
+		|| (texture[west] == NULL))
 		error_message("INVALID TEXTURE PATH");
 	return (texture);
 
