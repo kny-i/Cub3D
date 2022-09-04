@@ -12,10 +12,24 @@ bool is_valid_map(int fd, t_map *map, size_t *nb_col)
 	}
 	return (true);//ここもっとちゃんとやんないとだめ
 }
+void	parse_direction(t_map *map, char *line)
+{
+	if (ft_strncmp(line, "NO", 2) == 0)
+		map->path[north] = ft_strdup(line + 3);
+	if (ft_strncmp(line, "SO", 2) == 0)
+		map->path[south] = ft_strdup(line + 3);
+	if (ft_strncmp(line, "WE", 2) == 0)
+		map->path[west] = ft_strdup(line + 3);
+	if (ft_strncmp(line, "EA", 2) == 0)
+		map->path[east] = ft_strdup(line + 3);
+}
+
 
 void allocate_map(t_map *map, char *line, size_t row)
 {
-
+	parse_direction(map, line);
+	//parse_color();
+	//parse_map();
 }
 
 void parser(char *file, t_map *map)
@@ -41,8 +55,9 @@ void parser(char *file, t_map *map)
 		line = get_next_line(fd2);
 		if (line == NULL)
 			break ;
-		printf("%s", line);
-//		allocate_map(map, line, row);
+//		printf("%s", line);
+		allocate_map(map, line, row);
 		row++;
 	}
+	debug_direction_path(map);
 }

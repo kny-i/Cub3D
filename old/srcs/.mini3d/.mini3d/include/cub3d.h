@@ -93,7 +93,8 @@ typedef struct	s_map {
 
 	int			color_ceiling;
 	int			color_floor;
-	char		**path;
+
+
 	int			n_sprites;
 	t_point		**sprite_posit;
 }				t_map;
@@ -237,4 +238,5 @@ int				free_map(t_map *map);
 
 int				save_bmp_file(t_vars *vars);
 
+void debug_direction_path(t_map *map);
 #endif
