@@ -12,7 +12,7 @@
 
 #include "./include/cub3d.h"
 
-static t_tex	*load_texture(void *mlx_ptr, char *path)
+satic t_tex	*load_texture(void *mlx_ptr, char *path)
 {
 	t_tex	*tex;
 
@@ -40,6 +40,7 @@ static t_tex	**create_texture(void *mlx_ptr, char **path)
 	texture[east] = load_texture(mlx_ptr, path[east]);
 	texture[west] = load_texture(mlx_ptr, path[west]);
 	texture[sprite] = load_texture(mlx_ptr, path[sprite]);
+
 	if (!(texture[north]) || !(texture[south]) || !(texture[east]) ||
 	!(texture[west]) || !(texture[sprite]))
 	{
