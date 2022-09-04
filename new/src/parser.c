@@ -22,7 +22,7 @@ bool is_valid_map(int fd, t_map *map, size_t *nb_col)
 		if (is_map_line(line) == true)
 			(*nb_col)++;
 	}
-	return (true);//ここもっとちゃんとやんないとだめ
+	return (true);
 }
 
 bool parse_direction(t_map *map, char *line)
@@ -79,38 +79,28 @@ bool parse_color(t_map *map, char *line)
 		return (false);
 }
 
-bool is_map_line(char *line)
+void allocate_map(t_map *map, char *line, size_t *map_col_index)
 {
-	size_t i = 0;
-	while (ft_isprint(line[i]) == false)
-		i++;
-	if (line[i] == '1')
-		return (true);
-	else
-		return (false);
+	map->grid[*map_col_index] = xstrdup(line);
+	(*map_col_index)++;
 }
 
-void allocate_map(t_map *map, char *line, size_t *map_row_index)
-{
-	char **strs = malloc(sizeof(char *));
-}
-
-bool parse_map(t_map *map, char *line, size_t *map_row_index)
+bool parse_map(t_map *map, char *line, size_t *map_col_index)
 {
 	if (is_map_line(line) == false)
 		return (false);
 	else
 	{
-		allocate_map(map, line, map_row_index);
+		allocate_map(map, line, map_col_index);
 		return (true);
 	}
 }
 
-void parse_cub3d_file(t_map *map, char *line, size_t *map_row_index)
+void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 {
 	if (parse_direction(map, line)
 	|| parse_color(map, line)
-	|| parse_map(map, line, map_row_index))
+	|| parse_map(map, line, map_col_index))
 		return;
 	else
 		return;//error handling
@@ -133,13 +123,14 @@ void parser(char *file, t_map *map)
 	int fd2 = open(file, O_RDONLY);
 	map = ft_calloc(1, sizeof(t_map));
 
-	size_t map_row_index = 0;
+	map->grid = ft_calloc(map->nb_col, sizeof(char *));
+	size_t map_col_index = 0;
 	while (true)
 	{
 		line = get_next_line(fd2);
 		if (line == NULL)
 			break ;
-		parse_cub3d_file(map, line, &map_row_index);
+		parse_cub3d_file(map, line, &map_col_index);
 		free(line);
 	}
 	free(line);

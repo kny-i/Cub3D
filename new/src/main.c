@@ -10,7 +10,7 @@ bool is_valid_args(int argc, char **argv)
 int usage(void)
 {
 	printf(RED"[USAGE]\n"
-			  "./cub3d [map.cub3d]\n"STOP);
+			  "./cub3d [map.cub]\n"STOP);
 	return (FAILURE);
 }
 

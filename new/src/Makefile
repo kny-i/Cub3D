@@ -10,7 +10,7 @@ mlxmake = make -C $(mlxpath)
 gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 ############
 
-debug_flag = -g3 -fsanitize=address
+#debug_flag = -g3 -fsanitize=address
 
 CC = cc
 
@@ -37,16 +37,20 @@ fclean: clean
 
 re:	fclean all
 
-debug: all
-	./$(NAME) ../test/test.txt 1>/dev/null
+#################[debug]####################
+debug1: all
+	./$(NAME) ../test/test1.cub 1>/dev/null
 
-#test: all
-#	./$(NAME) dotcub/normal.cub
-#
-#out: all
-#	./$(NAME) dotcub/normal.cub 2>/dev/null
-#
-#leaks: all
-#	leaks -q --atExit -- ./$(NAME) dotcub/normal.cub
+debug2: all
+	./$(NAME) ../test/test2.cub 1>/dev/null
+
+debug3: all
+	./$(NAME) ../test/test3.cub 1>/dev/null
+
+debug4: all
+	./$(NAME) ../test/test3.cub 1>/dev/null
+
+leaks: all
+	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
 
 .PHONY: all clean fclean mlx re test
