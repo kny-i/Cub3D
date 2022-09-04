@@ -3,8 +3,9 @@
 void debug_direction_path(t_map *map)
 {
 	fprintf(stderr, RED"====[DEBUG DIRECTION PATH]====\n"STOP);
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 4; i++) {
 		fprintf(stderr, "%s\n", map->path[i]);
+	}
 }
 
 void debug_colors(t_map *map)
