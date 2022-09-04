@@ -107,7 +107,7 @@ void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 		return;//error handling
 }
 
-void parser(char *file, t_map *map)
+t_map *parser(char *file, t_map *map)
 {
 	int fd;
 	char *line;
@@ -136,4 +136,5 @@ void parser(char *file, t_map *map)
 	}
 	map->grid[map_col_index] = NULL;
 	free(line);
+	return (map);
 }

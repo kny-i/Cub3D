@@ -146,7 +146,7 @@ typedef struct s_cub3d {
 
 
 /* parser.c */
-void parser(char *file, t_map *map);
+t_map *parser(char *file, t_map *map);
 
 /* message.c */
 void error_message(char *message);

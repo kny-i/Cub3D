@@ -19,12 +19,13 @@ int launch_cub3d(int argc, char **argv)
 	t_cub3d info;
 	if (is_valid_args(argc, argv) == false)
 		return (usage());
-//	init_map(&game_info);//why
-	parser(argv[1], info.map);
+
+	info.map = parser(argv[1], info.map);
+	debug_parser(info.map);
 	return (SUCCESS);
 }
 int main(int argc, char **argv)
 {
-	setbuf(stdout, NULL);
+	setbuf(stderr, NULL);
 	launch_cub3d(argc, argv);
 }
