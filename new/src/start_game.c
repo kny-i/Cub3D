@@ -38,7 +38,22 @@ t_texture **initialize_texture(void *mlx_ptr, char **path)
 
 }
 
-void start_game(t_cub3d *info)
+t_data *initialize_data(void *mlx_ptr, t_map *map)
+{
+	t_data *image;
+
+	image = ft_calloc(1, sizeof (t_data));
+	image->image = mlx_new_image(mlx_ptr, map->width, map->height);
+	image->address = mlx_get_data_addr(image->image, &image->bpp, &image->line_length, &image->endian);
+	return (image);
+}
+void initialize_object(t_cub3d *info)
 {
 	info->texture = initialize_texture(info->mlx, info->map->path);
+	info->data = initialize_data(info->mlx, info->map);
+}
+void start_game(t_cub3d *info)
+{
+	initialize_object(info);
+
 }
