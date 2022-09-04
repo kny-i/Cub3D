@@ -2,12 +2,18 @@
 /*
  * map判定はvalidate_mapで別のタイミングでする予定
  */
+
+void allocate_map(t_map *map, char *line, size_t row_index)
+{
+	size_t col_index = 0;
+	map->grid = calloc()
+}
+
 void parser(char *file, t_map *map)
 {
 	int fd;
 	char *line;
 
-	printf("[%s]", file);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		error_message("OPEN FAILURE!!");
@@ -18,6 +24,7 @@ void parser(char *file, t_map *map)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		printf("%s", line);
+		allocate_map(map, line, row);
+		row++;
 	}
 }

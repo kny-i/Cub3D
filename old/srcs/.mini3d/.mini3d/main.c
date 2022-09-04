@@ -49,6 +49,10 @@ int			main(int argc, char **argv)
 {
 	t_vars	vars;
 
+//	int *a = malloc(sizeof(int) * 100);
+//	*a = 100;
+//	return 0;
+
 	check_args(argc, argv);
 	allocate_map(&vars);
 	if (!read_file(argv[1], vars.map) || !(create_n_check(&vars)))
