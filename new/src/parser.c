@@ -1,12 +1,16 @@
 #include "cub3d.h"
-/*
- * map判定はvalidate_mapで別のタイミングでする予定
- */
 
-void allocate_map(t_map *map, char *line, size_t row_index)
+bool is_valid_map(int fd, t_map *map, size_t *nb_col)
 {
-	size_t col_index = 0;
-	map->grid = calloc()
+	char *line;
+	while (true)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		(*nb_col)++;
+	}
+	return (true);
 }
 
 void parser(char *file, t_map *map)
@@ -18,13 +22,16 @@ void parser(char *file, t_map *map)
 	if (fd < 0)
 		error_message("OPEN FAILURE!!");
 
+	size_t nb_col = 0;
+	if (is_valid_map(fd, map, &nb_col) == false)
+		error_message("INVALID MAP!!");
+
 	size_t row = 0;
 	while (true)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		allocate_map(map, line, row);
 		row++;
 	}
 }
