@@ -160,4 +160,7 @@ void debug_parser(t_map *map);
 /* utils.c */
 char *xstrdup(const char *s1);
 bool ft_isspace(int c);
+
+/* start_game.c */
+void start_game(t_cub3d info);
 #endif
