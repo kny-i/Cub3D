@@ -14,14 +14,29 @@ int usage(void)
 	return (FAILURE);
 }
 
+void initialize_mlx(t_cub3d *info)
+{
+	info->mlx = mlx_init();
+	mlx_get_screen_size(info->mlx,
+						&info->map->max_width,
+						&info->map->max_height);
+}
+
+
 int launch_cub3d(int argc, char **argv)
 {
 	t_cub3d info;
+
 	if (is_valid_args(argc, argv) == false)
 		return (usage());
+	initialize_mlx(&info);
 
 	info.map = parser(argv[1], info.map);
 	debug_parser(info.map);
+
+
+//	start_game(info);
+
 	return (SUCCESS);
 }
 int main(int argc, char **argv)

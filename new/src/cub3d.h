@@ -55,8 +55,8 @@ typedef struct s_map {
 	char **grid;
 	size_t width;
 	size_t height;
-	size_t max_width;
-	size_t max_height;
+	int max_width;
+	int max_height;
 	size_t nb_col;
 	size_t nb_row;
 
