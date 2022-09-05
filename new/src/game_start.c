@@ -39,7 +39,7 @@ void ray_casting(t_cub3d *info)
 	}
 }
 
-void allocate_color(t_cub3d *info, double wall_height, size_t index)
+void drawing_color(t_cub3d *info, double wall_height, size_t index)
 {
 	double choice[2];
 	int x;
@@ -59,12 +59,12 @@ void drawing_3dmap(t_cub3d *info)
 	{
 		distance_to_plane = info->ray[i]->ray_to_plane_distance * cos(info->ray[i]->angle - info->player->angle);
 		wall_height = TILE_SIZE / distance_to_plane * info->player->player_to_plane_distance;
-		allocate_color(info, wall_height, i);
+		drawing_color(info, wall_height, i);
 	}
 }
 
 void game_start(t_cub3d *info)
 {
-	ray_casting(info);
-	drawing_3dmap(info);
+//	ray_casting(info);
+//	drawing_3dmap(info);
 }
