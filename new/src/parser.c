@@ -30,25 +30,25 @@ bool parse_direction(t_map *map, char *line)
 	if (ft_strncmp(line, "NO", 2) == 0)
 	{
 		map->path[north] = xstrdup(line + 3);
-		return (true);
+		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "SO", 2) == 0)
 	{
 		map->path[south] = xstrdup(line + 3);
-		return (true);
+		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "WE", 2) == 0)
 	{
 		map->path[west] = xstrdup(line + 3);
-		return (true);
+		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "EA", 2) == 0)
 	{
 		map->path[east] = xstrdup(line + 3);
-		return (true);
+		return (SUCCESS);
 	}
 	else
-		return (false);
+		return (FAILURE);
 }
 
 int allocate_color(t_map *map, char *line)
@@ -68,15 +68,15 @@ bool parse_color(t_map *map, char *line)
 	if (ft_strncmp(line, "F", 1) == 0)
 	{
 		map->floor_color = allocate_color(map, line + 2);
-		return (true);
+		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "C", 1) == 0)
 	{
 		map->ceiling_color = allocate_color(map, line + 2);
-		return (true);
+		return (SUCCESS);
 	}
 	else
-		return (false);
+		return (FAILURE);
 }
 
 void allocate_map(t_map *map, char *line, size_t *map_col_index)
@@ -89,19 +89,19 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index)
 bool parse_map(t_map *map, char *line, size_t *map_col_index)
 {
 	if (is_map_line(line) == false)
-		return (false);
+		return (FAILURE);
 	else
 	{
 		allocate_map(map, line, map_col_index);
-		return (true);
+		return (SUCCESS);
 	}
 }
 
 void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 {
-	if (parse_direction(map, line)
-	|| parse_color(map, line)
-	|| parse_map(map, line, map_col_index))
+	if (parse_direction(map, line) == SUCCESS \
+	|| parse_color(map, line) == SUCCESS
+	|| parse_map(map, line, map_col_index) == SUCCESS)
 		return;
 	else
 		return;//error handling
