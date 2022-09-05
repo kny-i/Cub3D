@@ -32,11 +32,10 @@ int launch_cub3d(int argc, char **argv)
 
 	/* parser */
 	info.map = parser(argv[1], info.map);
+	debug_parser(info.map);
 	/* init mlx */
 
 	initialize_mlx(&info);
-
-	debug_parser(info.map);
 
 	/* start game! */
 	start_game(&info);

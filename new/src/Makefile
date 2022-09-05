@@ -39,14 +39,19 @@ re:	fclean all
 
 #################[debug]####################
 success1: all
+	cat ../test/normal/00_simple_20_13.cub
 	./$(NAME) ../test/normal/00_simple_20_13.cub
 
 success2: all
+	cat ../test/normal/06_maxsize_256_256.cub
 	./$(NAME) ../test/normal/06_maxsize_256_256.cub
+
 failure1: all
+	cat ../test/error/06_rgb_many_20_13.cub
 	./$(NAME) ../test/error/06_rgb_many_20_13.cub
 
 failure2: all
+	cat ../test/error/08_design_invalid_color_20_13.cub
 	./$(NAME) ../test/error/08_design_invalid_color_20_13.cub
 
 leaks: all
