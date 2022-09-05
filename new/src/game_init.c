@@ -64,13 +64,14 @@ t_player  *initialize_player(t_map *map, const int default_speed, const double r
 
 	player = ft_calloc(1, sizeof(t_player));
 	player->position = ft_calloc(1, sizeof(t_point));
-	player->turn_direction = 0;
-	player->walk_direction = 0;
 	player->default_spped = default_speed;
 	player->rotate_speed = rotate_speed;
 	player->angle = map->angle;
 
-	/* set position */
+	/* initすべきかは後で決定 */
+	player->turn_direction = 0;
+	player->walk_direction = 0;
+
 	player->position->x = 0;
 	player->position->y = 0;
 	player->position->color = RAYS_COLOR;

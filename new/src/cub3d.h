@@ -179,4 +179,7 @@ t_data *initialize_data(void *mlx_ptr, t_map *map);
 t_point *initialize_point(int x, int y, int color);
 t_player *initialize_player(t_map *map, int move_speed, double rotate_speed);
 
+/* game_start.c */
+void game_start(t_cub3d *info);
+
 #endif

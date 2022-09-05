@@ -98,4 +98,3 @@ int				create_n_check(t_vars *vars)
 	vars->minimap = TRUE;
 	return (1);
 }
-

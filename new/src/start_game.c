@@ -10,6 +10,9 @@ void initialize_object(t_cub3d *info)
 
 void start_game(t_cub3d *info)
 {
+	//init game
 	initialize_object(info);
+	//game start!!!!!!
+	game_start(info);
 }
 
