@@ -22,7 +22,7 @@ static int	ft_is_cub(char *str)
 	return (1);
 }
 
-int			check_args(int argc, char **argv)
+nnint			check_args(int argc, char **argv)
 {
 	if (argc == 1)
 		return (ft_arg_error(-1));

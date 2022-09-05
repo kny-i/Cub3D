@@ -33,20 +33,17 @@ int launch_cub3d(int argc, char **argv)
 	/* parser */
 	info.map = parser(argv[1], info.map);
 	debug_parser(info.map);
-	/* init mlx */
 
+	/* init mlx */
 	initialize_mlx(&info);
 
 	/* start game! */
 	start_game(&info);
 
-
-//	start_game(info);
-
 	return (SUCCESS);
 }
 int main(int argc, char **argv)
 {
-	setbuf(stderr, NULL);
+//	setbuf(stderr, NULL);
 	launch_cub3d(argc, argv);
 }

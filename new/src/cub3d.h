@@ -13,11 +13,21 @@
 
 # define SUCCESS 0
 # define FAILURE 1
+
+/* keys */
 # define RIGHT_ARROW_KEY 0x00ff53
 # define LEFT_ARROW_KEY 0x00ff51
 # define M_KEY 0x006d
 # define ESC_KEY 0x00ff1b
-# define INIT_COLOR -1
+
+/* colors */
+# define OFFSET 8
+# define WALL_COLOR 0x4d4d33
+# define RAYS_COLOR 0xffff66
+
+/* speeds */
+# define DEFAULT_SPEED 30
+# define ROTATE_SPEED 0.50
 
 typedef enum
 {
@@ -25,7 +35,6 @@ typedef enum
 	ray_down = 1,
 	ray_right = 2,
 	ray_left = 3
-
 } e_ray_direction;
 
 typedef enum
@@ -162,4 +171,12 @@ bool ft_isspace(int c);
 
 /* start_game.c */
 void start_game(t_cub3d *info);
+
+/* game_init.c */
+t_texture *load_texture(void *mlx_ptr, char *path);
+t_texture **initialize_texture(void *mlx_ptr, char **path);
+t_data *initialize_data(void *mlx_ptr, t_map *map);
+t_point *initialize_point(int x, int y, int color);
+t_player *initialize_player(t_map *map, int move_speed, double rotate_speed);
+
 #endif
