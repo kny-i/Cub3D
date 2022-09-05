@@ -12,7 +12,7 @@
 
 #include "./include/cub3d.h"
 
-static void	assign_ray(t_ray *ray, t_point *collis, double dist_wall, int coord)
+static void	assign_ray(t_ray *ray, t_point *collis, double ray_to_plane_distance, int coord)
 {
 	ray->collision->x = collis->x;
 	ray->collision->y = collis->y;
@@ -52,6 +52,7 @@ int			**ft_raycast(t_vars *vars)
 		vars->ray[i]->ray_angle = vars->player->rotation_angle +
 			atan2(i - vars->map->num_rays / 2, vars->player->dist_proj_plane);
 		vars->ray[i]->ray_angle = ft_normalize_angle(vars->ray[i]->ray_angle);
+
 		check_closest_wall(vars, vars->ray[i], vars->ray[i]->ray_angle);
 		i++;
 	}

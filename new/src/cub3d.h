@@ -31,10 +31,14 @@
 
 # define DEFAULT_WIDTH 1200
 # define DEFAULT_HEIGHT 600
+# define TILE_SIZE 64
 
 /* related to math */
 # define FOV 1.5//human's field Of view
 # define PI 3.1415926535897932384264338327950288419716939937910
+
+# define HORIZONTAL 0
+# define VERTICAL 1
 
 typedef enum
 {
@@ -94,12 +98,12 @@ typedef struct s_player {
 	double angle;
 	size_t default_spped;
 	double rotate_speed;
-	double distance_projection;
+	double player_to_plane_distance;
 } t_player;
 
 typedef struct s_ray {
 	t_point *collision;
-	double dest_wall;
+	double ray_to_plane_distance;
 	double angle;
 	long long coordination;
 } t_ray;
