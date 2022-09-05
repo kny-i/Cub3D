@@ -54,3 +54,5 @@ t_ray		**allocate_ray(t_vars *vars)
 	}
 	return (ray);
 }
+
+

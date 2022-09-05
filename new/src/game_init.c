@@ -41,6 +41,8 @@ t_data *initialize_data(void *mlx_ptr, t_map *map)
 {
 	t_data *image;
 
+	map->width = DEFAULT_WIDTH;
+	map->height = DEFAULT_HEIGHT;
 	image = ft_calloc(1, sizeof (t_data));
 	image->image = mlx_new_image(mlx_ptr, map->width, map->height);
 	image->address = mlx_get_data_addr(image->image, &image->bpp, &image->line_length, &image->endian);

@@ -110,7 +110,7 @@ int			get_map_info(t_map *map, char *line, int *row, int *ismap)
 		return (n_col);
 	}
 	map->n_column = n_col > map->n_column ? n_col : map->n_column;
-	map->n_row++;
+	map->n_row++
 	i++;
 	*row = i;
 	return (n_col);

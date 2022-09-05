@@ -95,7 +95,7 @@ static void	parse_resolution(char *str, t_map *map)
 		return ;
 	map->width = nb[0] > map->max_w ? map->max_w : nb[0];
 	map->height = nb[1] > map->max_h ? map->max_h : nb[1];
-	map->num_rays = map->width / WALL_WIDTH;
+	map->num_rays = map->width / WALL_WIDTH; 
 }
 
 int			get_identifier(t_map *map, char *line)

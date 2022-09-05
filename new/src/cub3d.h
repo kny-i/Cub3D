@@ -29,6 +29,13 @@
 # define DEFAULT_SPEED 30
 # define ROTATE_SPEED 0.50
 
+# define DEFAULT_WIDTH 1200
+# define DEFAULT_HEIGHT 600
+
+/* related to math */
+# define FOV 1.5//human's field Of view
+# define PI 3.1415926535897932384264338327950288419716939937910
+
 typedef enum
 {
 	ray_up = 0,
@@ -87,7 +94,7 @@ typedef struct s_player {
 	double angle;
 	size_t default_spped;
 	double rotate_speed;
-	double projection;
+	double distance_projection;
 } t_player;
 
 typedef struct s_ray {
