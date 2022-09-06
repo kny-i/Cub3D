@@ -193,5 +193,7 @@ void game_start(t_cub3d *info);
 char *xstrdup(const char *s1);
 int ft_isspace(int c);
 int is_nbrs(char *str);
+int usage(void);
+
 
 #endif

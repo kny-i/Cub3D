@@ -87,7 +87,6 @@ bool parse_color(t_map *map, char *line)
 void allocate_map(t_map *map, char *line, size_t *map_col_index)
 {
 	map->grid[*map_col_index] = xstrdup(line);
-	//printf("[%s]\n", line);
 	(*map_col_index)++;
 }
 

@@ -34,3 +34,10 @@ int is_nbrs(char *str)
 	}
 	return (true);
 }
+
+int usage(void)
+{
+	printf(CYAN"[USAGE]\n"
+			  "./cub3d *.cub\n"STOP);
+	return (FAILURE);
+}
