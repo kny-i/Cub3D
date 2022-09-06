@@ -169,7 +169,6 @@ t_map *parser(char *file, t_map *map);
 
 /* message.c */
 void error_message(char *message);
-int success_message(char *message);
 
 /* debug.c*/
 void debug_direction_path(t_map *map);

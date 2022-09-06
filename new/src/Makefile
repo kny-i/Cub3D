@@ -61,10 +61,16 @@ leaks: all
 ###########[tester]#####################
 ok: all
 	./$(NAME) ../test/ok/ok.cub
+	echo 'ok case'
 
 ako: all
 	./$(NAME) ../test/ko/not_nbrs.cub
+	echo 'include not nbrs'
 bko: all
 	./$(NAME) ../test/ko/notcub.abc
+	echo 'not valid format'
+
+#cko: all
+	#./$(NAME)
 
 .PHONY: all clean fclean mlx re test
