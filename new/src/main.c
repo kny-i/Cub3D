@@ -33,8 +33,17 @@ int launch_cub3d(int argc, char **argv)
 
 	return (SUCCESS);
 }
+
+void sample(void);
 int main(int argc, char **argv)
 {
 //	setbuf(stderr, NULL);
 	launch_cub3d(argc, argv);
+//	sample();
 }
+
+//void sample(void)
+//{
+//	char *str = "     Hello";
+//	printf("%s", skip_space_str(str));
+//}

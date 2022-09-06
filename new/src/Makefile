@@ -63,9 +63,14 @@ green='\033[32m'
 no='\033[0m'
 
 ###########[ok case]############
-ok: all
+aok: all
 	@./$(NAME) ../test/ok/ok.cub
 	@echo $(green)"[ok case]"$(no)
+
+bok: all
+	@echo $(green)"[space direction format case]"$(no)
+	@./$(NAME) ../test/ok/space_direction.cub
+
 
 ###########[ko case]#############
 ako: all
@@ -87,10 +92,6 @@ dko: all
 eko: all
 	@echo $(green)"[invalid argument count case]"$(no)
 	@./$(NAME)
-
-fko: all
-	@echo $(green)"[invalid direction format case]"$(no)
-	@./$(NAME) ../test/ko/invalid_direction.cub
 
 
 ##############[map test]###############

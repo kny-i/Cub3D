@@ -41,3 +41,10 @@ int usage(void)
 			  "./cub3d *.cub\n"STOP);
 	return (FAILURE);
 }
+
+char *skip_space_str(char *str)
+{
+	while (ft_isspace(*str) == true)
+		str++;
+	return (str);
+}

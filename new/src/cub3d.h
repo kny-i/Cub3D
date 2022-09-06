@@ -193,6 +193,6 @@ char *xstrdup(const char *s1);
 int ft_isspace(int c);
 int is_nbrs(char *str);
 int usage(void);
-
+char *skip_space_str(char *str);
 
 #endif

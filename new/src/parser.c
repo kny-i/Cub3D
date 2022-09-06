@@ -29,22 +29,22 @@ bool parse_direction(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "NO", 2) == 0)
 	{
-		map->path[north] = xstrdup(line + 3);
+		map->path[north] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "SO", 2) == 0)
 	{
-		map->path[south] = xstrdup(line + 3);
+		map->path[south] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "WE", 2) == 0)
 	{
-		map->path[west] = xstrdup(line + 3);
+		map->path[west] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "EA", 2) == 0)
 	{
-		map->path[east] = xstrdup(line + 3);
+		map->path[east] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
 	else
