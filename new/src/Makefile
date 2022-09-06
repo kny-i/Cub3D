@@ -37,7 +37,7 @@ fclean: clean
 
 re:	fclean all
 
-#################[debug]####################
+#################[easy compile && debug]####################
 success1: all
 	cat ../test/normal/00_simple_20_13.cub
 	./$(NAME) ../test/normal/00_simple_20_13.cub
@@ -56,5 +56,10 @@ failure2: all
 
 leaks: all
 	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
+
+
+###########[tester]#####################
+ko: all
+	./$(NAME) ../test/ko/00_simple_20_13.cub
 
 .PHONY: all clean fclean mlx re test
