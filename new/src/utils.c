@@ -34,3 +34,12 @@ char *skip_space_str(char *str)
 		str++;
 	return (str);
 }
+
+size_t strs_len(char **strs)
+{
+	size_t len = 0;
+	while (strs[len])
+		len++;
+	return (len);
+}
+

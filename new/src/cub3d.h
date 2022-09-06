@@ -201,6 +201,7 @@ bool is_valid_map(int fd, t_map *map, size_t *nb_col);
 bool is_valid_format_file(char *filename);
 bool is_valid_args(int argc, char **argv);
 int is_nbrs(char *str);
+size_t strs_len(char **strs);
 
 
 #endif
