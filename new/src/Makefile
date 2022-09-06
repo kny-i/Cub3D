@@ -68,9 +68,12 @@ aok: all
 	@echo $(green)"[ok case]"$(no)
 
 bok: all
-	@echo $(green)"[space direction format case]"$(no)
 	@./$(NAME) ../test/ok/space_direction.cub
+	@echo $(green)"[space direction format case]"$(no)
 
+cok: all
+	@./$(NAME) ../test/ok/space_FC.cub
+	@echo $(green)"[space F C format case]"$(no)
 
 ###########[ko case]#############
 ako: all
