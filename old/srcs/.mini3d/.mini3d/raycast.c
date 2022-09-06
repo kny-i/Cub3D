@@ -51,7 +51,7 @@ int			**ft_raycast(t_vars *vars)
 	{
 		vars->ray[i]->ray_angle = vars->player->rotation_angle +
 			atan2(i - vars->map->num_rays / 2, vars->player->dist_proj_plane);
-		vars->ray[i]->ray_angle = ft_normalize_angle(vars->ray[i]->ray_angle);
+		vars->ray[i]->ray_angle = ft__angle(vars->ray[i]->ray_angle);
 
 		check_closest_wall(vars, vars->ray[i], vars->ray[i]->ray_angle);
 		i++;

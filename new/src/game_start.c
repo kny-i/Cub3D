@@ -12,9 +12,29 @@ double normalize_angle(double angle)
 	return (angle);
 }
 
-void casting_ray(t_cub3d *info, double ray_angle, int flag, t_point *step)
+
+int 	ray_faicing(double angle, int way, )
+void horizontal_interception(t_cub3d *info, t_point *interception, double ray_angle, t_point *step)
 {
-	;
+	interception->y = floor(info->player->position->y / TILE_SIZE) * TILE_SIZE;
+
+
+
+}
+
+void vertical_interception(t_cub3d *info, t_point *interception, double ray_angle, t_point *step)
+{
+
+}
+void casting_ray(t_cub3d *info, double ray_angle, int flag, t_point *next)
+{
+	t_point step;
+	double x_check;
+	double y_check;
+
+	if (flag == HORIZONTAL)
+
+
 }
 
 void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle)
