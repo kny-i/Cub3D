@@ -88,6 +88,13 @@ eko: all
 	@echo $(green)"[invalid argument count case]"$(no)
 	@./$(NAME)
 
+fko: all
+	@echo $(green)"[invalid direction format case]"$(no)
+	@./$(NAME) ../test/ko/invalid_direction.cub
+
+
+##############[map test]###############
+
 ####一気にテストできるような.shをあとで書く予定
 
 .PHONY: all clean fclean mlx re test
