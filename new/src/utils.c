@@ -30,6 +30,7 @@ int is_nbrs(char *str)
 	{
 		if (ft_isdigit(str[i]) == false)
 			return (false);
+		i++;
 	}
 	return (true);
 }

@@ -4,6 +4,7 @@ WE ../texture/dog.xpm
 EA ../texture/rabbit.xpm
 
 F 100,100,40
+C 10,abc,30
 
 11111111111111111111
 10000000000000000001

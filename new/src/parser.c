@@ -54,9 +54,23 @@ bool parse_direction(t_map *map, char *line)
 int allocate_color(t_map *map, char *line)
 {
 	char **strs = ft_split(line, ',');
+	free(line);
 	size_t i = 0;
 	int rgb[3];
 
+//	for (size_t j = 0; strs[j]; j++) {
+//		fprintf(stderr, "[%s]:", strs[j]);
+//		int ret = is_nbrs(strs[j]);
+//		if (ret == true) {
+//			fprintf(stderr, "true\n");
+//		} else {
+//			fprintf(stderr, "false\n");
+//		}
+//	}
+	if (is_nbrs(strs[0]) == false
+	|| is_nbrs(strs[1]) == false
+	|| is_nbrs(strs[2]) == false)
+		error_message("COLOR INFORMATION IS INVALID FORMAT!");
 	rgb[0] = ft_atoi(strs[0]) << 16;
 	rgb[1] = ft_atoi(strs[1]) << 8;
 	rgb[2] = ft_atoi(strs[2]);
@@ -67,12 +81,12 @@ bool parse_color(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "F", 1) == 0)
 	{
-		map->floor_color = allocate_color(map, line + 2);
+		map->floor_color = allocate_color(map, xstrdup(line + 2));
 		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "C", 1) == 0)
 	{
-		map->ceiling_color = allocate_color(map, line + 2);
+		map->ceiling_color = allocate_color(map, xstrdup(line + 2));
 		return (SUCCESS);
 	}
 	else
