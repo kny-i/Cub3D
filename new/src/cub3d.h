@@ -115,14 +115,12 @@ typedef struct s_texture {
 } t_texture;
 
 typedef struct s_sprite {
-
 	t_point *point;
 	double 	angle;
 	double 	angle_dif;
 	double  dest;
 	size_t height;
 	size_t width;
-
 }				t_sprite;
 
 
@@ -202,6 +200,10 @@ bool is_valid_format_file(char *filename);
 bool is_valid_args(int argc, char **argv);
 int is_nbrs(char *str);
 size_t strs_len(char **strs);
+
+/* related_to_is2.c */
+bool is_screen_edge(t_map *map, double x, double y);
+bool is_wall(t_map *map, int x, int y, char identification);
 
 
 #endif

@@ -93,9 +93,26 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 	double x_check;
 	double y_check;
 
-//	while (is_en)
-//	if (flag == HORIZONTAL)
-//		;
+	x_check = 0;
+	y_check = 0;
+	//hkodaira
+	if (flag == HORIZONTAL)
+		horizontal_interception(info, next, ray_angle, &step);
+	if (flag == VERTICAL)
+		horizontal_interception(info, next, ray_angle, &step);
+	while (is_screen_edge(info->map, next->x, next->y) == true)
+	{
+		//ykondo
+		if ((next->x + (ray_facing(ray_angle, ray_left)) && flag == VERTICAL) != 0)
+			x_check = -1;
+		if ((ray_facing(ray_angle, ray_right) && flag == VERTICAL) != 0)
+			x_check += 1;
+		if ((next->y + (ray_facing(ray_angle, ray_down)) && flag == HORIZONTAL) != 0)
+			y_check = 1;
+		
+		//this code is after is_wall
+		if (is_wall(info->map, x_check, y_check, '1') == )
+	}
 }
 
 void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle)
