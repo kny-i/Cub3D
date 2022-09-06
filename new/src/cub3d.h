@@ -192,7 +192,6 @@ int ft_isspace(int c);
 int usage(void);
 char *skip_space_str(char *str);
 
-
 /* related_to_is.c */
 bool is_map_line(char *line);
 bool is_valid_map(int fd, t_map *map, size_t *nb_col);

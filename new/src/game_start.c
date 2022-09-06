@@ -109,9 +109,16 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 			x_check += 1;
 		if ((next->y + (ray_facing(ray_angle, ray_down)) && flag == HORIZONTAL) != 0)
 			y_check = 1;
-		
+		if ((ray_facing(ray_angle, ray_up) && flag == HORIZONTAL) != 0)
+			y_check += -1;
 		//this code is after is_wall
-		if (is_wall(info->map, x_check, y_check, '1') == )
+		if (is_wall(info->map, x_check, y_check, '1') == 1)
+			break ;
+		else
+		{
+			next->x += step.x;
+			next->y += step.y;
+		}
 	}
 }
 
@@ -163,6 +170,6 @@ void drawing_3dmap(t_cub3d *info)
 
 void game_start(t_cub3d *info)
 {
-//	ray_casting(info);
-//	drawing_3dmap(info);
+	ray_casting(info);
+	drawing_3dmap(info);
 }
