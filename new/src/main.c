@@ -1,10 +1,5 @@
 #include "cub3d.h"
 
-bool is_valid_args(int argc, char **argv)
-{
-	return (argc == 2);
-}
-
 void initialize_mlx(t_cub3d *info)
 {
 	info->mlx = mlx_init();

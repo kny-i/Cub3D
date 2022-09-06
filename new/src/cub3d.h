@@ -191,8 +191,16 @@ void game_start(t_cub3d *info);
 /* utils.c */
 char *xstrdup(const char *s1);
 int ft_isspace(int c);
-int is_nbrs(char *str);
 int usage(void);
 char *skip_space_str(char *str);
+
+
+/* related_to_is.c */
+bool is_map_line(char *line);
+bool is_valid_map(int fd, t_map *map, size_t *nb_col);
+bool is_valid_format_file(char *filename);
+bool is_valid_args(int argc, char **argv);
+int is_nbrs(char *str);
+
 
 #endif

@@ -79,7 +79,7 @@ dok: all
 	@./$(NAME) ../test/ok/dup.cub
 	@echo $(green)"[Priority is given to the one below]"$(no)
 
-cok: all
+eok: all
 	@./$(NAME) ../test/ok/jumbled_order.cub
 	@echo $(green)"[order is not important]"$(no)
 

@@ -21,20 +21,6 @@ char	*xstrdup(const char *s1)
 	return (ret);
 }
 
-int is_nbrs(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]) == false)
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
 int usage(void)
 {
 	printf(CYAN"[USAGE]\n"
