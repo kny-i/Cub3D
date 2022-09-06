@@ -122,8 +122,8 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 		else
 			y_check = 0;
 	//	this code is after is_wall
-		fprintf(stderr, "%lf", next->x);
-		fprintf(stderr, "%lf", next->y);
+//		fprintf(stderr, "%lf", next->x);
+//		fprintf(stderr, "%lf", next->y);
 		if (is_wall(info->map, x_check, y_check, '1') == true)
 			break ;
 		else
@@ -140,7 +140,8 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle)
 	t_point vertical_interception;
 
 	prepare_ray_casting(info, ray_angle, HORIZONTAL, &horizontal_interception);
-	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);
+	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);\
+	/* [次回] */
 }
 
 void ray_casting(t_cub3d *info)
