@@ -58,15 +58,6 @@ int allocate_color(t_map *map, char *line)
 	size_t i = 0;
 	int rgb[3];
 
-//	for (size_t j = 0; strs[j]; j++) {
-//		fprintf(stderr, "[%s]:", strs[j]);
-//		int ret = is_nbrs(strs[j]);
-//		if (ret == true) {
-//			fprintf(stderr, "true\n");
-//		} else {
-//			fprintf(stderr, "false\n");
-//		}
-//	}
 	if (is_nbrs(strs[0]) == false
 	|| is_nbrs(strs[1]) == false
 	|| is_nbrs(strs[2]) == false)
@@ -121,18 +112,31 @@ void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 		return;
 }
 
+bool is_valid_format_file(char *filename)
+{
+	while (*filename)
+	{
+		if (ft_strncmp(filename, ".cub", 4) == 0)
+			return (true);
+		filename++;
+	}
+	return (false);
+}
+
 t_map *parser(char *file, t_map *map)
 {
 	int fd;
 	char *line;
 
+	if (is_valid_format_file(file) == false)
+		error_message("INVALID FORMAT FILE!");
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		error_message("OPEN FAILURE!!");
+		error_message("OPEN FAILURE!");
 
 	size_t nb_col = 0;
 	if (is_valid_map(fd, map, &nb_col) == false)
-		error_message("INVALID MAP!!");
+		error_message("INVALID MAP!");
 	close(fd);
 
 	int fd2 = open(file, O_RDONLY);

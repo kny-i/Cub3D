@@ -59,7 +59,9 @@ leaks: all
 
 
 ###########[tester]#####################
-ko: all
+ko1: all
 	./$(NAME) ../test/ko/not_nbrs.cub
+ko2: all
+	./$(NAME) ../test/ko/notcub.abc
 
 .PHONY: all clean fclean mlx re test
