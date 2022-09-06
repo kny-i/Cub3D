@@ -13,26 +13,89 @@ double normalize_angle(double angle)
 }
 
 
-//int 	ray_faicing(double angle, int way, )
+int return_ray_facing(int *direction, int way)
+{
+	int ret;
+
+	ret = -1;
+	if (way == ray_up)
+		ret = (direction[ray_up]);
+	if (way == ray_down)
+		ret = (direction[ray_down]);
+	if (way == ray_right)
+		ret = (direction[ray_left]);
+	if (way == ray_right)
+		ret = (direction[ray_right]);
+	free(direction);
+	return (ret);
+}
+
+//directionのまちがいあるかも
+int ray_facing(double angle, int way)
+{
+	int *direction;
+
+	direction = malloc(sizeof(int) * 4);
+	if (angle > 0 && angle < PI)
+		direction[ray_down] = true;
+	else
+		direction[ray_down] = false;
+	if (direction[ray_down] == 0)
+		direction[ray_up] = true;
+	else
+		direction[ray_up] = false;
+	if (angle > PI / 2 && angle < 3 * PI / 2)
+		direction[ray_left] = true;
+	else
+		direction[ray_left] = false;
+	if (direction[ray_left] == 0)
+		direction[ray_right] = true;
+	else
+		direction[ray_right] = false;
+	return (return_ray_facing(direction, way));
+}
 
 void horizontal_interception(t_cub3d *info, t_point *interception, double ray_angle, t_point *step)
 {
 	interception->y = floor(info->player->position->y / TILE_SIZE) * TILE_SIZE;
-
+	if (ray_facing(ray_angle, ray_right) != 0)
+		interception->x += TILE_SIZE;
+	interception->y = info->player->position->y + (interception->x - info->player->position->x * tan(ray_angle));
+	step->x = TILE_SIZE;
+	if (ray_facing(ray_angle, ray_up) != 0)
+		step->x *= -1;
+	step->y = TILE_SIZE * tan(ray_angle);
+	if (ray_facing(ray_angle, ray_left) != 0 && step->x > 0)
+		step->x *= -1;
+	if (ray_facing(ray_angle, ray_right) != 0 && step->x < 0)
+		step->y *= -1;
 }
 
 void vertical_interception(t_cub3d *info, t_point *interception, double ray_angle, t_point *step)
 {
-	;
+	interception->x = floor(info->player->position->x / TILE_SIZE)* TILE_SIZE;
+	if (ray_facing(ray_angle, ray_right) != 0)
+		interception->x += TILE_SIZE;
+	interception->y = info->player->position->y + (interception->x - info->player->position->x) * tan(ray_angle);
+	step->x = TILE_SIZE;
+	if (ray_facing(ray_angle, ray_left) != 0)
+		step->x *= -1;
+	step->y = TILE_SIZE * tan(ray_angle);
+	if (ray_facing(ray_angle, ray_up) != 0 && step->y > 0 )
+		step->y *= -1;
+	if (ray_facing(ray_angle, ray_down) != 0 && step->y < 0 )
+		step->y *= -1;
 }
-void casting_ray(t_cub3d *info, double ray_angle, int flag, t_point *next)
+
+void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *next)
 {
 	t_point step;
 	double x_check;
 	double y_check;
 
-	if (flag == HORIZONTAL)
-		;
+//	while (is_en)
+//	if (flag == HORIZONTAL)
+//		;
 }
 
 void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle)
@@ -40,8 +103,8 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle)
 	t_point horizontal_interception;
 	t_point vertical_interception;
 
-	casting_ray(info, ray_angle, HORIZONTAL, &horizontal_interception);
-	casting_ray(info, ray_angle, VERTICAL, &vertical_interception);
+	prepare_ray_casting(info, ray_angle, HORIZONTAL, &horizontal_interception);
+	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);
 }
 
 void ray_casting(t_cub3d *info)
