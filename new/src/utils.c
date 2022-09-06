@@ -1,10 +1,10 @@
 #include "cub3d.h"
 
-
-bool ft_isspace(int c)
+int ft_isspace(int c)
 {
 	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == ' ');
 }
+
 char	*xstrdup(const char *s1)
 {
 	char *ret;
@@ -19,4 +19,17 @@ char	*xstrdup(const char *s1)
 		i++;
 	}
 	return (ret);
+}
+
+int is_nbrs(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == false)
+			return (false);
+	}
+	return (true);
 }

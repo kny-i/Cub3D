@@ -176,10 +176,6 @@ void debug_direction_path(t_map *map);
 void debug_parser(t_map *map);
 
 
-/* utils.c */
-char *xstrdup(const char *s1);
-bool ft_isspace(int c);
-
 /* start_game.c */
 void start_game(t_cub3d *info);
 
@@ -192,5 +188,10 @@ t_player *initialize_player(t_map *map, int move_speed, double rotate_speed);
 
 /* game_start.c */
 void game_start(t_cub3d *info);
+
+/* utils.c */
+char *xstrdup(const char *s1);
+int ft_isspace(int c);
+int is_nbrs(char *str);
 
 #endif
