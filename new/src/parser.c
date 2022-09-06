@@ -104,7 +104,7 @@ void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 	|| parse_map(map, line, map_col_index) == SUCCESS)
 		return;
 	else
-		error_message("LACK OF INFORMATION!!!");
+		return;
 }
 
 t_map *parser(char *file, t_map *map)
