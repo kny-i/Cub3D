@@ -12,7 +12,6 @@ double normalize_angle(double angle)
 	return (angle);
 }
 
-
 int return_ray_facing(int *direction, int way)
 {
 	int ret;
@@ -22,11 +21,12 @@ int return_ray_facing(int *direction, int way)
 		ret = (direction[ray_up]);
 	if (way == ray_down)
 		ret = (direction[ray_down]);
-	if (way == ray_right)
+	if (way == ray_left)
 		ret = (direction[ray_left]);
 	if (way == ray_right)
 		ret = (direction[ray_right]);
 	free(direction);
+//	printf("[%d]", ret);
 	return (ret);
 }
 
@@ -35,23 +35,28 @@ int ray_facing(double angle, int way)
 {
 	int *direction;
 
+	//decide down
 	direction = malloc(sizeof(int) * 4);
 	if (angle > 0 && angle < PI)
 		direction[ray_down] = true;
 	else
 		direction[ray_down] = false;
+	//decide up
 	if (direction[ray_down] == 0)
 		direction[ray_up] = true;
 	else
 		direction[ray_up] = false;
+	//decide left
 	if (angle > PI / 2 && angle < 3 * PI / 2)
 		direction[ray_left] = true;
 	else
 		direction[ray_left] = false;
+	//decide right
 	if (direction[ray_left] == 0)
 		direction[ray_right] = true;
 	else
 		direction[ray_right] = false;
+
 	return (return_ray_facing(direction, way));
 }
 
@@ -93,8 +98,6 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 	double x_check;
 	double y_check;
 
-	x_check = 0;
-	y_check = 0;
 	//hkodaira
 	if (flag == HORIZONTAL)
 		horizontal_interception(info, next, ray_angle, &step);
@@ -102,17 +105,26 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 		horizontal_interception(info, next, ray_angle, &step);
 	while (is_screen_edge(info->map, next->x, next->y) == true)
 	{
-		//ykondo
-		if ((next->x + (ray_facing(ray_angle, ray_left)) && flag == VERTICAL) != 0)
+		if ((next->x + (ray_facing(ray_angle, ray_left)) && flag == VERTICAL) == true)
 			x_check = -1;
-		if ((ray_facing(ray_angle, ray_right) && flag == VERTICAL) != 0)
+		else
+			x_check = 0;
+		if ((ray_facing(ray_angle, ray_right) && flag == VERTICAL) == true)
 			x_check += 1;
-		if ((next->y + (ray_facing(ray_angle, ray_down)) && flag == HORIZONTAL) != 0)
+		else
+			x_check = 0;
+		if ((next->y + (ray_facing(ray_angle, ray_down)) && flag == HORIZONTAL) == true)
 			y_check = 1;
-		if ((ray_facing(ray_angle, ray_up) && flag == HORIZONTAL) != 0)
+		else
+			y_check = 0;
+		if ((ray_facing(ray_angle, ray_up) && flag == HORIZONTAL) == true)
 			y_check += -1;
-		//this code is after is_wall
-		if (is_wall(info->map, x_check, y_check, '1') == 1)
+		else
+			y_check = 0;
+	//	this code is after is_wall
+		fprintf(stderr, "%lf", next->x);
+		fprintf(stderr, "%lf", next->y);
+		if (is_wall(info->map, x_check, y_check, '1') == true)
 			break ;
 		else
 		{
@@ -171,5 +183,5 @@ void drawing_3dmap(t_cub3d *info)
 void game_start(t_cub3d *info)
 {
 	ray_casting(info);
-	drawing_3dmap(info);
+//	drawing_3dmap(info);
 }
