@@ -164,6 +164,7 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 	int y;
 
 	choice[0] = (info->map->height / 2) - (wall_height / 2);
+	//[次回]
 }
 
 
@@ -183,6 +184,7 @@ void drawing_3dmap(t_cub3d *info)
 
 void game_start(t_cub3d *info)
 {
+	//[次回]
 	ray_casting(info);
 //	drawing_3dmap(info);
 }
