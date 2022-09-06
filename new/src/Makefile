@@ -59,18 +59,27 @@ leaks: all
 
 
 ###########[tester]#####################
+green='\033[32m'
+no='\033[0m'
+
 ok: all
-	./$(NAME) ../test/ok/ok.cub
-	echo 'ok case'
+	@./$(NAME) ../test/ok/ok.cub
+	@echo $(green)"<ok case>"$(no)
 
 ako: all
-	./$(NAME) ../test/ko/not_nbrs.cub
-	echo 'include not nbrs'
-bko: all
-	./$(NAME) ../test/ko/notcub.abc
-	echo 'not valid format'
+	@echo $(green)"<not nbrs case>"$(no)
+	@./$(NAME) ../test/ko/not_nbrs.cub
 
-#cko: all
-	#./$(NAME)
+bko: all
+	@echo $(green)'invalid filename case'$(no)
+	@./$(NAME) ../test/ko/notcub.abc
+
+cko: all
+	@echo $(green)"RGB format is invalid"$(no)
+	@./$(NAME)
+
+dko: all
+	@echo $(green)"invalid argument count"$(no)
+	@./$(NAME)
 
 .PHONY: all clean fclean mlx re test
