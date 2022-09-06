@@ -62,24 +62,28 @@ leaks: all
 green='\033[32m'
 no='\033[0m'
 
+###########[ok case]############
 ok: all
 	@./$(NAME) ../test/ok/ok.cub
-	@echo $(green)"<ok case>"$(no)
+	@echo $(green)"[ok case]"$(no)
 
+###########[ko case]#############
 ako: all
-	@echo $(green)"<not nbrs case>"$(no)
+	@echo $(green)"[not nbrs case]"$(no)
 	@./$(NAME) ../test/ko/not_nbrs.cub
 
 bko: all
-	@echo $(green)'invalid filename case'$(no)
-	@./$(NAME) ../test/ko/notcub.abc
+	@echo $(green)"[invalid filename case]"$(no)
+	@./$(NAME) ../test/ko/invalid_filename.abc
 
 cko: all
-	@echo $(green)"RGB format is invalid"$(no)
-	@./$(NAME)
+	@echo $(green)"[invalid rgb case]"$(no)
+	@./$(NAME) ../test/ko/invalid_rgb.cub
 
 dko: all
-	@echo $(green)"invalid argument count"$(no)
+	@echo $(green)"[invalid argument count case]"$(no)
 	@./$(NAME)
+
+####一気にテストできるような.shをあとで書く予定
 
 .PHONY: all clean fclean mlx re test

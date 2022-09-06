@@ -51,9 +51,19 @@ bool parse_direction(t_map *map, char *line)
 		return (FAILURE);
 }
 
+size_t strs_len(char **strs)
+{
+	size_t len = 0;
+	while (strs[len])
+		len++;
+	return (len);
+}
+
 int allocate_color(t_map *map, char *line)
 {
 	char **strs = ft_split(line, ',');
+	if (strs_len(strs) != 3)
+		error_message("INVALID RGB FORMAT!");
 	free(line);
 	size_t i = 0;
 	int rgb[3];

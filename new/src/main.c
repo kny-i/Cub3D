@@ -2,9 +2,7 @@
 
 bool is_valid_args(int argc, char **argv)
 {
-	if (argc == 2)
-		return (true);
-	return (false);
+	return (argc == 2);
 }
 
 void initialize_mlx(t_cub3d *info)
