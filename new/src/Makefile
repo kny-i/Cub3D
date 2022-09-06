@@ -75,6 +75,10 @@ cok: all
 	@./$(NAME) ../test/ok/space_FC.cub
 	@echo $(green)"[space F C format case]"$(no)
 
+dok: all
+	@./$(NAME) ../test/ok/dup.cub
+	@echo $(green)"[Priority is given to the one below]"$(no)
+
 ###########[ko case]#############
 ako: all
 	@echo $(green)"[not nbrs case]"$(no)
