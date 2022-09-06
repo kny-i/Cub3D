@@ -8,7 +8,6 @@ void initialize_mlx(t_cub3d *info)
 						&info->map->max_height);
 }
 
-
 int launch_cub3d(int argc, char **argv)
 {
 	t_cub3d info;
