@@ -1,12 +1,13 @@
-NO ../texture/rat.xpm
-SO ../texture/horse.xpm
-WE ../texture/dog.xpm
+C        211,237,251
+
+
+SO   ../texture/horse.xpm
+
+
 EA ../texture/rabbit.xpm
 
-F 100,100,40
-F 1,1,1
-F 0,0,0
-C 211,237,2511
+F                  100,100,40
+
 
 11111111111111111111
 10000000000000000001
@@ -21,3 +22,7 @@ C 211,237,2511
 10000000000000000001
 10000000000000000001
 11111111111111111111
+
+NO ../texture/rat.xpm
+
+WE         ../texture/dog.xpm
