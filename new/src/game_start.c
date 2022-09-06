@@ -18,6 +18,7 @@ double normalize_angle(double angle)
 void horizontal_interception(t_cub3d *info, t_point *interception, double ray_angle, t_point *step)
 {
 	interception->y = floor(info->player->position->y / TILE_SIZE) * TILE_SIZE;
+
 }
 
 void vertical_interception(t_cub3d *info, t_point *interception, double ray_angle, t_point *step)
