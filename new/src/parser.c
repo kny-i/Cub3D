@@ -124,11 +124,9 @@ void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 bool is_valid_format_file(char *filename)
 {
 	while (*filename)
-	{
-		if (ft_strncmp(filename, ".cub", 4) == 0)
-			return (true);
 		filename++;
-	}
+	if (ft_strncmp(filename - 4, ".cub", 4) == 0)
+		return (true);
 	return (false);
 }
 

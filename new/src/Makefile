@@ -77,10 +77,14 @@ bko: all
 	@./$(NAME) ../test/ko/invalid_filename.abc
 
 cko: all
+	@echo $(green)"[invalid filename case]"$(no)
+	@./$(NAME) ../test/ko/cub.cub.42
+
+dko: all
 	@echo $(green)"[invalid rgb case]"$(no)
 	@./$(NAME) ../test/ko/invalid_rgb.cub
 
-dko: all
+eko: all
 	@echo $(green)"[invalid argument count case]"$(no)
 	@./$(NAME)
 
