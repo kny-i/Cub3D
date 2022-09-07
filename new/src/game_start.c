@@ -121,9 +121,6 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 			y_check += -1;
 		else
 			y_check = 0;
-	//	this code is after is_wall
-//		fprintf(stderr, "%lf", next->x);
-//		fprintf(stderr, "%lf", next->y);
 		if (is_wall(info->map, x_check, y_check, '1') == true)
 			break ;
 		else
@@ -134,14 +131,45 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 	}
 }
 
-void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle)
+/*
+ * 何かしらの座標を受けとった平方根
+ * 現状ではなんでbtwがなぜかわからない
+ */
+double distance_to_btw_points(double x0, double y0, double x1, double y1)
 {
+	return (sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
+}
+
+void allocate_ray(t_ray *ray, t_point *collision, double ray_distance_to_plane, int coordination)
+{
+	ray->collision->x = collision->x;
+	ray->collision->y = collision->y;
+	ray->ray_to_plane_distance = ray_distance_to_plane;
+	ray->coordination = coordination;
+}
+
+void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 	t_point horizontal_interception;
 	t_point vertical_interception;
+	double horizontal_distance;
+	double vertiival_distance;
 
 	prepare_ray_casting(info, ray_angle, HORIZONTAL, &horizontal_interception);
-	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);\
-	/* [次回] */
+	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);
+	if (is_screen_edge(info->map, horizontal_interception.x, horizontal_interception.y) == true)
+		horizontal_distance = INT_MAX;
+	else
+		horizontal_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
+													 horizontal_interception.x, horizontal_interception.y);
+	if (is_screen_edge(info->map, vertical_interception.x, vertical_interception.y) == true)
+		vertiival_distance = INT_MAX;
+	else
+		vertiival_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
+													vertical_interception.x, vertical_interception.y);
+	if (horizontal_distance < vertiival_distance)
+		allocate_ray(ray, &horizontal_interception, horizontal_distance, HORIZONTAL);
+	else
+		allocate_ray(ray, &vertical_interception, vertiival_distance, VERTICAL);
 }
 
 void ray_casting(t_cub3d *info)
@@ -166,7 +194,6 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 	choice[0] = (info->map->height / 2) - (wall_height / 2);
 	//[次回]
 }
-
 
 /* skip this function understanding */
 void drawing_3dmap(t_cub3d *info)
