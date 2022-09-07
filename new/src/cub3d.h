@@ -40,6 +40,8 @@
 # define HORIZONTAL 0
 # define VERTICAL 1
 
+# define WALL_WIDTH 1
+
 typedef enum
 {
 	ray_up = 0,
@@ -191,6 +193,7 @@ char *xstrdup(const char *s1);
 int ft_isspace(int c);
 int usage(void);
 char *skip_space_str(char *str);
+double distance_to_btw_points(double x0, double y0, double x1, double y1);
 
 /* related_to_is.c */
 bool is_map_line(char *line);

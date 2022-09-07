@@ -135,10 +135,6 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
  * 何かしらの座標を受けとった平方根
  * 現状ではなんでbtwがなぜかわからない
  */
-double distance_to_btw_points(double x0, double y0, double x1, double y1)
-{
-	return (sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
-}
 
 void allocate_ray(t_ray *ray, t_point *collision, double ray_distance_to_plane, int coordination)
 {
@@ -185,6 +181,30 @@ void ray_casting(t_cub3d *info)
 	}
 }
 
+void x_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char *dest;
+	int offset;
+
+	offset = (y * data->line_length + x * (data->bpp / 8));
+	dest = data->address + offset;
+	*(unsigned int *)dest = color;
+}
+
+int put_text(t_cub3d *info, int y, int index, double *limit)
+{
+	t_ray *ray;
+	double ymin;
+	double ymax;
+
+	ray = NULL;
+	ymin = limit[0];
+	ymax = limit[1];
+	ray = info->ray[index];
+	if (ray_facing(ray->angle, ray_up) && )
+
+}
+
 void drawing_color(t_cub3d *info, double wall_height, size_t index)
 {
 	double choice[2];
@@ -192,7 +212,29 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 	int y;
 
 	choice[0] = (info->map->height / 2) - (wall_height / 2);
-	//[次回]
+	choice[1] = (info->map->height / 2) + (wall_height / 2);
+	x = index * WALL_WIDTH;
+	while (x < (index + 1 * WALL_WIDTH))
+	{
+		y = 0;
+		while (y <= choice[0] && y < info->map->height)
+		{
+			x_mlx_pixel_put(info->data, x, y, info->map->ceiling_color);
+			y++;
+		}
+		y--; //いらなそう
+		while (y <= choice[1] && y < info->map->height)
+		{
+			x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
+			y++;
+		}
+		while (y < info->map->height)
+		{
+			x_mlx_pixel_put(info->data, x, y, info->map->ceiling_color);
+			y++;
+		}
+		x++;
+	}
 }
 
 /* skip this function understanding */
