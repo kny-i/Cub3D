@@ -152,7 +152,7 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 	t_point horizontal_interception;
 	t_point vertical_interception;
 	double horizontal_distance;
-	double vertiival_distance;
+	double vertical_distance;
 
 	prepare_ray_casting(info, ray_angle, HORIZONTAL, &horizontal_interception);
 	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);
@@ -162,14 +162,14 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 		horizontal_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
 													 horizontal_interception.x, horizontal_interception.y);
 	if (is_screen_edge(info->map, vertical_interception.x, vertical_interception.y) == true)
-		vertiival_distance = INT_MAX;
+		vertical_distance = INT_MAX;
 	else
-		vertiival_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
+		vertical_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
 													vertical_interception.x, vertical_interception.y);
-	if (horizontal_distance < vertiival_distance)
+	if (horizontal_distance < vertical_distance)
 		allocate_ray(ray, &horizontal_interception, horizontal_distance, HORIZONTAL);
 	else
-		allocate_ray(ray, &vertical_interception, vertiival_distance, VERTICAL);
+		allocate_ray(ray, &vertical_interception, vertical_distance, VERTICAL);
 }
 
 void ray_casting(t_cub3d *info)
@@ -213,5 +213,5 @@ void game_start(t_cub3d *info)
 {
 	//[次回]
 	ray_casting(info);
-//	drawing_3dmap(info);
+	drawing_3dmap(info);
 }
