@@ -82,6 +82,7 @@ typedef struct s_map {
 	size_t nb_row;
 
 	t_point *start_position;
+	bool is_filled_start_pos;
 
 	double angle;
 	size_t nb_ray;
@@ -207,5 +208,7 @@ size_t strs_len(char **strs);
 bool is_screen_edge(t_map *map, double x, double y);
 bool is_wall(t_map *map, int x, int y, char identification);
 
+/* is_valid_map */
+void is_valid_map(t_map *map);
 
 #endif

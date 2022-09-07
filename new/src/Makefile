@@ -83,6 +83,7 @@ eok: all
 	@./$(NAME) ../test/ok/jumbled_order.cub
 	@echo $(green)"[order is not important]"$(no)
 
+
 ###########[ko case]#############
 ako: all
 	@echo $(green)"[not nbrs case]"$(no)

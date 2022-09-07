@@ -238,7 +238,7 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 		y--; //いらなそう
 		while (y <= choice[1] && y < info->map->height)
 		{
-			x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
+			//x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
 			y++;
 		}
 		while (y < info->map->height)
