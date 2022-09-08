@@ -38,11 +38,51 @@ void set_player_info_loop(t_map *map)
 		y++;
 	}
 }
-void is_map_closed(t_map *map)
+
+
+static bool	is_all_closed(char **map, size_t x, size_t y)
 {
-	;
+	if (map[y][x] == ' ' || map[y][x] == '\0')
+		return (false);
+	if (map[y][x] == '1' || map[y][x] == '@')
+		return (true);
+	map[y][x] = '@';
+	return (is_all_closed(map, x + 1, y)
+			&& is_all_closed(map, x - 1, y)
+			&& is_all_closed(map, x, y + 1)
+			&& is_all_closed(map, x, y - 1));
 }
+
+bool is_map_closed(t_map *map)
+{
+
+	size_t y;
+	size_t x;
+	char **tmp_map;
+
+	y = 0;
+	x = 0;
+	tmp_map = strs_dup(map->grid);
+	while (map->grid[y] != NULL)
+	{
+		while (map->grid[y][x] != '\0')
+		{
+			if (map->grid[y][x] == '0')
+			{
+				if (is_all_closed(tmp_map, x, y) == false)
+					return (false);
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+	free_strs(tmp_map);
+	return (true);
+}
+
 void is_valid_map(t_map *map)
 {
-	is_map_closed(map);
+	if (is_map_closed(map) == false)
+		error_message("INVALID MAP: NOT CLOSED");
 }

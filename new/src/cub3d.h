@@ -208,10 +208,14 @@ size_t strs_len(char **strs);
 bool is_screen_edge(t_map *map, double x, double y);
 bool is_wall(t_map *map, int x, int y, char identification);
 
-/* is_valid_map */
+/* is_valid_map.c */
 void is_valid_map(t_map *map);
 void set_player_info_loop(t_map *map);
 bool is_specific_char(char c, char *str);
 
+/* validate_map_utils.c */
+static int	count_array_rows(char **strs);
+char **strs_dup(char **strs);
+void	free_strs(char **strs);
 
 #endif
