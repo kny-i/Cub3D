@@ -63,6 +63,10 @@ red='\033[0;31m'
 green='\033[32m'
 no='\033[0m'
 ###########[ok case]############
+
+alltest: all
+	bash ../test/test.sh 2>/dev/null
+
 aok: all
 	@./$(NAME) ../test/ok/ok.cub
 	@echo $(green)"[ok case]"$(no)
@@ -125,7 +129,5 @@ iko: all
 	@echo $(red)"[invalid map player outside map]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_player_outside.cub
 
-alltest: all
-	bash ../test/test.sh 2>/dev/null
 
 .PHONY: all clean fclean mlx re test

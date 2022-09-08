@@ -212,9 +212,13 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 	ymax = limit[1];
 	ray = info->ray[index];
 	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL)
-		return (get_texture_color(info->texture[north], ray->collision->x %));
+		return (get_texture_color(info->texture[north], ray->collision->x % info->texture->[north]->width, ));
+	else if (ray_facing(ray->angle, ray_down) && ray->coordination == HORIZONTAL)
+		return (get_texture_color(info->texture[south], ray->collision->x %));
 		;
-	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VER)
+
+
+	else if (ray_facing(ray->))
 }
 
 void drawing_color(t_cub3d *info, double wall_height, size_t index)

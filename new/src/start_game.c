@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-t_ray **y(t_cub3d *info)
+t_ray **initialize_ray(t_cub3d *info)
 {
 	t_ray **ray;
 
@@ -22,13 +22,12 @@ void initialize_object(t_cub3d *info)
 	info->data = initialize_data(info->mlx, info->map);
 	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
 	info->player = initialize_player(info->map, DEFAULT_SPEED, ROTATE_SPEED);
-	info->ray = y(info);
+	info->ray = initialize_ray(info);
 }
 
 void start_game(t_cub3d *info)
 {
 	//init game
-	exit(0);
 	initialize_object(info);
 	//game start!!!!!!
 	game_start(info);
