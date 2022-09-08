@@ -218,10 +218,6 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 	ymax = limit[1];
 
 	ray = info->ray[index];
-
-//	fprintf(stderr, BLUE"%lf"STOP, (y - ymin) * (info->texture[east]->height) / (ymax - ymin));
-	/* yが推移しない */
-//	fprintf(stderr, BLUE"%d"STOP, y);
 	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL) {
 		return (get_texture_color(info->texture[north],
 								  (int)ray->collision->x % info->texture[north]->width, (y - ymin) * (info->texture[north]->height) / (ymax - ymin)));
@@ -237,7 +233,6 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 								  (int)ray->collision->y % info->texture[east]->width, (y - ymin) * (info->texture[east]->height) / (ymax - ymin)));
 	}
 	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VERTICAL) {
-//		fprintf(stderr, GREEN"D"STOP);
 		return (get_texture_color(info->texture[west],
 								  (int)ray->collision->y % info->texture[west]->width, (y - ymin) * (info->texture[west]->height / (ymax - ymin))));
 	}
@@ -250,13 +245,8 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 	int y;
 
 	choice[0] = (info->map->height / 2) - (wall_height / 2);
-//	printf("%d", info->map->height / 2);
-	/* wall_height決定 */
-//	printf("%lf", wall_height);
-
-	/* choice[0]がぶっ壊れてる */
-//	printf("!%d!", choice[0]);
 	choice[1] = (info->map->height / 2) + (wall_height / 2);
+
 	x = index * WALL_WIDTH;
 	while (x < (index + 1) * WALL_WIDTH)
 	{
@@ -265,7 +255,6 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 		{
 			x_mlx_pixel_put(info->data, x, y, info->map->ceiling_color);
 		}
-//		printf("!!%d!!", y);
 		y--; //いらなそう
 		while (++y <= choice[1] && y < info->map->height)
 		{
@@ -288,9 +277,7 @@ void drawing_3dmap(t_cub3d *info)
 	size_t i = 0;
 	while (i < info->map->nb_ray)
 	{
-		/* これがおかしい */
 		distance_to_plane = info->ray[i]->ray_to_plane_distance * cos(info->ray[i]->angle - info->player->angle);
-//		fprintf(stderr, RED"%lf"STOP, info->ray[i]->ray_to_plane_distance);
 		wall_height = TILE_SIZE / distance_to_plane * info->player->player_to_plane_distance;
 		drawing_color(info, wall_height, i);
 		i++;

@@ -20,7 +20,7 @@ int launch_cub3d(int argc, char **argv)
 	debug_parser(info.map);
 
 	is_valid_map(info.map);
-	debug_parser(info.map);
+	//debug_parser(info.map);
 
 	/* init mlx */
 	initialize_mlx(&info);
@@ -36,7 +36,7 @@ int launch_cub3d(int argc, char **argv)
 void sample(void);
 int main(int argc, char **argv)
 {
-	setbuf(stderr, NULL);
+//	setbuf(stderr, NULL);
 	launch_cub3d(argc, argv);
 //	sample();
 }
