@@ -28,3 +28,31 @@ bool is_wall(t_map *map, int x, int y, char identification)
 		return (true);
 	return (false);
 }
+
+bool is_valid_format_file(char *filename)
+{
+	while (*filename)
+		filename++;
+	if (ft_strncmp(filename - 4, ".cub", 4) == 0)
+		return (true);
+	return (false);
+}
+
+bool is_valid_args(int argc, char **argv)
+{
+	return (argc == 2);
+}
+
+int is_nbrs(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == false)
+			return (false);
+		i++;
+	}
+	return (true);
+}
