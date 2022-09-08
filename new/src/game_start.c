@@ -201,22 +201,21 @@ int			get_texture_color(t_texture *texture, int x, int y)
 			*(unsigned int *)(texture->data->address + offset + 0) << 0);
 }
 
-/* 次回put_textからstart (9/7) */
-//int put_text(t_cub3d *info, int y, int index, double *limit)
-//{
-//	t_ray *ray;
-//	double ymin;
-//	double ymax;
-//
-//	ray = NULL;
-//	ymin = limit[0];
-//	ymax = limit[1];
-//	ray = info->ray[index];
-//	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL)
-//		return (get_texture_color(info->texture[north], ray->collision->x %));
-//		;
-//	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VER)
-//}
+int put_text(t_cub3d *info, int y, int index, double *limit)
+{
+	t_ray *ray;
+	double ymin;
+	double ymax;
+
+	ray = NULL;
+	ymin = limit[0];
+	ymax = limit[1];
+	ray = info->ray[index];
+	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL)
+		return (get_texture_color(info->texture[north], ray->collision->x %));
+		;
+	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VER)
+}
 
 void drawing_color(t_cub3d *info, double wall_height, size_t index)
 {
