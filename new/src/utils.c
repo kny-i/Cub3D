@@ -23,8 +23,8 @@ char	*xstrdup(const char *s1)
 
 int usage(void)
 {
-	printf(CYAN"[USAGE]\n"
-			  "./cub3d *.cub\n"STOP);
+	ft_putstr_fd("[USAGE]\n"
+				 "./cub3d *.cub\n", STDERR_FILENO);
 	return (FAILURE);
 }
 

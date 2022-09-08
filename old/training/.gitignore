@@ -1,7 +1,0 @@
-**/*.o
-**/**tmp
-**/tmp**
-**/a.out
-**/cub
-**/mlx_linux
-**/sample

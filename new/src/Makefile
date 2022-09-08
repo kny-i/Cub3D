@@ -59,9 +59,9 @@ leaks: all
 
 
 ###########[tester]#####################
+red='\033[0;31m'
 green='\033[32m'
 no='\033[0m'
-
 ###########[ok case]############
 aok: all
 	@./$(NAME) ../test/ok/ok.cub
@@ -90,43 +90,42 @@ fok: all
 
 ###########[ko case]#############
 ako: all
-	@echo $(green)"[not nbrs case]"$(no)
+	@echo $(red)"[not nbrs case]"$(no)
 	@./$(NAME) ../test/ko/not_nbrs.cub
 
 bko: all
-	@echo $(green)"[invalid filename case]"$(no)
+	@echo $(red)"[invalid filename case]"$(no)
 	@./$(NAME) ../test/ko/invalid_filename.abc
 
 cko: all
-	@echo $(green)"[invalid filename case]"$(no)
+	@echo $(red)"[invalid filename case]"$(no)
 	@./$(NAME) ../test/ko/cub.cub.42
 
 dko: all
-	@echo $(green)"[invalid rgb case]"$(no)
+	@echo $(red)"[invalid rgb case]"$(no)
 	@./$(NAME) ../test/ko/invalid_rgb.cub
 
 eko: all
-	@echo $(green)"[invalid argument count case]"$(no)
+	@echo $(red)"[invalid argument count case]"$(no)
 	@./$(NAME)
 
 fko: all
-	@echo $(green)"[invalid map char]"$(no)
+	@echo $(red)"[invalid map char]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_char.cub
 
 gko: all
-	@echo $(green)"[invalid map duplicate player]"$(no)
+	@echo $(red)"[invalid map duplicate player]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_dup_player.cub
 
 hko: all
-	@echo $(green)"[invalid map not closed]"$(no)
+	@echo $(red)"[invalid map not closed]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_not_closed.cub
 
 iko: all
-	@echo $(green)"[invalid map player outside map]"$(no)
+	@echo $(red)"[invalid map player outside map]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_player_outside.cub
 
-##############[map test]###############
-
-####一気にテストできるような.shをあとで書く予定
+alltest: all
+	bash ../test/test.sh 2>/dev/null
 
 .PHONY: all clean fclean mlx re test

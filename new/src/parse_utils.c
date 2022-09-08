@@ -41,3 +41,4 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index)
 	map->grid[*map_col_index] = xstrdup(line);
 	(*map_col_index)++;
 }
+

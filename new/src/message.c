@@ -6,4 +6,3 @@ void error_message(char *message)
 	usage();
 	exit(EXIT_FAILURE);
 }
-
