@@ -104,7 +104,7 @@ t_map *parser(char *file, t_map *map)
 	close(fd);
 	int fd2 = open(file, O_RDONLY);
 	map = ft_calloc(1, sizeof(t_map));
-
+	map->is_filled_start_position = false;
 	map->grid = ft_calloc(map->nb_col + 1, sizeof(char *));
 	size_t map_col_index = 0;
 	while (true)
@@ -117,7 +117,6 @@ t_map *parser(char *file, t_map *map)
 	}
 	map->grid[map_col_index] = NULL;
 	free(line);
-	printf("__test__03\n");
 	set_player_info_loop(map);
 	return (map);
 }

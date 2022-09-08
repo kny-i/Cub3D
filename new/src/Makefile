@@ -106,8 +106,12 @@ eko: all
 	@./$(NAME)
 
 fko: all
-	@echo $(green)"[invalid map duplicate player]"$(no)
+	@echo $(green)"[invalid map char]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_char.cub
+
+gko: all
+	@echo $(green)"[invalid map duplicate player]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_dup_player.cub
 
 ##############[map test]###############
 
