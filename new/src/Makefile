@@ -83,6 +83,11 @@ eok: all
 	@./$(NAME) ../test/ok/jumbled_order.cub
 	@echo $(green)"[order is not important]"$(no)
 
+fok: all
+	@./$(NAME) ../test/ok/space_in_map.cub
+	@echo $(green)"[No problem with closed map]"$(no)
+
+
 ###########[ko case]#############
 ako: all
 	@echo $(green)"[not nbrs case]"$(no)
@@ -104,6 +109,21 @@ eko: all
 	@echo $(green)"[invalid argument count case]"$(no)
 	@./$(NAME)
 
+fko: all
+	@echo $(green)"[invalid map char]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_char.cub
+
+gko: all
+	@echo $(green)"[invalid map duplicate player]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_dup_player.cub
+
+hko: all
+	@echo $(green)"[invalid map not closed]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_not_closed.cub
+
+iko: all
+	@echo $(green)"[invalid map player outside map]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_player_outside.cub
 
 ##############[map test]###############
 

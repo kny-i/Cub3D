@@ -25,6 +25,7 @@ void debug_map(t_map *map)
 
 void debug_parser(t_map *map)
 {
+
 	debug_direction_path(map);
 	debug_colors(map);
 	debug_map(map);
