@@ -105,6 +105,9 @@ eko: all
 	@echo $(green)"[invalid argument count case]"$(no)
 	@./$(NAME)
 
+fko: all
+	@echo $(green)"[invalid map duplicate player]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_char.cub
 
 ##############[map test]###############
 
