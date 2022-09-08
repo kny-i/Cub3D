@@ -98,7 +98,6 @@ void prepare_ray_casting(t_cub3d *info, double ray_angle, int flag, t_point *nex
 	double x_check;
 	double y_check;
 
-	//hkodaira
 	if (flag == HORIZONTAL)
 		horizontal_interception(info, next, ray_angle, &step);
 	if (flag == VERTICAL)
@@ -212,13 +211,13 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 	ymax = limit[1];
 	ray = info->ray[index];
 	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL)
-		return (get_texture_color(info->texture[north], ray->collision->x % info->texture->[north]->width, ));
+		return (get_texture_color(info->texture[north], (int)ray->collision->x % info->texture[north]->width, (y - ymin) * (info->texture[north]->height) / (ymax - ymin)));
 	else if (ray_facing(ray->angle, ray_down) && ray->coordination == HORIZONTAL)
-		return (get_texture_color(info->texture[south], ray->collision->x %));
-		;
-
-
-	else if (ray_facing(ray->))
+		return (get_texture_color(info->texture[south], (int)ray->collision->x % info->texture[south]->width, (y - ymin) * (info->texture[south]->height) / (ymax - ymin)));
+	else if (ray_facing(ray->angle, ray_right) && ray->coordination == VERTICAL)
+		return (get_texture_color(info->texture[east], (int)ray->collision->x % info->texture[east]->width, (y - ymin) * (info->texture[east]->height) / (ymax - ymin)));
+	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VERTICAL)
+		return (get_texture_color(info->texture[west], (int)ray->collision->y % info->texture[west]->width, (y - ymin) * (info->texture[west]->height / (ymax - ymin))));
 }
 
 void drawing_color(t_cub3d *info, double wall_height, size_t index)
@@ -241,7 +240,7 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 		y--; //いらなそう
 		while (y <= choice[1] && y < info->map->height)
 		{
-			//x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
+			x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
 			y++;
 		}
 		while (y < info->map->height)
@@ -267,7 +266,7 @@ void drawing_3dmap(t_cub3d *info)
 	}
 }
 
-void game_start(t_cub3d *info)
+void start_cub3d(t_cub3d *info)
 {
 	//[次回]
 	ray_casting(info);
