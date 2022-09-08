@@ -84,6 +84,12 @@ eok: all
 	@echo $(green)"[order is not important]"$(no)
 
 
+
+fok: all
+	@./$(NAME) ../test/ok/space_in_map.cub
+	@echo $(green)"[No problem with closed map]"$(no)
+
+
 ###########[ko case]#############
 ako: all
 	@echo $(green)"[not nbrs case]"$(no)
