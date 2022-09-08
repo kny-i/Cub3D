@@ -184,6 +184,7 @@ void ray_casting(t_cub3d *info)
 	}
 }
 
+/* 座標の画素に対してcolorを割り当てるための関数 */
 void x_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char *dest;
@@ -199,9 +200,6 @@ int			get_texture_color(t_texture *texture, int x, int y)
 	int		offset;
 
 	offset = (y * texture->data->line_length + x * (texture->data->bpp / 8));
-
-	/* これが絶対に正の数になるはず(1~60前後を推移しているはず) */
-//	printf("[%d]\n", y);
 	return (*(unsigned int *)(texture->data->address + 2) << 16 |
 			*(unsigned int *)(texture->data->address + 1) << 8 |
 			*(unsigned int *)(texture->data->address + 0) << 0);
@@ -236,6 +234,7 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 		return (get_texture_color(info->texture[west],
 								  (int)ray->collision->y % info->texture[west]->width, (y - ymin) * (info->texture[west]->height / (ymax - ymin))));
 	}
+//	return (1);
 }
 
 void drawing_color(t_cub3d *info, double wall_height, size_t index)
@@ -255,10 +254,11 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 		{
 			x_mlx_pixel_put(info->data, x, y, info->map->ceiling_color);
 		}
-		y--; //いらなそう
+		y--;
 		while (++y <= choice[1] && y < info->map->height)
 		{
 			x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
+//			x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, 0xFF));
 		}
 		y--;
 		while (++y < info->map->height)

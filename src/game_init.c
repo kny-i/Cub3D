@@ -26,7 +26,7 @@ t_texture **initialize_texture(void *mlx_ptr, char **path)
 {
 	t_texture	**texture;
 
-	texture = ft_calloc(5, sizeof(t_texture *));
+	texture = ft_calloc(4, sizeof(t_texture *));
 	texture[north] = load_texture(mlx_ptr, path[north]);
 	texture[south] = load_texture(mlx_ptr, path[south]);
 	texture[east] = load_texture(mlx_ptr, path[east]);
