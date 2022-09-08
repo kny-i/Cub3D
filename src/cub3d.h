@@ -174,6 +174,7 @@ void error_message(char *message);
 /* debug.c*/
 void debug_direction_path(t_map *map);
 void debug_parser(t_map *map);
+void debug_map(t_map *map);
 
 
 /* start_game.c */
@@ -221,5 +222,7 @@ void	free_strs(char **strs);
 int allocate_color(t_map *map, char *line);
 bool parse_color(t_map *map, char *line);
 void allocate_map(t_map *map, char *line, size_t *map_col_index);
+
+
 
 #endif

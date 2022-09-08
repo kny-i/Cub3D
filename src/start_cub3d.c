@@ -26,7 +26,6 @@ int return_ray_facing(int *direction, int way)
 	if (way == ray_right)
 		ret = (direction[ray_right]);
 	free(direction);
-//	printf("[%d]", ret);
 	return (ret);
 }
 
@@ -148,16 +147,26 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 	t_point vertical_interception;
 	double horizontal_distance;
 	double vertical_distance;
-
+	/* INT_MAXに必ずなってしまうという部分がおかしい */
 	prepare_ray_casting(info, ray_angle, HORIZONTAL, &horizontal_interception);
 	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);
+//	fprintf(stderr, "[%lf]",horizontal_interception.x);
+//	fprintf(stderr, "[%lf]",horizontal_interception.y);
+//	fprintf(stderr, "[%lld]",horizontal_interception.color);
+
 	if (is_screen_edge(info->map, horizontal_interception.x, horizontal_interception.y) == true)
+	{
 		horizontal_distance = INT_MAX;
+		printf("A");
+	}
 	else
 		horizontal_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
 													 horizontal_interception.x, horizontal_interception.y);
 	if (is_screen_edge(info->map, vertical_interception.x, vertical_interception.y) == true)
+	{
 		vertical_distance = INT_MAX;
+		printf("B");
+	}
 	else
 		vertical_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
 													vertical_interception.x, vertical_interception.y);
@@ -194,10 +203,14 @@ int			get_texture_color(t_texture *texture, int x, int y)
 {
 	int		offset;
 
-	offset = y * texture->data->line_length + x * (texture->data->bpp / 8);
-	return (*(unsigned int *)(texture->data->address + offset + 2) << 16 |
-			*(unsigned int *)(texture->data->address + offset + 1) << 8 |
-			*(unsigned int *)(texture->data->address + offset + 0) << 0);
+	offset = (y * texture->data->line_length + x * (texture->data->bpp / 8));
+
+	/* これが絶対に正の数になるはず(1~60前後を推移しているはず) */
+	printf("[%d]\n", y);
+	return (1);
+//	return (*(unsigned int *)(texture->data->address + 2) << 16 |
+//			*(unsigned int *)(texture->data->address + 1) << 8 |
+//			*(unsigned int *)(texture->data->address + 0) << 0);
 }
 
 int put_text(t_cub3d *info, int y, int index, double *limit)
@@ -209,15 +222,31 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 	ray = NULL;
 	ymin = limit[0];
 	ymax = limit[1];
+
 	ray = info->ray[index];
-	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL)
-		return (get_texture_color(info->texture[north], (int)ray->collision->x % info->texture[north]->width, (y - ymin) * (info->texture[north]->height) / (ymax - ymin)));
-	else if (ray_facing(ray->angle, ray_down) && ray->coordination == HORIZONTAL)
-		return (get_texture_color(info->texture[south], (int)ray->collision->x % info->texture[south]->width, (y - ymin) * (info->texture[south]->height) / (ymax - ymin)));
-	else if (ray_facing(ray->angle, ray_right) && ray->coordination == VERTICAL)
-		return (get_texture_color(info->texture[east], (int)ray->collision->x % info->texture[east]->width, (y - ymin) * (info->texture[east]->height) / (ymax - ymin)));
-	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VERTICAL)
-		return (get_texture_color(info->texture[west], (int)ray->collision->y % info->texture[west]->width, (y - ymin) * (info->texture[west]->height / (ymax - ymin))));
+
+//	fprintf(stderr, BLUE"%lf"STOP, (y - ymin) * (info->texture[east]->height) / (ymax - ymin));
+	/* yが推移しない */
+//	fprintf(stderr, BLUE"%d"STOP, y);
+	if (ray_facing(ray->angle, ray_up) && ray->coordination == HORIZONTAL) {
+		return (get_texture_color(info->texture[north],
+								  (int)ray->collision->x % info->texture[north]->width, (y - ymin) * (info->texture[north]->height) / (ymax - ymin)));
+
+	}
+	else if (ray_facing(ray->angle, ray_down) && ray->coordination == HORIZONTAL) {
+		return (get_texture_color(info->texture[south],
+								  (int)ray->collision->x % info->texture[south]->width, (y - ymin) * (info->texture[south]->height) / (ymax - ymin)));
+	}
+	else if (ray_facing(ray->angle, ray_right) && ray->coordination == VERTICAL) {
+
+		return (get_texture_color(info->texture[east],
+								  (int)ray->collision->y % info->texture[east]->width, (y - ymin) * (info->texture[east]->height) / (ymax - ymin)));
+	}
+	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VERTICAL) {
+		fprintf(stderr, GREEN"D"STOP);
+		return (get_texture_color(info->texture[west],
+								  (int)ray->collision->y % info->texture[west]->width, (y - ymin) * (info->texture[west]->height / (ymax - ymin))));
+	}
 }
 
 void drawing_color(t_cub3d *info, double wall_height, size_t index)
@@ -227,26 +256,31 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 	int y;
 
 	choice[0] = (info->map->height / 2) - (wall_height / 2);
+	printf("%d", info->map->height / 2);
+	/* wall_height決定 */
+	printf("%lf", wall_height);
+
+	/* choice[0]がぶっ壊れてる */
+//	printf("!%d!", choice[0]);
 	choice[1] = (info->map->height / 2) + (wall_height / 2);
 	x = index * WALL_WIDTH;
-	while (x < (index + 1 * WALL_WIDTH))
+	while (x < (index + 1) * WALL_WIDTH)
 	{
-		y = 0;
-		while (y <= choice[0] && y < info->map->height)
+		y = -1;
+		while (++y <= choice[0] && y < info->map->height)
 		{
 			x_mlx_pixel_put(info->data, x, y, info->map->ceiling_color);
-			y++;
 		}
+//		printf("!!%d!!", y);
 		y--; //いらなそう
-		while (y <= choice[1] && y < info->map->height)
+		while (++y <= choice[1] && y < info->map->height)
 		{
 			x_mlx_pixel_put(info->data, x, y, put_text(info, y, index, choice));
-			y++;
 		}
-		while (y < info->map->height)
+		y--;
+		while (++y < info->map->height)
 		{
 			x_mlx_pixel_put(info->data, x, y, info->map->ceiling_color);
-			y++;
 		}
 		x++;
 	}
@@ -260,15 +294,19 @@ void drawing_3dmap(t_cub3d *info)
 	size_t i = 0;
 	while (i < info->map->nb_ray)
 	{
+		/* これがおかしい */
 		distance_to_plane = info->ray[i]->ray_to_plane_distance * cos(info->ray[i]->angle - info->player->angle);
+//		fprintf(stderr, RED"%lf"STOP, info->ray[i]->ray_to_plane_distance);
 		wall_height = TILE_SIZE / distance_to_plane * info->player->player_to_plane_distance;
 		drawing_color(info, wall_height, i);
+		i++;
 	}
 }
 
 void start_cub3d(t_cub3d *info)
 {
-	//[次回]
 	ray_casting(info);
 	drawing_3dmap(info);
+//	info->window = mlx_new_window(info->mlx, info->map->width, info->map->height, "CUB3D by teamCRI");
+//	mlx_put_image_to_window(info->mlx, info->window, info->data->image, 0, 0);
 }

@@ -17,6 +17,8 @@ t_texture *load_texture(void *mlx_ptr, char *path)
 											   &texture->data->bpp,
 											   &texture->data->line_length,
 											   &texture->data->endian);
+	if (texture == NULL)
+		return (NULL);
 	return (texture);
 }
 
