@@ -1,6 +1,34 @@
 #include "cub3d.h"
 
-bool is_map_line(char *line)
+bool is_specific_char(char c, char *str)
+{
+	size_t	i;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (c == str[i])
+			return (true);
+		i++;
+	}
+	return (false);
+}
+
+bool is_all_specific_char(char *line, char *specific_strs)
+{
+	size_t i = 0;
+	while(line[i] != '\0' && line[i] != '\n')
+	{
+		if (is_specific_char(line[i], specific_strs) == false)
+		{
+			printf("[%c]\n", line[i]);
+			error_message("found invalid char");
+			return (false);
+		}
+		i++;
+	}
+	return (true);
+}
+bool is_one_at_first(char *line)
 {
 	size_t i = 0;
 	while (ft_isspace(line[i]) == true)
@@ -11,7 +39,7 @@ bool is_map_line(char *line)
 		return (false);
 }
 
-bool is_valid_map(int fd, t_map *map, size_t *nb_col)
+void get_nb_col(int fd, t_map *map, size_t *nb_col)
 {
 	char *line;
 	while (true)
@@ -19,10 +47,11 @@ bool is_valid_map(int fd, t_map *map, size_t *nb_col)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if (is_map_line(line) == true)
+		if (is_one_at_first(line) == false)
+			continue;
+		if (is_all_specific_char(line, "NSEW 01\0") == true)
 			(*nb_col)++;
 	}
-	return (true);
 }
 
 bool is_valid_format_file(char *filename)

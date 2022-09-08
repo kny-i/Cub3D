@@ -81,6 +81,7 @@ typedef struct s_map {
 	size_t nb_col;
 	size_t nb_row;
 
+
 	t_point *start_position;
 	bool is_filled_start_pos;
 
@@ -197,8 +198,8 @@ char *skip_space_str(char *str);
 double distance_to_btw_points(double x0, double y0, double x1, double y1);
 
 /* related_to_is.c */
-bool is_map_line(char *line);
-bool is_valid_map(int fd, t_map *map, size_t *nb_col);
+bool is_all_specific_char(char *line, char *specific_strs);
+void get_nb_col(int fd, t_map *map, size_t *nb_col);
 bool is_valid_format_file(char *filename);
 bool is_valid_args(int argc, char **argv);
 int is_nbrs(char *str);
@@ -210,5 +211,8 @@ bool is_wall(t_map *map, int x, int y, char identification);
 
 /* is_valid_map */
 void is_valid_map(t_map *map);
+void set_player_info_loop(t_map *map);
+bool is_specific_char(char c, char *str);
+
 
 #endif

@@ -69,7 +69,7 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index)
 
 bool parse_map(t_map *map, char *line, size_t *map_col_index)
 {
-	if (is_map_line(line) == false)
+	if (is_all_specific_char(line, "NSEW 01") == false)
 		return (FAILURE);
 	else
 	{
@@ -100,10 +100,8 @@ t_map *parser(char *file, t_map *map)
 		error_message("OPEN FAILURE!");
 
 	size_t nb_col = 0;
-	if (is_valid_map(fd, map, &nb_col) == false)
-		error_message("INVALID MAP!");
+	get_nb_col(fd, map, &nb_col);
 	close(fd);
-
 	int fd2 = open(file, O_RDONLY);
 	map = ft_calloc(1, sizeof(t_map));
 
@@ -119,5 +117,7 @@ t_map *parser(char *file, t_map *map)
 	}
 	map->grid[map_col_index] = NULL;
 	free(line);
+	printf("__test__03\n");
+	set_player_info_loop(map);
 	return (map);
 }
