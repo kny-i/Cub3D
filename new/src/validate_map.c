@@ -2,6 +2,7 @@
 
 void set_player_info(t_map *map, size_t x, size_t y)
 {
+
 	;
 }
 void set_player_info_loop(t_map *map)

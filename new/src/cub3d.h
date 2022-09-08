@@ -83,7 +83,6 @@ typedef struct s_map {
 
 
 	t_point *start_position;
-	bool is_filled_start_pos;
 
 	double angle;
 	size_t nb_ray;
