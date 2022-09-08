@@ -157,7 +157,6 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 	if (is_screen_edge(info->map, horizontal_interception.x, horizontal_interception.y) == true)
 	{
 		horizontal_distance = INT_MAX;
-		printf("A");
 	}
 	else
 		horizontal_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
@@ -165,7 +164,6 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 	if (is_screen_edge(info->map, vertical_interception.x, vertical_interception.y) == true)
 	{
 		vertical_distance = INT_MAX;
-		printf("B");
 	}
 	else
 		vertical_distance = distance_to_btw_points(info->player->position->x, info->player->position->y,
@@ -206,7 +204,7 @@ int			get_texture_color(t_texture *texture, int x, int y)
 	offset = (y * texture->data->line_length + x * (texture->data->bpp / 8));
 
 	/* これが絶対に正の数になるはず(1~60前後を推移しているはず) */
-	printf("[%d]\n", y);
+//	printf("[%d]\n", y);
 	return (1);
 //	return (*(unsigned int *)(texture->data->address + 2) << 16 |
 //			*(unsigned int *)(texture->data->address + 1) << 8 |
@@ -243,7 +241,7 @@ int put_text(t_cub3d *info, int y, int index, double *limit)
 								  (int)ray->collision->y % info->texture[east]->width, (y - ymin) * (info->texture[east]->height) / (ymax - ymin)));
 	}
 	else if (ray_facing(ray->angle, ray_left) && ray->coordination == VERTICAL) {
-		fprintf(stderr, GREEN"D"STOP);
+//		fprintf(stderr, GREEN"D"STOP);
 		return (get_texture_color(info->texture[west],
 								  (int)ray->collision->y % info->texture[west]->width, (y - ymin) * (info->texture[west]->height / (ymax - ymin))));
 	}
@@ -256,9 +254,9 @@ void drawing_color(t_cub3d *info, double wall_height, size_t index)
 	int y;
 
 	choice[0] = (info->map->height / 2) - (wall_height / 2);
-	printf("%d", info->map->height / 2);
+//	printf("%d", info->map->height / 2);
 	/* wall_height決定 */
-	printf("%lf", wall_height);
+//	printf("%lf", wall_height);
 
 	/* choice[0]がぶっ壊れてる */
 //	printf("!%d!", choice[0]);

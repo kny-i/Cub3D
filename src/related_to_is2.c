@@ -56,3 +56,15 @@ int is_nbrs(char *str)
 	}
 	return (true);
 }
+
+bool is_all_strs_space(char *str)
+{
+	size_t i = 0;
+	while (str[i])
+	{
+		if (ft_isspace(str[i]) == false)
+			return (false);
+		i++;
+	}
+	return (true);
+}

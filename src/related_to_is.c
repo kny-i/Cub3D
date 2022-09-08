@@ -27,6 +27,7 @@ bool is_all_specific_char(char *line, char *specific_strs)
 	}
 	return (true);
 }
+
 bool is_one_at_first(char *line)
 {
 	size_t i = 0;
@@ -37,19 +38,3 @@ bool is_one_at_first(char *line)
 	else
 		return (false);
 }
-
-void get_nb_col(int fd, t_map *map, size_t *nb_col)
-{
-	char *line;
-	while (true)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		if (is_one_at_first(line) == false)
-			continue;
-		if (is_all_specific_char(line, "NSEW 01\0") == true)
-			(*nb_col)++;
-	}
-}
-

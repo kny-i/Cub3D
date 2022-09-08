@@ -1,5 +1,20 @@
 #include "cub3d.h"
 
+void get_nb_col(int fd, t_map *map, size_t *nb_col)
+{
+	char *line;
+	while (true)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		if (is_one_at_first(line) == false)
+			continue;
+		if (is_all_specific_char(line, "NSEW 01\0") == true)
+			(*nb_col)++;
+	}
+}
+
 bool parse_direction(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "NO", 2) == 0)
@@ -49,6 +64,7 @@ void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 
 t_map *parser(char *file, t_map *map)
 {
+	/* first fd */
 	int fd;
 	char *line;
 
@@ -62,6 +78,8 @@ t_map *parser(char *file, t_map *map)
 
 	get_nb_col(fd, map, &nb_col);
 	close(fd);
+
+	/* second fd */
 	int fd2 = open(file, O_RDONLY);
 	map = ft_calloc(1, sizeof(t_map));
 	map->is_filled_start_position = false;
@@ -72,10 +90,13 @@ t_map *parser(char *file, t_map *map)
 		line = get_next_line(fd2);
 		if (line == NULL)
 			break ;
+		if (is_all_strs_space(line) == true)
+			continue;
 		parse_cub3d_file(map, line, &map_col_index);
 		free(line);
 	}
 	map->grid[map_col_index] = NULL;
+//	map->nb_col = map_col_index;
 	free(line);
 
 	set_player_info_loop(map);

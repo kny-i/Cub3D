@@ -199,15 +199,15 @@ double distance_to_btw_points(double x0, double y0, double x1, double y1);
 
 /* related_to_is.c */
 bool is_all_specific_char(char *line, char *specific_strs);
-void get_nb_col(int fd, t_map *map, size_t *nb_col);
 bool is_valid_format_file(char *filename);
 bool is_valid_args(int argc, char **argv);
 int is_nbrs(char *str);
-size_t strs_len(char **strs);
+bool is_one_at_first(char *line);
 
 /* related_to_is2.c */
 bool is_screen_edge(t_map *map, double x, double y);
 bool is_wall(t_map *map, int x, int y, char identification);
+bool is_all_strs_space(char *str);
 
 /* is_valid_map.c */
 void is_valid_map(t_map *map);
@@ -224,5 +224,6 @@ bool parse_color(t_map *map, char *line);
 void allocate_map(t_map *map, char *line, size_t *map_col_index);
 
 
+size_t strs_len(char **strs);//where?
 
 #endif
