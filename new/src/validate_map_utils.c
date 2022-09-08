@@ -1,16 +1,5 @@
 #include "cub3d.h"
 
-
-static int	count_array_rows(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-		i++;
-	return (i);
-}
-
 char **strs_dup(char **strs)
 {
 	char	**copy;
@@ -18,8 +7,8 @@ char **strs_dup(char **strs)
 	int		num_rows;
 
 	i = 0;
-	num_rows = count_array_rows(strs);
-	copy = (char **) ft_calloc(sizeof(char *) , (num_rows + 1));
+	num_rows = strs_len(strs);
+	copy = ft_calloc(sizeof(char *) , (num_rows + 1));
 	while (strs[i] != NULL)
 	{
 		copy[i] = ft_strdup(strs[i]);

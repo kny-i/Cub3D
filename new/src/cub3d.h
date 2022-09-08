@@ -214,7 +214,6 @@ void set_player_info_loop(t_map *map);
 bool is_specific_char(char c, char *str);
 
 /* validate_map_utils.c */
-static int	count_array_rows(char **strs);
 char **strs_dup(char **strs);
 void	free_strs(char **strs);
 
@@ -222,4 +221,5 @@ void	free_strs(char **strs);
 int allocate_color(t_map *map, char *line);
 bool parse_color(t_map *map, char *line);
 void allocate_map(t_map *map, char *line, size_t *map_col_index);
+
 #endif

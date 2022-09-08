@@ -59,6 +59,7 @@ t_map *parser(char *file, t_map *map)
 		error_message("OPEN FAILURE!");
 
 	size_t nb_col = 0;
+
 	get_nb_col(fd, map, &nb_col);
 	close(fd);
 	int fd2 = open(file, O_RDONLY);
@@ -76,6 +77,7 @@ t_map *parser(char *file, t_map *map)
 	}
 	map->grid[map_col_index] = NULL;
 	free(line);
+
 	set_player_info_loop(map);
 	return (map);
 }

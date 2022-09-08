@@ -5,8 +5,9 @@ void set_player_info(t_map *map, size_t x, size_t y, char direction)
 	if (map->is_filled_start_position == true)
 		error_message("INVALID MAP: MULTIPLE PLAYER");
 	map->start_position = ft_calloc(1, sizeof (t_point));
-	map->start_position->x = map->start_position->x * TILE_SIZE + 1;
-	map->start_position->y = map->start_position->y * TILE_SIZE + 1;
+
+	map->start_position->x = x * TILE_SIZE + 1;
+	map->start_position->y = y * TILE_SIZE + 1;
 	if (direction == 'N')
 		map->angle = north;
 	if (direction == 'S')
@@ -37,6 +38,8 @@ void set_player_info_loop(t_map *map)
 		x = 0;
 		y++;
 	}
+	if (map->is_filled_start_position == false)
+		error_message("PLAY DOESN'T EXIST!!");
 }
 
 
