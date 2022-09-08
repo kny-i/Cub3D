@@ -20,8 +20,7 @@ bool is_all_specific_char(char *line, char *specific_strs)
 	{
 		if (is_specific_char(line[i], specific_strs) == false)
 		{
-			printf("[%c]\n", line[i]);
-			error_message("found invalid char");
+			error_message("INVALID MAP: FOUND INVALID CHAR");
 			return (false);
 		}
 		i++;
