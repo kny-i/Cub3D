@@ -36,5 +36,5 @@ void debug_parser(t_map *map)
 	debug_direction_path(map);
 	debug_colors(map);
 	debug_map(map);
-//	debug_nb(map);
+	debug_nb(map);
 }

@@ -150,9 +150,6 @@ void get_closest_wall_data(t_cub3d *info, t_ray *ray, double ray_angle) {
 	/* INT_MAXに必ずなってしまうという部分がおかしい */
 	prepare_ray_casting(info, ray_angle, HORIZONTAL, &horizontal_interception);
 	prepare_ray_casting(info, ray_angle, VERTICAL, &vertical_interception);
-//	fprintf(stderr, "[%lf]",horizontal_interception.x);
-//	fprintf(stderr, "[%lf]",horizontal_interception.y);
-//	fprintf(stderr, "[%lld]",horizontal_interception.color);
 
 	if (is_screen_edge(info->map, horizontal_interception.x, horizontal_interception.y) == true)
 	{
@@ -205,10 +202,9 @@ int			get_texture_color(t_texture *texture, int x, int y)
 
 	/* これが絶対に正の数になるはず(1~60前後を推移しているはず) */
 //	printf("[%d]\n", y);
-	return (1);
-//	return (*(unsigned int *)(texture->data->address + 2) << 16 |
-//			*(unsigned int *)(texture->data->address + 1) << 8 |
-//			*(unsigned int *)(texture->data->address + 0) << 0);
+	return (*(unsigned int *)(texture->data->address + 2) << 16 |
+			*(unsigned int *)(texture->data->address + 1) << 8 |
+			*(unsigned int *)(texture->data->address + 0) << 0);
 }
 
 int put_text(t_cub3d *info, int y, int index, double *limit)
@@ -305,6 +301,6 @@ void start_cub3d(t_cub3d *info)
 {
 	ray_casting(info);
 	drawing_3dmap(info);
-//	info->window = mlx_new_window(info->mlx, info->map->width, info->map->height, "CUB3D by teamCRI");
-//	mlx_put_image_to_window(info->mlx, info->window, info->data->image, 0, 0);
+	info->window = mlx_new_window(info->mlx, info->map->width, info->map->height, "CUB3D by teamCRI");
+	mlx_put_image_to_window(info->mlx, info->window, info->data->image, 0, 0);
 }

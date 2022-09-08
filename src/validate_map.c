@@ -24,15 +24,20 @@ void set_player_info_loop(t_map *map)
 {
 	size_t y;
 	size_t x;
+	size_t tmp;
 
 	y = 0;
-	x = 0;
 	while (map->grid[y] != NULL)
 	{
+		x = 0;
+		tmp = 0;
 		while (map->grid[y][x] != '\0')
 		{
 			if (is_specific_char(map->grid[y][x], "NSEW") == true)
 				set_player_info(map, x, y, map->grid[y][x]);
+			tmp++;
+			if (tmp > map->nb_row)
+				map->nb_row = tmp;
 			x++;
 		}
 		x = 0;
