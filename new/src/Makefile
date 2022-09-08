@@ -113,6 +113,14 @@ gko: all
 	@echo $(green)"[invalid map duplicate player]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_dup_player.cub
 
+hko: all
+	@echo $(green)"[invalid map not closed]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_not_closed.cub
+
+iko: all
+	@echo $(green)"[invalid map player outside map]"$(no)
+	@./$(NAME) ../test/ko/invalid_map_player_outside.cub
+
 ##############[map test]###############
 
 ####一気にテストできるような.shをあとで書く予定
