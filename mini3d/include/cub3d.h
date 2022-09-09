@@ -175,7 +175,7 @@ int				init_game(t_vars *vars, int argc);
 int				move_player_press(int keycode, t_vars *vars);
 void			put_game(t_vars *vars);
 int				update_frame(t_vars *vars);
-//int				clean_before_close(t_vars *vars);
+int				clean_before_close(t_vars *vars);
 int				close_program(void);
 
 /*
