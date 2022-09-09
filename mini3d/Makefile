@@ -20,7 +20,8 @@ clone:
 
 $(NAME): $(mlxpath) $(objs)
 	$(mlxmake) 2> /dev/null
-	cc $(objs) ./libft.a $(mlxflag) -o $(NAME)
+	make -C ./libft
+	cc $(objs) ./libft/libft.a $(mlxflag) -o $(NAME)
 
 #$(objsdir):
 #	mkdir $(objsdir)
@@ -46,5 +47,8 @@ out: all
 
 leaks: all
 	leaks -q --atExit -- ./$(NAME) dotcub/normal.cub
+
+test: all
+	./$(NAME) maps/map1.cub
 
 .PHONY: all clean fclean mlx re test

@@ -54,9 +54,9 @@ int			main(int argc, char **argv)
 	if (!read_file(argv[1], vars.map) || !(create_n_check(&vars)))
 		return (0);
 	init_game(&vars, argc);
-//	mlx_hook(vars.win, 2, (1l << 0), move_player_press, &vars);
-//	mlx_hook(vars.win, 17, (1l << 17), clean_before_close, &vars);
-//	mlx_loop_hook(vars.mlx, update_frame, &vars);
+	mlx_hook(vars.win, 2, (1l << 0), move_player_press, &vars);
+	mlx_hook(vars.win, 17, (1l << 17), clean_before_close, &vars);
+	mlx_loop_hook(vars.mlx, update_frame, &vars);
 	mlx_loop(vars.mlx);
 	return (0);
 }
