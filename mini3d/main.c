@@ -15,18 +15,9 @@
 static int	allocate_map(t_vars *vars)
 {
 	vars->map = ft_calloc(1, sizeof(t_map));
-	vars->map->init_posit = NULL;
 	vars->map->color_ceiling = -1;
 	vars->map->color_floor = -1;
 	vars->map->path = ft_calloc(5, sizeof(char *));
-	vars->map->path[north] = NULL;
-	vars->map->path[south] = NULL;
-	vars->map->path[east] = NULL;
-	vars->map->path[west] = NULL;
-	vars->map->path[sprite] = NULL;
-	vars->map->init_posit = NULL;
-	vars->map->sprite_posit = NULL;
-	vars->map->map_grid = NULL;
 	vars->map->n_sprites = 0;
 	vars->map->width = 0;
 	vars->map->height = 0;
@@ -35,7 +26,6 @@ static int	allocate_map(t_vars *vars)
 	if (!(vars->mlx = mlx_init()))
 		return (ft_error(vars->map, -16));
 	mlx_get_screen_size(vars->mlx, &vars->map->max_w, &vars->map->max_h);
-	vars->win = NULL;
 	return (1);
 }
 
