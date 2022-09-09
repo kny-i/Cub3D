@@ -33,6 +33,23 @@ void	free_tex(void *mlx, t_tex **tex)
 	tex = NULL;
 }
 
+void		free_rays(t_vars *vars)
+{
+	int i;
+
+	i = 0;
+	while (i < vars->map->num_rays)
+	{
+		free(vars->ray[i]->collision);
+		vars->ray[i]->collision = NULL;
+		free(vars->ray[i]);
+		vars->ray[i] = NULL;
+		i++;
+	}
+	free(vars->ray);
+	vars->ray = NULL;
+}
+
 void	check_n_free(void *ptr)
 {
 	if (ptr)
@@ -75,21 +92,4 @@ void	free_buffer(void **buffer, int n_arrays)
 		free(buffer);
 		buffer = NULL;
 	}
-}
-
-void	free_sprite(t_vars *vars)
-{
-	int	i;
-
-	i = 0;
-	while (i < vars->map->n_sprites)
-	{
-		free(vars->sprite[i]->posit);
-		vars->sprite[i]->posit = NULL;
-		free(vars->sprite[i]);
-		vars->sprite[i] = NULL;
-		i++;
-	}
-	free(vars->sprite);
-	vars->sprite = NULL;
 }

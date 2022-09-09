@@ -74,8 +74,6 @@ int		is_wall(t_map *map, int x, int y, char identf)
 
 int		is_end_window(t_map *map, double x, double y)
 {
-	printf("n_col[%d]\n", map->n_column);
-	printf("n_row[%d]\n", map->n_row);
 	if (x < 0 || x >= map->n_column * TILE_SIZE ||
 		y < 0 || y >= map->n_row * TILE_SIZE)
 		return (TRUE);

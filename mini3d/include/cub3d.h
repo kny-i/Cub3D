@@ -175,7 +175,7 @@ int				init_game(t_vars *vars, int argc);
 int				move_player_press(int keycode, t_vars *vars);
 void			put_game(t_vars *vars);
 int				update_frame(t_vars *vars);
-int				clean_before_close(t_vars *vars);
+//int				clean_before_close(t_vars *vars);
 int				close_program(void);
 
 /*
@@ -216,7 +216,6 @@ void			cast_ray(t_vars *vars, double ray_angle, int coord,
 void			check_n_free(void *ptr);
 void			free_tex(void *mlx, t_tex **tex);
 void			free_rays(t_vars *vars);
-void			free_sprite(t_vars *vars);
 void			free_buffer(void **buffer, int n_arrays);
 int				free_map(t_map *map);
 

@@ -16,12 +16,7 @@ int			get_texture_color(t_tex *tex, int x, int y)
 {
 	int		offset;
 
-//	printf("x = [%d]\n", x);
-	//printf("y = [%d]\n", y);
-//	printf("line_size = %d\n", tex->data->size_line);
-//	printf("bpp = %d\n", tex->data->bpp);
 	offset = (y * tex->data->size_line + x * (tex->data->bpp / 8));
-	//printf("offset = %d\n", offset);
 	return (*(unsigned int *)(tex->data->addr + offset + 2) << 16 |
 			*(unsigned int *)(tex->data->addr + offset + 1) << 8 |
 			*(unsigned int *)(tex->data->addr + offset + 0) << 0);
@@ -37,16 +32,7 @@ static int	put_text(t_vars *vars, int y, int i, double *limit)
 	ymin = limit[0];
 	ymax = limit[1];
 	ray = vars->ray[i];
-	
-	//printf("y[%d]\n", y);
-	//printf("ymin[%lf]\n", ymin);
-	//printf("ymax[%lf]\n", ymax);
-	//printf("y[%lf]\n", y);
-	//printf("y - ymin[%lf]\n", y - ymin);
 
-//	printf("height[%d]\n", vars->tex[east]->height);
-//	printf("width[%d]\n", vars->tex[east]->width);
-	//printf("[%lf]\n", (y - ymin) * (vars->tex[east]->height) / (ymax - ymin));
 	if (ray_facing(ray->ray_angle, ray_up) && ray->coord == HORZ)
 		return (get_texture_color(vars->tex[north],
 				(int)ray->collision->x % vars->tex[north]->width,
