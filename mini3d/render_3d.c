@@ -20,7 +20,7 @@ int			get_texture_color(t_tex *tex, int x, int y)
 	//printf("y = [%d]\n", y);
 //	printf("line_size = %d\n", tex->data->size_line);
 //	printf("bpp = %d\n", tex->data->bpp);
-//	offset = (y * tex->data->size_line + x * (tex->data->bpp / 8));
+	offset = (y * tex->data->size_line + x * (tex->data->bpp / 8));
 	//printf("offset = %d\n", offset);
 	return (*(unsigned int *)(tex->data->addr + offset + 2) << 16 |
 			*(unsigned int *)(tex->data->addr + offset + 1) << 8 |
