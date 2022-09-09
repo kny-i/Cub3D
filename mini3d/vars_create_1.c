@@ -21,8 +21,6 @@ static t_tex	*load_texture(void *mlx_ptr, char *path)
 	if (!(tex->data->img = mlx_xpm_file_to_image(mlx_ptr, path, &tex->width,
 	&tex->height)))
 	{
-		free(tex->data);
-		free(tex);
 		return (NULL);
 	}
 	tex->data->addr = mlx_get_data_addr(tex->data->img, &tex->data->bpp,
@@ -62,7 +60,6 @@ static t_player	*create_player(t_map *map, int move_speed, double rotat_speed)
 	player->rotation_angle = map->rotation_angle;
 	assign_point(player->posit, map->init_posit->x, map->init_posit->y,
 	RAYS_2D_COLOR);
-	check_n_free(map->init_posit);
 	return (player);
 }
 
@@ -79,10 +76,8 @@ static t_sprite	**create_sprite(t_map *map)
 		spr[i]->posit = ft_calloc(1, sizeof(t_point));
 		spr[i]->posit->x = map->sprite_posit[i]->x * TILE_SIZE + TILE_SIZE / 2;
 		spr[i]->posit->y = map->sprite_posit[i]->y * TILE_SIZE + TILE_SIZE / 2;
-		check_n_free(map->sprite_posit[i]);
 		i++;
 	}
-	check_n_free(map->sprite_posit);
 	return (spr);
 }
 

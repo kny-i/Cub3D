@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   input_read_n_validate.c                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vscabell <vscabell@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/04 06:53:34 by vscabell          #+#    #+#             */
-/*   Updated: 2020/07/27 02:24:03 by vscabell         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "./include/cub3d.h"
 
 static int	is_empty_line(char *line)
@@ -55,8 +43,6 @@ static int	check_lack_info(t_map *map)
 			!map->path[west] || !*map->path[west] || !map->path[sprite] ||
 			!*map->path[sprite])
 		return (ft_error(map, -13));
-	else if (!map->sprite_posit)
-		return (ft_error(map, -14));
 	else if (!map->init_posit)
 		return (ft_error(map, -15));
 	return (1);
