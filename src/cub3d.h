@@ -69,7 +69,6 @@ typedef struct s_data {
 typedef struct	s_point {
 	double		x;
 	double		y;
-	long long		color;
 }				t_point;
 
 typedef struct s_map {
@@ -105,11 +104,16 @@ typedef struct s_player {
 } t_player;
 
 typedef struct s_ray {
-
-	t_point *collision;
-	double ray_to_plane_distance;
 	double angle;
-	long long coordination;
+	t_point *light_source;
+	t_point wall_hit;
+	double distance;
+	bool hit_vertical_flag;
+	bool is_face_up;
+	bool is_face_down;
+	bool is_face_left;
+	bool is_face_right;
+	e_texture texture_direction;
 } t_ray;
 
 typedef struct s_texture {
@@ -137,7 +141,7 @@ typedef struct s_cub3d {
 	t_player *player;
 
 	/* ray info */
-	t_ray **ray;
+	t_ray *ray;
 
 	/* texture info */
 	t_texture **texture;

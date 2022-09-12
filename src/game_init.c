@@ -59,7 +59,6 @@ t_point *initialize_point(int x, int y, int color)
 	point = ft_calloc(1, sizeof(t_point));
 	point->x = x;
 	point->y = y;
-	point->color = color;
 	return (point);
 }
 
@@ -79,6 +78,5 @@ t_player  *initialize_player(t_map *map, const int default_speed, const double r
 
 	player->position->x = 0;
 	player->position->y = 0;
-	player->position->color = RAYS_COLOR;
 	return (player);
 }

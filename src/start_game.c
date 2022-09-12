@@ -10,10 +10,9 @@ t_ray *initialize_ray(t_cub3d *info)
 	while (i < info->map->nb_ray)
 	{
 		ray[i] = ft_calloc(1, sizeof(t_ray));
-		ray[i]->collision = ft_calloc(1, sizeof(t_point));
 		i++;
 	}
-	return (ray);
+	return (*ray);
 }
 
 void initialize_object(t_cub3d *info)
