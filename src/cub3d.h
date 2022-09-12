@@ -105,6 +105,7 @@ typedef struct s_player {
 } t_player;
 
 typedef struct s_ray {
+
 	t_point *collision;
 	double ray_to_plane_distance;
 	double angle;
@@ -116,16 +117,6 @@ typedef struct s_texture {
 	int height;
 	int width;
 } t_texture;
-
-typedef struct s_sprite {
-	t_point *point;
-	double 	angle;
-	double 	angle_dif;
-	double  dest;
-	size_t height;
-	size_t width;
-}				t_sprite;
-
 
 typedef struct s_cub3d {
 

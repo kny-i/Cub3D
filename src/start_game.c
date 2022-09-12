@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-t_ray **initialize_ray(t_cub3d *info)
+t_ray *initialize_ray(t_cub3d *info)
 {
 	t_ray **ray;
 
@@ -27,12 +27,14 @@ void initialize_object(t_cub3d *info)
 
 void main_loop(t_cub3d *info)
 {
-	;
+
 }
 void start_game(t_cub3d *info)
 {
 	//init game
 	initialize_object(info);
 	//game start!!!!!!
+
 	//main_loop();
+
 }
