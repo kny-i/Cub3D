@@ -6,13 +6,13 @@
 	info->window = NULL;
 }
 
-static void init_data(t_data *data)
+static void init_image(t_image *data)
 {
-	data = ft_calloc(1, sizeof(t_data));
+	data = ft_calloc(1, sizeof(t_image));
 	data->image = NULL;
 	data->address = NULL;
 	data->bpp = SIZE_T_MAX;
-	data->line_length = SIZE_T_MAX;
+	data->size_line = SIZE_T_MAX;
 	data->endian = SIZE_T_MAX;
 }*/
 
@@ -53,7 +53,7 @@ static void init_point(t_point *point)
 //void init(t_cub3d *info)
 //{
 //	init_mlx_info(info);
-//	init_data(info->data);
+//	init_image(info->data);
 //	init_point(info->point);
 //	init_player(info->player);
 //	init_ray(info->ray);

@@ -185,12 +185,12 @@ void ray_casting(t_cub3d *info)
 }
 
 /* 座標の画素に対してcolorを割り当てるための関数 */
-void x_mlx_pixel_put(t_data *data, int x, int y, int color)
+void x_mlx_pixel_put(t_image *data, int x, int y, int color)
 {
 	char *dest;
 	int offset;
 
-	offset = (y * data->line_length + x * (data->bpp / 8));
+	offset = (y * data->size_line + x * (data->bpp / 8));
 	dest = data->address + offset;
 	*(unsigned int *)dest = color;
 }
@@ -199,7 +199,7 @@ int			get_texture_color(t_texture *texture, int x, int y)
 {
 	int		offset;
 
-	offset = (y * texture->data->line_length + x * (texture->data->bpp / 8));
+	offset = (y * texture->data->size_line + x * (texture->data->bpp / 8));
 	return (*(unsigned int *)(texture->data->address + 2) << 16 |
 			*(unsigned int *)(texture->data->address + 1) << 8 |
 			*(unsigned int *)(texture->data->address + 0) << 0);

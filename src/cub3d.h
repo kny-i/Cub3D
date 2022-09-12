@@ -58,13 +58,15 @@ typedef enum
 	west = 3,
 } e_texture;
 
-typedef struct s_data {
+typedef struct s_image {
 	void *image;
 	char *address;
 	int bpp;//bits per pixel
-	int line_length;
+	int size_line;
 	int endian;
-} t_data;
+	int width;
+	int height;
+} t_image;
 
 typedef struct	s_point {
 	double		x;
@@ -117,7 +119,7 @@ typedef struct s_ray {
 } t_ray;
 
 typedef struct s_texture {
-	t_data *data;
+	t_image *data;
 	int height;
 	int width;
 } t_texture;
@@ -129,7 +131,7 @@ typedef struct s_cub3d {
 	void *window;
 
 	/* basic info */
-	t_data *data;
+	t_image *data;
 
 	/* map info */
 	t_map *map;
@@ -178,7 +180,7 @@ void start_game(t_cub3d *info);
 /* game_init.c */
 t_texture *load_texture(void *mlx_ptr, char *path);
 t_texture **initialize_texture(void *mlx_ptr, char **path);
-t_data *initialize_data(void *mlx_ptr, t_map *map);
+t_image *initialize_data(void *mlx_ptr, t_map *map);
 t_point *initialize_point(int x, int y, int color);
 t_player *initialize_player(t_map *map, int move_speed, double rotate_speed);
 

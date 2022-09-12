@@ -5,7 +5,7 @@ t_texture *load_texture(void *mlx_ptr, char *path)
 	t_texture	*texture;
 
 	texture = ft_calloc(1, sizeof(t_texture));
-	texture->data = ft_calloc(1, sizeof(t_data));
+	texture->data = ft_calloc(1, sizeof(t_image));
 	texture->data->image =
 			mlx_xpm_file_to_image(mlx_ptr,
 								  path,
@@ -15,7 +15,7 @@ t_texture *load_texture(void *mlx_ptr, char *path)
 		return (NULL);
 	texture->data->address = mlx_get_data_addr(texture->data->image,
 											   &texture->data->bpp,
-											   &texture->data->line_length,
+											   &texture->data->size_line,
 											   &texture->data->endian);
 	if (texture == NULL)
 		return (NULL);
@@ -40,15 +40,15 @@ t_texture **initialize_texture(void *mlx_ptr, char **path)
 	return (texture);
 }
 
-t_data *initialize_data(void *mlx_ptr, t_map *map)
+t_image *initialize_data(void *mlx_ptr, t_map *map)
 {
-	t_data *image;
+	t_image *image;
 
 	map->width = DEFAULT_WIDTH;
 	map->height = DEFAULT_HEIGHT;
-	image = ft_calloc(1, sizeof (t_data));
+	image = ft_calloc(1, sizeof (t_image));
 	image->image = mlx_new_image(mlx_ptr, map->width, map->height);
-	image->address = mlx_get_data_addr(image->image, &image->bpp, &image->line_length, &image->endian);
+	image->address = mlx_get_data_addr(image->image, &image->bpp, &image->size_line, &image->endian);
 	return (image);
 }
 
