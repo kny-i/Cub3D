@@ -56,7 +56,7 @@ typedef enum
 	south = 1,
 	east  = 2,
 	west = 3,
-} e_texture;
+} e_direction;
 
 typedef struct s_image {
 	void *image;
@@ -83,13 +83,14 @@ typedef struct s_map {
 	size_t nb_row;
 
 
-	t_point *start_position;
+	//t_point *start_position;
 	bool is_filled_start_position;
-	double angle;
-	size_t nb_ray;
+	//double angle;
+//	size_t nb_ray;
 	int ceiling_color;
 	int floor_color;
-	char *path[5];
+	char *path[4];
+	t_image *texture_image[4];
 
 //	size_t nb_sprites;
 //	t_point **sprite_position;
@@ -97,12 +98,14 @@ typedef struct s_map {
 
 typedef struct s_player {
 	t_point *position;
-	long long turn_direction;
+	t_point  wall_hit;
+	//long long turn_direction;
 	long long walk_direction;
 	double angle;
-	size_t default_spped;
 	double rotate_speed;
-	double player_to_plane_distance;
+	//double player_to_plane_distance;
+	bool	should_move;
+	bool	should_rotate;
 } t_player;
 
 typedef struct s_ray {
@@ -115,8 +118,14 @@ typedef struct s_ray {
 	bool is_face_down;
 	bool is_face_left;
 	bool is_face_right;
-	e_texture texture_direction;
+	e_direction direction;
 } t_ray;
+
+typedef struct s_wall_strip {
+	int	height;
+	int	top_pixel;
+	int	bottom_pixel;
+}	t_wall_strip;
 
 typedef struct s_texture {
 	t_image *data;
@@ -146,7 +155,7 @@ typedef struct s_cub3d {
 	t_ray *ray;
 
 	/* texture info */
-	t_texture **texture;
+//	t_texture **texture;
 
 	/* sprite info */
 //	t_sprite	**sprite;
