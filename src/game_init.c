@@ -40,7 +40,7 @@ t_texture **initialize_texture(void *mlx_ptr, char **path)
 	return (texture);
 }
 
-t_image *initialize_data(void *mlx_ptr, t_map *map)
+t_image *initialize_image_data(void *mlx_ptr, t_map *map)
 {
 	t_image *image;
 
@@ -62,20 +62,16 @@ t_point *initialize_point(int x, int y, int color)
 	return (point);
 }
 
-t_player  *initialize_player(t_map *map, const int default_speed, const double rotate_speed)
-{
-	t_player *player;
-
-//	player = ft_calloc(1, sizeof(t_player));
-//	player->position = ft_calloc(1, sizeof(t_point));
-
-	/* ここでしていた情報の決定をどうするべきか */
-	player->rotate_speed = rotate_speed;
-
-	/* initすべきかは後で決定 */
-	player->walk_direction = 0;
-
-	player->position->x = 0;
-	player->position->y = 0;
-	return (player);
-}
+//t_player  *initialize_player( *map, const int default_speed, const double rotate_speed)
+//{
+//
+//	/* ここでしていた情報の決定をどうするべきか */
+//	player->rotate_speed = rotate_speed;
+//
+//	/* initすべきかは後で決定 */
+//	player->walk_direction = 0;
+//
+//	player->position->x = 0;
+//	player->position->y = 0;
+//	return (player);
+//}

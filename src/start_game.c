@@ -4,7 +4,6 @@ t_ray *initialize_ray(t_cub3d *info)
 {
 	t_ray **ray;
 
-//	info->map->nb_ray = info->map->width;
 	ray = ft_calloc(info->map->width, sizeof(t_ray *));
 	size_t i = 0;
 	while (i < info->map->width)
@@ -17,17 +16,24 @@ t_ray *initialize_ray(t_cub3d *info)
 
 void initialize_object(t_cub3d *info)
 {
+	/* 不要 */
 //	info->texture = initialize_texture(info->mlx, info->map->path);
-	info->data = initialize_data(info->mlx, info->map);
-	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
-	info->player = initialize_player(info->map, DEFAULT_SPEED, ROTATE_SPEED);
+//	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
+
+	info->data = initialize_image_data(info->mlx, info->map);
+//	info->player = initialize_player(info, DEFAULT_SPEED, ROTATE_SPEED);
 	info->ray = initialize_ray(info);
 }
 
+void main_loop(t_cub3d *info)
+{
+	;
+}
 
 void start_game(t_cub3d *info)
 {
 	//init game
 	initialize_object(info);
 	//game start!!!!!!
+//	main_loop(info);
 }
