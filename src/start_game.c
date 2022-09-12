@@ -25,10 +25,14 @@ void initialize_object(t_cub3d *info)
 	info->ray = initialize_ray(info);
 }
 
+void main_loop(t_cub3d *info)
+{
+	;
+}
 void start_game(t_cub3d *info)
 {
 	//init game
 	initialize_object(info);
 	//game start!!!!!!
-	start_cub3d(info);
+	//main_loop();
 }
