@@ -184,7 +184,7 @@ t_texture *load_texture(void *mlx_ptr, char *path);
 t_texture **initialize_texture(void *mlx_ptr, char **path);
 t_image *initialize_image_data(void *mlx_ptr, t_map *map);
 t_point *initialize_point(int x, int y, int color);
-t_player *initialize_player(t_map *map, int move_speed, double rotate_speed);
+t_player *initialize_player(t_cub3d *info);
 
 /* start_cub3d.c */
 void start_cub3d(t_cub3d *info);

@@ -62,16 +62,14 @@ t_point *initialize_point(int x, int y, int color)
 	return (point);
 }
 
-//t_player  *initialize_player( *map, const int default_speed, const double rotate_speed)
-//{
-//
-//	/* ここでしていた情報の決定をどうするべきか */
-//	player->rotate_speed = rotate_speed;
-//
-//	/* initすべきかは後で決定 */
-//	player->walk_direction = 0;
-//
-//	player->position->x = 0;
-//	player->position->y = 0;
-//	return (player);
-//}
+t_player  *initialize_player(t_cub3d *info)
+{
+	t_player *player = info->player;
+
+
+	player->rotate_speed = ROTATE_SPEED;
+	player->should_rotate = false;
+	player->should_move = false;
+	player->walk_direction = 0;
+	return (player);
+}

@@ -21,7 +21,7 @@ void initialize_object(t_cub3d *info)
 //	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
 
 	info->data = initialize_image_data(info->mlx, info->map);
-//	info->player = initialize_player(info, DEFAULT_SPEED, ROTATE_SPEED);
+	info->player = initialize_player(info);
 	info->ray = initialize_ray(info);
 }
 
