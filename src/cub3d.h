@@ -56,7 +56,7 @@ typedef enum
 	south = 1,
 	east  = 2,
 	west = 3,
-}e_texture;
+} e_texture;
 
 typedef struct s_data {
 	void *image;
