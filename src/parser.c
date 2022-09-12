@@ -65,7 +65,7 @@ void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 		return;
 }
 
-t_map *parser(char *file, t_map *map)
+t_cub3d *parser(char *file, t_cub3d *info)
 {
 	/* first fd */
 	int fd;
@@ -79,14 +79,14 @@ t_map *parser(char *file, t_map *map)
 
 	size_t nb_col = 0;
 
-	get_nb_col(fd, map, &nb_col);
+	get_nb_col(fd, info->map, &nb_col);
 	close(fd);
 
 	/* second fd */
 	int fd2 = open(file, O_RDONLY);
-	map = ft_calloc(1, sizeof(t_map));
-	map->is_filled_start_position = false;
-	map->grid = ft_calloc(map->nb_col + 1, sizeof(char *));
+	info->map = ft_calloc(1, sizeof(t_map));
+	info->map->is_filled_start_position = false;
+	info->map->grid = ft_calloc(info->map->nb_col + 1, sizeof(char *));
 	size_t map_col_index = 0;
 	while (true)
 	{
@@ -95,12 +95,12 @@ t_map *parser(char *file, t_map *map)
 			break ;
 		if (is_all_strs_space(line) == true)
 			continue;
-		parse_cub3d_file(map, line, &map_col_index);
+		parse_cub3d_file(info->map, line, &map_col_index);
 		free(line);
 	}
-	map->grid[map_col_index] = NULL;
-	map->nb_col = map_col_index;
+	info->map->grid[map_col_index] = NULL;
+	info->map->nb_col = map_col_index;
 	free(line);
-	set_player_info_loop(map);
-	return (map);
+	set_player_info_loop(info);
+	return (info);
 }

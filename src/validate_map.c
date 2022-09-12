@@ -1,49 +1,51 @@
 #include "cub3d.h"
 
-void set_player_info(t_map *map, size_t x, size_t y, char direction)
+void set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
 {
-	if (map->is_filled_start_position == true)
+	if (info->map->is_filled_start_position == true)
 		error_message("INVALID MAP: MULTIPLE PLAYER");
-	map->start_position = ft_calloc(1, sizeof (t_point));
+	info->player = ft_calloc(1, sizeof(t_player));
+	info->player->position = ft_calloc(1, sizeof (t_point));
 
-	map->start_position->x = x * TILE_SIZE + 1;
-	map->start_position->y = y * TILE_SIZE + 1;
+	/* TILEの中心にplayerの位置をおくため */
+	info->player->position->x = x * TILE_SIZE + TILE_SIZE / 2;
+	info->player->position->y = y * TILE_SIZE + TILE_SIZE / 2;
 	if (direction == 'N')
-		map->angle = north;
+		info->player->angle = 3 * M_PI / 2;
 	if (direction == 'S')
-		map->angle = south;
+		info->player->angle = 1 * M_PI / 2;
 	if (direction == 'E')
-		map->angle = east;
+		info->player->angle = 0 * M_PI / 2;
 	if (direction == 'W')
-		map->angle = west;
-	map->grid[y][x] = '0';
-	map->is_filled_start_position = true;
+		info->player->angle = 2 * M_PI / 2;
+	info->map->grid[y][x] = '0';
+	info->map->is_filled_start_position = true;
 }
 
-void set_player_info_loop(t_map *map)
+void set_player_info_loop(t_cub3d *info)
 {
 	size_t y;
 	size_t x;
 	size_t tmp;
 
 	y = 0;
-	while (map->grid[y] != NULL)
+	while (info->map->grid[y] != NULL)
 	{
 		x = 0;
 		tmp = 0;
-		while (map->grid[y][x] != '\0')
+		while (info->map->grid[y][x] != '\0')
 		{
-			if (is_specific_char(map->grid[y][x], "NSEW") == true)
-				set_player_info(map, x, y, map->grid[y][x]);
+			if (is_specific_char(info->map->grid[y][x], "NSEW") == true)
+				set_player_info(info, x, y, info->map->grid[y][x]);
 			tmp++;
-			if (tmp > map->nb_row)
-				map->nb_row = tmp;
+			if (tmp > info->map->nb_row)
+				info->map->nb_row = tmp;
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	if (map->is_filled_start_position == false)
+	if (info->map->is_filled_start_position == false)
 		error_message("PLAY DOESN'T EXIST!!");
 }
 

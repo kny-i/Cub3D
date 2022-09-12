@@ -66,14 +66,13 @@ t_player  *initialize_player(t_map *map, const int default_speed, const double r
 {
 	t_player *player;
 
-	player = ft_calloc(1, sizeof(t_player));
-	player->position = ft_calloc(1, sizeof(t_point));
-	player->default_spped = default_speed;
+//	player = ft_calloc(1, sizeof(t_player));
+//	player->position = ft_calloc(1, sizeof(t_point));
+
+	/* ここでしていた情報の決定をどうするべきか */
 	player->rotate_speed = rotate_speed;
-	player->angle = map->angle;
 
 	/* initすべきかは後で決定 */
-	player->turn_direction = 0;
 	player->walk_direction = 0;
 
 	player->position->x = 0;

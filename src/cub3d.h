@@ -99,7 +99,7 @@ typedef struct s_map {
 typedef struct s_player {
 	t_point *position;
 	t_point  wall_hit;
-	//long long turn_direction;
+//	long long turn_direction;
 	long long walk_direction;
 	double angle;
 	double rotate_speed;
@@ -162,17 +162,10 @@ typedef struct s_cub3d {
 }	t_cub3d;
 
 
-/* init.c */
-//void init_map(t_cub3d *info);
-//void init(t_cub3d *info);
-//void init_player(t_player *player);
-//void init_ray(t_ray **ray);
-//void init_texture(t_texture **texture);
-//void init_sprite(t_sprite **sprite);
 
 
 /* parser.c */
-t_map *parser(char *file, t_map *map);
+t_cub3d *parser(char *file, t_cub3d *map);
 
 /* message.c */
 void error_message(char *message);
@@ -217,7 +210,7 @@ bool is_all_strs_space(char *str);
 
 /* is_valid_map.c */
 void is_valid_map(t_map *map);
-void set_player_info_loop(t_map *map);
+void set_player_info_loop(t_cub3d *info);
 bool is_specific_char(char c, char *str);
 
 /* validate_map_utils.c */
@@ -231,5 +224,13 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index);
 
 
 size_t strs_len(char **strs);//where?
+
+/* init.c */
+//void init_map(t_cub3d *info);
+//void init(t_cub3d *info);
+//void init_player(t_player *player);
+//void init_ray(t_ray **ray);
+//void init_texture(t_texture **texture);
+//void init_sprite(t_sprite **sprite);
 
 #endif

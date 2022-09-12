@@ -10,26 +10,27 @@ void initialize_mlx(t_cub3d *info)
 
 int launch_cub3d(int argc, char **argv)
 {
-	t_cub3d info;
+	t_cub3d *info;
 
 	if (is_valid_args(argc, argv) == false)
 		return (usage());
 
 	/* parser */
-	info.map = parser(argv[1], info.map);
-	debug_parser(info.map);
+	info = ft_calloc(1, sizeof(t_cub3d));
+	info = parser(argv[1], info);
+	debug_parser(info->map);
 
-	is_valid_map(info.map);
+	is_valid_map(info->map);
 	//debug_parser(info.map);
 
 	/* init mlx */
-	initialize_mlx(&info);
+	initialize_mlx(info);
 
 	/* start game! */
-	start_game(&info);
+	//start_game(info);
 
 	/* mlxs */
-	mlx_loop(info.mlx);
+	mlx_loop(info->mlx);
 	return (SUCCESS);
 }
 
