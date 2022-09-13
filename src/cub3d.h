@@ -41,7 +41,7 @@
 # define VERTICAL 1
 
 # define WALL_WIDTH 1
-
+# define NB_RAYS DEFAULT_WIDTH
 typedef enum
 {
 	ray_up = 0,
@@ -113,12 +113,13 @@ typedef struct s_ray {
 	t_point *light_source;
 	t_point wall_hit;
 	double distance;
+	bool horizontal_or_vertical;
 	bool hit_vertical_flag;
 	bool is_face_up;
 	bool is_face_down;
 	bool is_face_left;
 	bool is_face_right;
-	e_direction direction;
+	e_direction wall_direction;
 } t_ray;
 
 typedef struct s_wall_strip {
@@ -152,7 +153,7 @@ typedef struct s_cub3d {
 	t_player *player;
 
 	/* ray info */
-	t_ray *ray;
+	t_ray **ray;
 
 	/* texture info */
 //	t_texture **texture;

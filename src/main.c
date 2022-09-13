@@ -18,7 +18,7 @@ int launch_cub3d(int argc, char **argv)
 	info = parser(argv[1], info);
 
 	is_valid_map(info->map);
-	//debug_parser(info->map);
+	debug_parser(info->map);
 
 	/* init mlx */
 	initialize_mlx(info);
@@ -27,7 +27,7 @@ int launch_cub3d(int argc, char **argv)
 	start_game(info);
 
 	/* mlxs hooks & loop */
-	mlx_loop(info->mlx);
+//	mlx_loop(info->mlx);
 	return (SUCCESS);
 }
 

@@ -8,6 +8,11 @@ void set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
 	info->player->position = ft_calloc(1, sizeof (t_point));
 
 	/* TILEの中心にplayerの位置をおくため */
+	/*
+	 * 方角に関しては絶対的な位置として考えるため
+	 * x/y座標との対応関係はない
+	 * example north -> 3/2 PI
+	 */
 	info->player->position->x = x * TILE_SIZE + TILE_SIZE / 2;
 	info->player->position->y = y * TILE_SIZE + TILE_SIZE / 2;
 	if (direction == 'N')
