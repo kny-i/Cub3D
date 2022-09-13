@@ -27,7 +27,7 @@ int launch_cub3d(int argc, char **argv)
 	start_game(info);
 
 	/* mlxs hooks & loop */
-//	mlx_loop(info->mlx);
+	fmlx_loop(info->mlx);
 	return (SUCCESS);
 }
 
