@@ -223,9 +223,19 @@ int allocate_color(t_map *map, char *line);
 bool parse_color(t_map *map, char *line);
 void allocate_map(t_map *map, char *line, size_t *map_col_index);
 
+/* initialize_object.c */
+void initialize_object(t_cub3d *info);
+
+/* play_gaming.c */
+void play_gaming(t_cub3d *info);
+
+/* rendering.c */
+int rendering(t_cub3d *info);
 
 size_t strs_len(char **strs);//where?
 
+/* my_mlx_pixel_put.c */
+void	my_mlx_pixel_put(t_cub3d *info, int x, int y, int color);
 /* init.c */
 //void init_map(t_cub3d *info);
 //void init(t_cub3d *info);

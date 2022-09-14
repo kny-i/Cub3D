@@ -24,8 +24,11 @@ int launch_cub3d(int argc, char **argv)
 	/* init mlx */
 	initialize_mlx(info);
 
-	/* start game! */
-	start_game(info);
+	/* init object(dealing with Ray casting) */
+	initialize_object(info);
+
+	/* start game!(key hook & rendering) */
+	play_gaming(info);
 
 	/* mlxs hooks & loop */
 	mlx_loop(info->mlx);
