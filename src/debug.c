@@ -25,7 +25,7 @@ void debug_map(t_map *map)
 
 void debug_nb(t_map *map)
 {
-	fprintf(stderr, BLUE"====[DEBUG NB]"STOP);
+	fprintf(stderr, BLUE"====[DEBUG NB]===\n"STOP);
 	fprintf(stderr, "nb_col::%zu\n", map->nb_col);
 	fprintf(stderr, "nb_row::%zu\n", map->nb_row);
 }

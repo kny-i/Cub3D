@@ -15,6 +15,7 @@ int launch_cub3d(int argc, char **argv)
 
 	/* parser */
 	info = ft_calloc(1, sizeof(t_cub3d));
+
 	info = parser(argv[1], info);
 
 	is_valid_map(info->map);
