@@ -34,5 +34,7 @@ int launch_cub3d(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
+	setbuf(stdout, NULL);
+	setbuf(stderr, NULL);
 	launch_cub3d(argc, argv);
 }
