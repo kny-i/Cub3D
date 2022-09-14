@@ -167,9 +167,9 @@ t_ray *cast_ray(t_ray *ray, t_cub3d *info, double ray_angle)
 
 	set_ray_direction(ray, ray_angle);
 	horizotal_wall_hit = get_horizontal_wall_hit(ray, info->map);
-//	vertical_wall_hit = get_vertical_wall_hit(ray, info->map);
-//	get_closest_wall_hit(ray, &horizotal_wall_hit, &vertical_wall_hit);
-//	get_hit_wall_direction(ray);//get  direction that this ray crashed
+	vertical_wall_hit = get_vertical_wall_hit(ray, info->map);
+	get_closest_wall_hit(ray, &horizotal_wall_hit, &vertical_wall_hit);
+	get_hit_wall_direction(ray);//get  direction that this ray crashed
 	return (ray);
 }
 
