@@ -4,6 +4,8 @@ void drawing_ceiling_and_floor(t_cub3d *info)
 {
 	int scroll_x = 0;
 	int scroll_y = 0;
+	printf("[%lf]\n", info->map->ceiling_color);
+	printf("[%lf]\n", info->map->floor_color);
 	while (scroll_x < NB_RAYS)
 	{
 		while (scroll_y < DEFAULT_HEIGHT / 2)
@@ -92,7 +94,7 @@ void put_wallpaper(t_cub3d *info)
 int rendering(t_cub3d *info)
 {
 	drawing_ceiling_and_floor(info);
-	put_wallpaper(info);
-	mlx_put_image_to_window(info->mlx, info->window, \
+	//put_wallpaper(info);
+	//mlx_put_image_to_window(info->mlx, info->window, \
 								info->data->image, 0, 0);
 }

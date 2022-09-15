@@ -24,11 +24,14 @@ bool parse_color(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "F", 1) == 0)
 	{
+
 		map->floor_color = allocate_color(map, xstrdup(skip_space_str(line + 2)));
+		printf("[%d]\n", map->floor_color);
 		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "C", 1) == 0)
 	{
+		printf("[%d]\n", map->floor_color);		printf("[%d]\n", map->floor_color);
 		map->ceiling_color = allocate_color(map, xstrdup(skip_space_str(line + 2)));
 		return (SUCCESS);
 	}

@@ -135,6 +135,15 @@ typedef struct s_texture {
 	int width;
 } t_texture;
 
+/*typedef struct s_minimap {
+	t_map	*map;
+	double	scale;
+	double	tile_size;
+	t_point	player_pos;
+	double	player_radius;
+	int		color;
+}	t_minimap;*/
+
 typedef struct s_cub3d {
 
 	/*mlx info*/
@@ -162,6 +171,9 @@ typedef struct s_cub3d {
 
 	/* sprite info */
 //	t_sprite	**sprite;
+
+	/* minimap */
+	//t_minimap *minimap;
 }	t_cub3d;
 
 
