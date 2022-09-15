@@ -42,6 +42,7 @@
 
 # define WALL_WIDTH 1
 # define NB_RAYS DEFAULT_WIDTH
+# define MOVE_STEP 2
 typedef enum
 {
 	ray_up = 0,
@@ -126,7 +127,7 @@ typedef struct s_wall_strip {
 	int	height;
 	int	top_pixel;
 	int	bottom_pixel;
-}	t_wall_strip;
+}	t_strip;
 
 typedef struct s_texture {
 	t_image *data;
@@ -155,6 +156,7 @@ typedef struct s_cub3d {
 	/* ray info */
 	t_ray **ray;
 
+	t_image **texture_image;
 	/* texture info */
 //	t_texture **texture;
 
@@ -181,14 +183,15 @@ void debug_map(t_map *map);
 void start_game(t_cub3d *info);
 
 /* game_init.c */
-t_texture *load_texture(void *mlx_ptr, char *path);
-t_texture **initialize_texture(void *mlx_ptr, char **path);
 t_image *initialize_image_data(void *mlx_ptr, t_map *map);
 t_point *initialize_point(int x, int y, int color);
 t_player *initialize_player(t_cub3d *info);
+t_image *load_texture(void *mlx_ptr, char *path);
+t_image **initialize_texture(void *mlx_ptr, char **path);
 
 /* start_cub3d.c */
 void start_cub3d(t_cub3d *info);
+double normalize_angle(double angle);
 
 /* utils.c */
 char *xstrdup(const char *s1);
@@ -225,6 +228,8 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index);
 
 /* initialize_object.c */
 void initialize_object(t_cub3d *info);
+t_ray **cast_all_rays(t_cub3d *info, t_ray **ray);
+
 
 /* play_gaming.c */
 void play_gaming(t_cub3d *info);
@@ -236,6 +241,9 @@ size_t strs_len(char **strs);//where?
 
 /* my_mlx_pixel_put.c */
 void	my_mlx_pixel_put(t_cub3d *info, int x, int y, int color);
+/* update.c */
+int updating(t_cub3d *info);
+
 /* init.c */
 //void init_map(t_cub3d *info);
 //void init(t_cub3d *info);

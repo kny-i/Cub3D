@@ -1,43 +1,43 @@
 #include "cub3d.h"
 
-t_texture *load_texture(void *mlx_ptr, char *path)
+t_image *load_texture(void *mlx_ptr, char *path)
 {
-	t_texture	*texture;
+	t_image	*texture;
 
-	texture = ft_calloc(1, sizeof(t_texture));
-	texture->data = ft_calloc(1, sizeof(t_image));
-	texture->data->image =
+	texture = ft_calloc(1, sizeof(t_image));
+	texture->image =
 			mlx_xpm_file_to_image(mlx_ptr,
 								  path,
 								  &texture->width,
 								  &texture->height);
-	if (texture->data->image == NULL)
+	if (texture->image == NULL)
 		return (NULL);
-	texture->data->address = mlx_get_data_addr(texture->data->image,
-											   &texture->data->bpp,
-											   &texture->data->size_line,
-											   &texture->data->endian);
+	texture->address = mlx_get_data_addr(texture->image,
+											   &texture->bpp,
+											   &texture->size_line,
+											   &texture->endian);
 	if (texture == NULL)
 		return (NULL);
 	return (texture);
 }
 
-t_texture **initialize_texture(void *mlx_ptr, char **path)
+t_image **initialize_texture(void *mlx_ptr, char **path)
 {
-	t_texture	**texture;
+	t_image	**texture_image;
 
-	texture = ft_calloc(4, sizeof(t_texture *));
-	texture[north] = load_texture(mlx_ptr, path[north]);
-	texture[south] = load_texture(mlx_ptr, path[south]);
-	texture[east] = load_texture(mlx_ptr, path[east]);
-	texture[west] = load_texture(mlx_ptr, path[west]);
-	if ((texture[north] == NULL)
-		|| (texture[south] == NULL)
-		|| (texture[east] == NULL)
-		|| (texture[west] == NULL))
+	texture_image = ft_calloc(4, sizeof(t_image *));
+
+	texture_image[north] = load_texture(mlx_ptr, path[north]);
+	texture_image[south] = load_texture(mlx_ptr, path[south]);
+	texture_image[east] = load_texture(mlx_ptr, path[east]);
+	texture_image[west] = load_texture(mlx_ptr, path[west]);
+	if ((texture_image[north] == NULL)
+		|| (texture_image[south] == NULL)
+		|| (texture_image[east] == NULL)
+		|| (texture_image[west] == NULL))
 		error_message("INVALID TEXTURE PATH!"
 					  " OR INVALID DIRECTION FORMAT!");
-	return (texture);
+	return (texture_image);
 }
 
 t_image *initialize_image_data(void *mlx_ptr, t_map *map)
