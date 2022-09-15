@@ -27,9 +27,9 @@ t_strip get_strip_info(t_cub3d *info, t_ray *ray)
 
 	projected_distance = (DEFAULT_WIDTH / 2) / tan(FOV / 2);
 	ray_to_wall_distance = ray->distance * cos(ray->angle - info->player->angle);
-	printf("distance[%lf]\n", ray->distance);
-	printf("ray->angle:%lf\n", ray->angle);
-	printf("info->player->angle:%lf\n", info->player->angle);
+//	printf("distance[%lf]\n", ray->distance);
+//	printf("ray->angle:%lf\n", ray->angle);
+//	printf("info->player->angle:%lf\n", info->player->angle);
 	strip.height = (TILE_SIZE / ray_to_wall_distance) * projected_distance;
 	strip.top_pixel = (DEFAULT_HEIGHT / 2) - (strip.height / 2);
 	if (strip.top_pixel < 0)
@@ -106,23 +106,15 @@ static int	calc_texture_offset_x(t_ray *ray, t_image *texture)
 }
 int get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 {
-//	int color;
-//	char *color_address;
-//
-//	printf("[%p]", texture_image->address);
-//	printf("[%d]", texture_image->size_line);
-//	color_address = texture_image->address + (texture_image->size_line * (texture_image->bpp / 8));
-//	color = *(unsigned int *)color_address;
-//	return (color);
 	int	color;
-	int	tex_offset_x;
-	int	tex_offset_y;
+	int	texture_offset_x;
+	int	texture_offset_y;
 	int	distance_from_top;
 
-	tex_offset_x = calc_texture_offset_x(ray, texture);
+	texture_offset_x = calc_texture_offset_x(ray, texture);
 	distance_from_top = y + (strip.height / 2) - (DEFAULT_HEIGHT / 2);
-	tex_offset_y = distance_from_top * ((double)texture->height / strip.height);
-	color = get_pixel_from_texture(texture, tex_offset_x, tex_offset_y);
+	texture_offset_y = distance_from_top * ((double)texture->height / strip.height);
+	color = get_pixel_from_texture(texture, texture_offset_x, texture_offset_y);
 	return (color);
 }
 
@@ -146,11 +138,9 @@ void put_wallpaper(t_cub3d *info)
 		while (scroll_y < strip.bottom_pixel)
 		{
 			texture = choose_texture_image(info, info->ray[scroll_x]);
-
 			texture_color = get_texture_pixel(texture, info->ray[scroll_x], scroll_y, strip);
 			my_mlx_pixel_put(info, scroll_x, scroll_y++,  texture_color);
 		}
-		printf("[%d]\n", scroll_x);
 		scroll_x++;
 	}
 }

@@ -29,12 +29,12 @@
 # define DEFAULT_SPEED 30
 # define ROTATE_SPEED 5 * (M_PI / 180)
 
-# define DEFAULT_WIDTH 640
-# define DEFAULT_HEIGHT 416
+# define DEFAULT_WIDTH 1600
+# define DEFAULT_HEIGHT 800
 # define TILE_SIZE 64
 
 /* related to math */
-# define FOV 2 / 3 * M_PI
+# define FOV 2.5
 # define PI 3.1415926535897932384264338327950288419716939937910
 
 # define HORIZONTAL 0
@@ -43,6 +43,7 @@
 # define WALL_WIDTH 1
 # define NB_RAYS DEFAULT_WIDTH
 # define MOVE_STEP 2
+
 typedef enum
 {
 	ray_up = 0,
