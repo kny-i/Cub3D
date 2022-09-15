@@ -13,7 +13,6 @@ double	normalize_angle(double ray_angle)
 void set_ray_direction(t_ray *ray, double ray_angle)
 {
 	ray->angle = normalize_angle(ray_angle);
-	printf("ray->angle:%lf\n", ray->angle);
 	if (M_PI < ray->angle && ray->angle < M_PI * 2)
 		ray->is_face_up = true;
 	if (ray->is_face_up == false)
@@ -184,7 +183,6 @@ t_ray **cast_all_rays(t_cub3d *info, t_ray **ray)
 	i = 0;
 	while (i < NB_RAYS)
 	{
-		printf("%lf\n", info->player->angle);
 		ray[i]->light_source = info->player->position;
 		ray[i] = cast_ray(ray[i], info, ray_angle);
 		ray_angle += FOV / NB_RAYS;

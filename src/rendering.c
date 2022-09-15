@@ -124,6 +124,7 @@ void debug_strip(t_strip strip)
 	printf("bottom = [%d]\n", strip.bottom_pixel);
 	printf("top = [%d]\n", strip.top_pixel);
 }
+
 void put_wallpaper(t_cub3d *info)
 {
 	int scroll_x = 0;
