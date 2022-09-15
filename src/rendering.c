@@ -2,8 +2,8 @@
 
 void drawing_ceiling_and_floor(t_cub3d *info)
 {
-	size_t scroll_x = 0;
-	size_t scroll_y = 0;
+	int scroll_x = 0;
+	int scroll_y = 0;
 	while (scroll_x < NB_RAYS)
 	{
 		while (scroll_y < DEFAULT_HEIGHT / 2)
@@ -70,14 +70,15 @@ int get_texture_pixel(t_image *texture_image)
 
 void put_wallpaper(t_cub3d *info)
 {
-	size_t scroll_x = 0;
+	int scroll_x = 0;
 	t_strip strip;
 	int texture_color;
 	t_image *texture;
 	while(scroll_x < NB_RAYS)
 	{
 		strip = get_strip_info(info, info->ray[scroll_x]);
-		size_t scroll_y = strip.top_pixel;
+		int scroll_y = strip.top_pixel;
+		printf("top pixel = %d", strip.top_pixel);
 		while (scroll_y < strip.bottom_pixel)
 		{
 			texture = choose_texture_image(info, info->ray[scroll_x]);
