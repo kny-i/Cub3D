@@ -69,7 +69,7 @@ alltest: all
 	bash ../test/test.sh 2>/dev/null
 
 aok: all
-	@./$(NAME) ../test/ok/ok.cub
+	@./$(NAME) ../test/normal/00_simple_20_13.cub
 	@echo $(green)"[ok case]"$(no)
 
 bok: all
