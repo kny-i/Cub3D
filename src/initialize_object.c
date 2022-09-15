@@ -17,7 +17,7 @@ void set_ray_direction(t_ray *ray, double ray_angle)
 		ray->is_face_up = true;
 	if (ray->is_face_up == false)
 		ray->is_face_down = true;
-	if (M_PI / 2 < ray->angle && ray->angle < 2 * M_PI / 3)
+	if (M_PI / 2 < ray->angle && ray->angle < 3 * M_PI / 2)
 		ray->is_face_left = true;
 	if (ray->is_face_left == false)
 		ray->is_face_right = true;
@@ -173,13 +173,13 @@ t_ray *cast_ray(t_ray *ray, t_cub3d *info, double ray_angle)
 	return (ray);
 }
 
-
 t_ray **cast_all_rays(t_cub3d *info, t_ray **ray)
 {
 	double ray_angle;
 	size_t  i;
 
 	ray_angle = info->player->angle - (FOV / 2);
+
 	i = 0;
 	while (i < NB_RAYS)
 	{

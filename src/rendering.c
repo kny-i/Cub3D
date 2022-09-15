@@ -30,10 +30,10 @@ t_strip get_strip_info(t_cub3d *info, t_ray *ray)
 
 	projected_distance = (DEFAULT_WIDTH / 2) / tan(FOV / 2);
 	ray_to_wall_distance = ray->distance * cos(ray->angle - info->player->angle);
+//	printf("ray->angle:%lf\n", ray->angle);
+//	printf("info->player->angle:%lf\n", info->player->angle);
 	strip.height = (TILE_SIZE / ray_to_wall_distance) * projected_distance;
-	printf("[%zu]\n", strip.height);
 	strip.top_pixel = (DEFAULT_HEIGHT / 2) - (strip.height / 2);
-	printf("[%zu]\n", strip.top_pixel);
 	if (strip.top_pixel < 0)
 		strip.top_pixel = 0;
 	strip.bottom_pixel = (DEFAULT_HEIGHT/ 2) + (strip.height / 2);
@@ -78,7 +78,6 @@ void put_wallpaper(t_cub3d *info)
 	{
 		strip = get_strip_info(info, info->ray[scroll_x]);
 		int scroll_y = strip.top_pixel;
-		printf("top pixel = %d", strip.top_pixel);
 		while (scroll_y < strip.bottom_pixel)
 		{
 			texture = choose_texture_image(info, info->ray[scroll_x]);
