@@ -134,7 +134,7 @@ void put_wallpaper(t_cub3d *info)
 
 int rendering(t_cub3d *info)
 {
-	fprintf(stderr, RED"%lf\n"STOP, info->player->angle);
+	cast_all_rays(info,info->ray);
 	drawing_ceiling_and_floor(info);
 	put_wallpaper(info);
 	mlx_put_image_to_window(info->mlx, info->window, info->data->image, 0, 0);
