@@ -10,9 +10,9 @@ void	get_nb_col(int fd, t_map *map, size_t *nb_col)
 		if (line == NULL)
 			break ;
 		if (is_all_strs_space(line) == true)
-			continue;
+			continue ;
 		if (is_one_at_first(line) == false)
-			continue;
+			continue ;
 		if (is_all_specific_char(line, "NSEW 01\0") == true)
 			(*nb_col)++;
 	}
@@ -71,7 +71,7 @@ t_cub3d	*parser(char *file, t_cub3d *info)
 	char	*line;
 	size_t	nb_col;
 	int		fd2;
-	size_t map_col_index;
+	size_t	map_col_index;
 
 	if (is_valid_format_file(file) == false)
 		error_message("INVALID FORMAT FILE!");
