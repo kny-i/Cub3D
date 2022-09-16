@@ -267,6 +267,8 @@ int updating(t_cub3d *info);
 
 /* key_settings.c */
 int key_settings(int key, t_cub3d *info);
+void reset_key(int key, t_cub3d *info);
+
 
 /* moving.c */
 void moving_forward(t_cub3d *info);
@@ -277,4 +279,6 @@ void moving_leftside(t_cub3d *info);
 /* looking.c */
 void looking_rightside(t_cub3d *info);
 void looking_leftside(t_cub3d *info);
+
+
 #endif

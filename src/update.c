@@ -16,11 +16,11 @@ void move_player(t_cub3d *info)
 		info->player->should_move = false;
 		return ;
 	}
-//	if (info->map->grid[(int)next_point->y][(int)next_point->x] != '1')
-//	{
 		info->player->position = next_point;
-		printf("x:[%lf]\n", info->player->position->x);
-		printf("y:[%lf]\n", info->player->position->y);
+//	if (info->map->grid[(int)next_point->y][(int)next_point->x] == '1')
+//	{
+//		printf("x:[%lf]\n", info->player->position->x);
+//		printf("y:[%lf]\n", info->player->position->y);
 //		info->player->should_move = false;
 //	}
 }
