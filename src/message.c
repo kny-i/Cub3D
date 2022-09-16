@@ -8,6 +8,12 @@ void	error_message(char *message)
 	exit(EXIT_FAILURE);
 }
 
+int	usage(void)
+{
+	ft_putstr_fd("[USAGE]\n./cub3d *.cub\n", STDERR_FILENO);
+	return (FAILURE);
+}
+
 void	the_end(void)
 {
 	ft_putendl_fd("have a nice day!", STDOUT_FILENO);

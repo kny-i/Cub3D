@@ -21,12 +21,6 @@ char	*xstrdup(const char *s1)
 	return (ret);
 }
 
-int	usage(void)
-{
-	ft_putstr_fd("[USAGE]\n./cub3d *.cub\n", STDERR_FILENO);
-	return (FAILURE);
-}
-
 char	*skip_space_str(char *str)
 {
 	while (ft_isspace(*str) == true)
@@ -44,7 +38,7 @@ size_t	strs_len(char **strs)
 	return (len);
 }
 
-double distance_to_btw_points(double x0, double y0, double x1, double y1)
+double	distance_to_btw_points(double x0, double y0, double x1, double y1)
 {
 	return (sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
 }

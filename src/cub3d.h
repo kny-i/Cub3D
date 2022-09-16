@@ -155,6 +155,7 @@ t_cub3d		*parser(char *file, t_cub3d *map);
 
 /* message.c */
 void		error_message(char *message);
+int			usage(void);
 void		the_end(void);
 
 /* debug.c*/
@@ -179,7 +180,6 @@ double		normalize_angle(double angle);
 /* utils.c */
 char		*xstrdup(const char *s1);
 int			ft_isspace(int c);
-int			usage(void);
 char		*skip_space_str(char *str);
 double		distance_to_btw_points(double x0, double y0, double x1, double y1);
 size_t		strs_len(char **strs);
