@@ -18,7 +18,7 @@ void get_nb_col(int fd, t_map *map, size_t *nb_col)
 	}
 }
 
-bool parse_direction(t_map *map, char *line)
+bool parst_direction(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "NO", 2) == 0)
 	{
@@ -57,7 +57,7 @@ bool parse_map(t_map *map, char *line, size_t *map_col_index)
 
 void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 {
-	if (parse_direction(map, line) == SUCCESS \
+	if (parst_direction(map, line) == SUCCESS \
 	|| parse_color(map, line) == SUCCESS
 	|| parse_map(map, line, map_col_index) == SUCCESS)
 		return;

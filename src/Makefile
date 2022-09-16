@@ -73,7 +73,7 @@ aok: all
 	@echo $(green)"[ok case]"$(no)
 
 bok: all
-	@./$(NAME) ../test/ok/space_direction.cub
+	@./$(NAME) ../test/ok/spact_direction.cub
 	@echo $(green)"[space direction format case]"$(no)
 
 cok: all

@@ -129,7 +129,7 @@ typedef struct s_ray {
 	bool is_face_down;
 	bool is_face_left;
 	bool is_face_right;
-	e_direction wall_direction;
+	t_direction wall_direction;
 } t_ray;
 
 typedef struct s_wall_strip {
