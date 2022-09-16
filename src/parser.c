@@ -55,7 +55,7 @@ bool	parse_map(t_map *map, char *line, size_t *map_col_index)
 	}
 }
 
-void parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
+void	parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 {
 	if (parst_direction(map, line) == SUCCESS \
 	|| parse_color(map, line) == SUCCESS \
