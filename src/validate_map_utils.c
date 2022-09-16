@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-char **strs_dup(char **strs)
+char	**strs_dup(char **strs)
 {
 	char	**copy;
 	int		i;
@@ -8,7 +8,7 @@ char **strs_dup(char **strs)
 
 	i = 0;
 	num_rows = strs_len(strs);
-	copy = ft_calloc(sizeof(char *) , (num_rows + 1));
+	copy = ft_calloc(sizeof(char *), (num_rows + 1));
 	while (strs[i] != NULL)
 	{
 		copy[i] = ft_strdup(strs[i]);

@@ -6,7 +6,7 @@
  * x/y座標との対応関係はない
  * example north -> 3/2 PI
  */
-void set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
+void	set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
 {
 	if (info->map->is_filled_start_position == true)
 		error_message("INVALID MAP: MULTIPLE PLAYER");
@@ -60,18 +60,17 @@ static bool	is_this_prison(char **map, size_t x, size_t y)
 	if (map[y][x] == '1' || map[y][x] == 'A')
 		return (true);
 	map[y][x] = 'A';
-	return (is_this_prison(map, x + 1, y)
-			&& is_this_prison(map, x - 1, y)
-			&& is_this_prison(map, x, y + 1)
+	return (is_this_prison(map, x + 1, y) \
+			&& is_this_prison(map, x - 1, y) \
+			&& is_this_prison(map, x, y + 1) \
 			&& is_this_prison(map, x, y - 1));
 }
 
-bool is_map_closed(t_map *map)
+bool	is_map_closed(t_map *map)
 {
-
-	size_t y;
-	size_t x;
-	char **tmp_map;
+	size_t	y;
+	size_t	x;
+	char	**tmp_map;
 
 	y = 0;
 	x = 0;
@@ -94,7 +93,7 @@ bool is_map_closed(t_map *map)
 	return (true);
 }
 
-void is_valid_map(t_map *map)
+void	is_valid_map(t_map *map)
 {
 	if (is_map_closed(map) == false)
 		error_message("INVALID MAP: NOT CLOSED");
