@@ -105,10 +105,8 @@ t_ray	**initialize_ray(t_cub3d *info)
 	return (ray);
 }
 
-void initialize_object(t_cub3d *info)
+void	initialize_object(t_cub3d *info)
 {
-	/* 不要 */
-//	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
 	info->texture_image = initialize_texture(info->mlx, info->map->path);
 	info->data = initialize_image_data(info->mlx, info->map);
 	info->player = initialize_player(info);
