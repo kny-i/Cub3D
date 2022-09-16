@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-int key_settings(int key, t_cub3d *info)
+int	key_settings(int key, t_cub3d *info)
 {
 	if (key == ESC_KEY)
 		the_end();
@@ -19,7 +19,7 @@ int key_settings(int key, t_cub3d *info)
 	return (0);
 }
 
-void reset_key(int key, t_cub3d *info)
+void	reset_key(int key, t_cub3d *info)
 {
 	(void)key;
 	info->player->walk_direction = 0;

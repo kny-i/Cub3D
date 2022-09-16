@@ -1,6 +1,5 @@
 #include "cub3d.h"
 
-
 int allocate_color(t_map *map, char *line)
 {
 	char **strs = ft_split(line, ',');
@@ -42,4 +41,3 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index)
 	map->grid[*map_col_index] = xstrdup(line);
 	(*map_col_index)++;
 }
-
