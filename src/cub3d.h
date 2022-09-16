@@ -1,7 +1,6 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-
 # include "./color.h"
 # include "../libft/libft.h"
 # include "./mlx_linux/mlx.h"
@@ -23,14 +22,14 @@
 
 /* speeds */
 # define DEFAULT_SPEED 30
-# define ROTATE_SPEED 5 * (M_PI / 180)
-
+/*  5 * (M_PI / 180)  */
+# define ROTATE_SPEED 0.087
 # define DEFAULT_WIDTH 649
 # define DEFAULT_HEIGHT 410
 # define TILE_SIZE 32
 
 /* related to math */
-# define FOV 1 / M_PI * 3
+# define FOV 1.1
 
 # define HORIZONTAL 0
 # define VERTICAL 1
@@ -61,11 +60,11 @@ typedef enum s_ray_direction
 
 typedef enum s_direction
 {
-	north = 0,
-	south = 1,
-	east  = 2,
-	west  = 3,
-}			t_direction;
+	north	= 0,
+	south	= 1,
+	east	= 2,
+	west	= 3,
+}				t_direction;
 
 typedef struct s_image {
 	void	*image;
@@ -136,7 +135,6 @@ typedef struct s_texture
 	int		height;
 	int		width;
 }			t_texture;
-
 
 typedef struct s_cub3d
 {
@@ -214,47 +212,36 @@ void		get_nb_col(int fd, t_map *map, size_t *nb_col);
 /* initialize_object.c */
 void		initialize_object(t_cub3d *info);
 t_ray		**cast_all_rays(t_cub3d *info, t_ray **ray);
-void		get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit);
+void		get_closest_wall_hit(t_ray *ray, \
+			t_point *horizontal_wall_hit, t_point *vertical_wall_hit);
 void		get_hit_wall_direction(t_ray *ray);
 void		set_ray_direction(t_ray *ray, double ray_angle);
 t_point		find_first_horizontal_interception(t_ray *ray);
 t_point		find_first_vertical_interception(t_ray *ray);
-
 /* play_gaming.c */
 void		play_gaming(t_cub3d *info);
-
 /* rendering.c */
 int			rendering(t_cub3d *info);
-
-
 /* my_mlx_pixel_put.c */
 void		my_mlx_pixel_put(t_cub3d *info, int x, int y, int color);
-
 /* update.c */
 int			updating(t_cub3d *info);
-
 /* key_settings.c */
 int			key_settings(int key, t_cub3d *info);
 int			reset_key(int key, t_cub3d *info);
-
-
 /* moving.c */
 void		moving_forward(t_cub3d *info);
 void		moving_backward(t_cub3d *info);
 void		moving_rightside(t_cub3d *info);
 void		moving_leftside(t_cub3d *info);
-
 /* looking.c */
 void		looking_rightside(t_cub3d *info);
 void		looking_leftside(t_cub3d *info);
-
 /* raycasting.c */
 t_ray		*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
-
 /* interception.c */
 t_point		find_first_vertical_interception(t_ray *ray);
 t_point		find_first_horizontal_interception(t_ray *ray);
-
 /* ray_cast_utils*/
 void		get_hit_wall_direction(t_ray *ray);
 /*init ray*/

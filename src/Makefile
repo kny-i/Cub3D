@@ -2,6 +2,7 @@ NAME = cub3d
 
 srcs = $(wildcard *.c)
 objs = $(srcs:.c=.o)
+hsrcs = $(wildcard *.h)
 
 ### mlx ###
 mlxpath = ./mlx_linux/
@@ -39,7 +40,8 @@ fclean: clean
 re:	fclean all
 
 norm:
-	norminette $(srcs)
+	norminette $(srcs) $(hsrcs)
+	@echo $(green)"[exit status = $?]\n"$(no)
 
 #################[easy compile && debug]####################
 success1: all
