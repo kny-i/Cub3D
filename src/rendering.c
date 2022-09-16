@@ -1,9 +1,12 @@
 #include "cub3d.h"
 
-void drawing_ceiling_and_floor(t_cub3d *info)
+void	drawing_ceiling_and_floor(t_cub3d *info)
 {
-	int scroll_x = 0;
-	int scroll_y = 0;
+	int	scroll_x;
+	int	scroll_y;
+
+	scroll_x = 0;
+	scroll_y = 0;
 	while (scroll_x < NB_RAYS)
 	{
 		while (scroll_y < DEFAULT_HEIGHT)
@@ -27,8 +30,6 @@ t_strip get_strip_info(t_cub3d *info, t_ray *ray)
 
 	projected_distance = (DEFAULT_WIDTH / 2) / tan(FOV / 2);
 	ray_to_wall_distance = ray->distance * cos(ray->angle - info->player->angle);
-//	printf("ray->distance:%lf\n", ray->distance);
-//	printf("ray->distance:%lf\n", ray_to_wall_distance);
 
 	strip.height = (TILE_SIZE / ray_to_wall_distance) * projected_distance;
 	strip.top_pixel = (DEFAULT_HEIGHT / 2) - (strip.height / 2);
@@ -91,7 +92,8 @@ static int	calc_texture_offset_x(t_ray *ray, t_image *texture)
 	tex_offset_x *= ((double)texture->width / TILE_SIZE);
 	return (tex_offset_x);
 }
-int get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
+
+int	get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 {
 	int	color;
 	int	texture_offset_x;
@@ -114,10 +116,12 @@ void debug_strip(t_strip strip)
 
 void put_wallpaper(t_cub3d *info)
 {
-	int scroll_x = 0;
+	int scroll_x;
 	t_strip strip;
 	int texture_color;
 	t_image *texture;
+
+	scroll_x = 0;
 	while(scroll_x < NB_RAYS)
 	{
 		strip = get_strip_info(info, info->ray[scroll_x]);
@@ -132,7 +136,7 @@ void put_wallpaper(t_cub3d *info)
 	}
 }
 
-int rendering(t_cub3d *info)
+int	rendering(t_cub3d *info)
 {
 	cast_all_rays(info,info->ray);
 	drawing_ceiling_and_floor(info);
