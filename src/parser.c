@@ -47,13 +47,10 @@ void	parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
 		return ;
 }
 
-t_cub3d	*parser(char *file, t_cub3d *info)
+void	parse_setup(t_cub3d *info, char *file)
 {
-	int		fd;
-	char	*line;
 	size_t	nb_col;
-	int		fd2;
-	size_t	map_col_index;
+	int		fd;
 
 	if (is_valid_format_file(file) == false)
 		error_message("INVALID FORMAT FILE!");
@@ -63,14 +60,24 @@ t_cub3d	*parser(char *file, t_cub3d *info)
 	nb_col = 0;
 	get_nb_col(fd, info->map, &nb_col);
 	close(fd);
-	fd2 = open(file, O_RDONLY);
 	info->map = ft_calloc(1, sizeof(t_map));
 	info->map->is_filled_start_position = false;
 	info->map->grid = ft_calloc(info->map->nb_col + 1, sizeof(char *));
+}
+
+t_cub3d	*parser(char *file, t_cub3d *info)
+{
+	char	*line;
+	int		fd;
+	size_t	map_col_index;
+
+	parse_setup(info, file);
+	info->map->grid = ft_calloc(info->map->nb_col + 1, sizeof(char *));
 	map_col_index = 0;
+	fd = open(file, O_RDONLY);
 	while (true)
 	{
-		line = get_next_line(fd2);
+		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
 		if (is_all_strs_space(line) == true)
