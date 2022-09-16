@@ -148,56 +148,37 @@ typedef struct s_texture
 
 typedef struct s_cub3d
 {
-
 	void		*mlx;
 	void		*window;
-	/* basic info */
 	t_image		*data;
-
-	/* map info */
 	t_map		*map;
-
-	/* point info */
 	t_point		*point;
-
-	/* player info */
 	t_player	*player;
-
-	/* ray info */
-	t_ray **ray;
-
-	t_image **texture_image;
-	/* texture info */
-//	t_texture **texture;
-
-	/* sprite info */
-//	t_sprite	**sprite;
-
-	/* minimap */
-	//t_minimap *minimap;
+	t_ray		**ray;
+	t_image		**texture_image;
 }	t_cub3d;
 
 
 
 
 /* parser.c */
-t_cub3d *parser(char *file, t_cub3d *map);
+t_cub3d	*parser(char *file, t_cub3d *map);
 
 /* message.c */
-void error_message(char *message);
-void the_end(void);
+void	error_message(char *message);
+void	the_end(void);
 
 /* debug.c*/
-void debug_direction_path(t_map *map);
-void debug_parser(t_map *map);
-void debug_map(t_map *map);
+void	debug_direction_path(t_map *map);
+void	debug_parser(t_map *map);
+void	debug_map(t_map *map);
 
 /* start_game.c */
-void start_game(t_cub3d *info);
+void	start_game(t_cub3d *info);
 
 /* game_init.c */
-t_image *initialize_image_data(void *mlx_ptr, t_map *map);
-t_point *initialize_point(int x, int y, int color);
+t_image	*initialize_image_data(void *mlx_ptr, t_map *map);
+t_point	*initialize_point(int x, int y, int color);
 t_player *initialize_player(t_cub3d *info);
 t_image *load_texture(void *mlx_ptr, char *path);
 t_image **initialize_texture(void *mlx_ptr, char **path);
@@ -243,7 +224,11 @@ void allocate_map(t_map *map, char *line, size_t *map_col_index);
 /* initialize_object.c */
 void initialize_object(t_cub3d *info);
 t_ray **cast_all_rays(t_cub3d *info, t_ray **ray);
-
+void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit);
+void	get_hit_wall_direction(t_ray *ray);
+void	set_ray_direction(t_ray *ray, double ray_angle);
+t_point	find_first_horizontal_interception(t_ray *ray);
+t_point	find_first_vertical_interception(t_ray *ray);
 
 /* play_gaming.c */
 void play_gaming(t_cub3d *info);
