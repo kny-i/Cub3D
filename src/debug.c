@@ -1,4 +1,5 @@
 #include "cub3d.h"
+/*
 
 void	debug_direction_path(t_map *map)
 {
@@ -38,3 +39,4 @@ void	debug_parser(t_map *map)
 	debug_map(map);
 	debug_nb(map);
 }
+*/
