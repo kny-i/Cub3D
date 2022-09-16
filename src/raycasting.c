@@ -23,7 +23,7 @@ t_point	find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	}
 }
 
-t_point find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
+t_point	find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 {
 	double x_step;
 	double y_step;

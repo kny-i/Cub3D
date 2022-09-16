@@ -181,16 +181,16 @@ t_image		*initialize_image_data(void *mlx_ptr, t_map *map);
 t_point		*initialize_point(int x, int y, int color);
 t_player	*initialize_player(t_cub3d *info);
 t_image		*load_texture(void *mlx_ptr, char *path);
-t_image	**initialize_texture(void *mlx_ptr, char **path);
+t_image		**initialize_texture(void *mlx_ptr, char **path);
 
 /* start_cub3d.c */
-void start_cub3d(t_cub3d *info);
-double normalize_angle(double angle);
+void		start_cub3d(t_cub3d *info);
+double		normalize_angle(double angle);
 
 /* utils.c */
-char *xstrdup(const char *s1);
-int ft_isspace(int c);
-int usage(void);
+char		*xstrdup(const char *s1);
+int			ft_isspace(int c);
+int			usage(void);
 char *skip_space_str(char *str);
 double distance_to_btw_points(double x0, double y0, double x1, double y1);
 size_t strs_len(char **strs);
