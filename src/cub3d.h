@@ -64,7 +64,7 @@ typedef enum s_direction
 	north = 0,
 	south = 1,
 	east  = 2,
-	west = 3,
+	west  = 3,
 }			t_direction;
 
 typedef struct s_image {
@@ -77,7 +77,7 @@ typedef struct s_image {
 	int		height;
 }				t_image;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	double		x;
 	double		y;
@@ -280,6 +280,8 @@ void moving_leftside(t_cub3d *info);
 /* looking.c */
 void looking_rightside(t_cub3d *info);
 void looking_leftside(t_cub3d *info);
+
+/* raycasting.c */
 
 
 #endif
