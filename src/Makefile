@@ -1,6 +1,6 @@
 NAME = cub3d
 
-srcs = $(wildcard ./*.c)
+srcs = $(wildcard *.c)
 objs = $(srcs:.c=.o)
 
 ### mlx ###
@@ -37,6 +37,9 @@ fclean: clean
 	$(RM) $(NAME) $(objs)
 
 re:	fclean all
+
+norm:
+	norminette $(srcs)
 
 #################[easy compile && debug]####################
 success1: all
