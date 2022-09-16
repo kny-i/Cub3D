@@ -83,15 +83,15 @@ typedef struct s_point
 	double		y;
 }				t_point;
 
-typedef struct s_map {
-	char **grid;
-	int width;
-	int height;
-	int max_width;
-	int max_height;
-	size_t nb_col;
-	size_t nb_row;
-
+typedef struct s_map
+{
+	char	**grid;
+	int		width;
+	int		height;
+	int		max_width;
+	int		max_height;
+	size_t	nb_col;
+	size_t	nb_row;
 
 	//t_point *start_position;
 	bool is_filled_start_position;
@@ -282,6 +282,7 @@ void looking_rightside(t_cub3d *info);
 void looking_leftside(t_cub3d *info);
 
 /* raycasting.c */
+
 
 
 #endif

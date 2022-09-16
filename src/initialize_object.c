@@ -205,7 +205,7 @@ t_ray	**initialize_ray(t_cub3d *info)
 	return (ray);
 }
 
-void	initialize_object(t_cub3d *info)
+void initialize_object(t_cub3d *info)
 {
 	info->texture_image = initialize_texture(info->mlx, info->map->path);
 	info->data = initialize_image_data(info->mlx, info->map);
