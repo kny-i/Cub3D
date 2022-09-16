@@ -4,13 +4,13 @@ double	normalize_angle(double ray_angle)
 {
 	double	normalized_angle;
 
-	normalized_angle = remainder(ray_angle, M_PI * 2); // 2PIの範囲内に値を変換
+	normalized_angle = remainder(ray_angle, M_PI * 2);
 	if (normalized_angle < 0)
 		normalized_angle += M_PI * 2;
 	return (normalized_angle);
 }
 
-void set_ray_direction(t_ray *ray, double ray_angle)
+void	set_ray_direction(t_ray *ray, double ray_angle)
 {
 	ray->angle = normalize_angle(ray_angle);
 	if (M_PI < ray->angle && ray->angle < M_PI * 2)
@@ -33,7 +33,7 @@ static double	pythagorean_theorem_for_delta(t_point *light_source, t_point *inte
 	return (sqrt(dx * dx + dy * dy));
 }
 
-void get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit)
+void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit)
 {
 	double	horiz_distance;
 	double	vert_distance;
@@ -66,7 +66,7 @@ t_point	find_first_horizontal_interception(t_ray *ray)
 	return (first_horizontal_interception);
 }
 
-t_point find_first_vertical_interception(t_ray *ray)
+t_point	find_first_vertical_interception(t_ray *ray)
 {
 	t_point	first_horizontal_interception;
 
@@ -77,24 +77,21 @@ t_point find_first_vertical_interception(t_ray *ray)
 	return (first_horizontal_interception);
 }
 
-t_point find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
+t_point	find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 {
-	double x_step;
-	double y_step;
-	t_point point;
+	double	x_step;
+	double	y_step;
+	t_point	point;
 
 	x_step = TILE_SIZE / tan(ray->angle);
 	y_step = TILE_SIZE;
-
 	point.x = interceptopn.x;
 	point.y = interceptopn.y;
 	while (true)
 	{
-		if (point.x < 0.0 || (double)map->nb_row * TILE_SIZE < point.x
+		if (point.x < 0.0 || (double)map->nb_row * TILE_SIZE < point.x \
 		|| point.y < 0.0 || (double)map->nb_col * TILE_SIZE < point.y)
 			return (point);
-//		printf("%d\n", (int)point.x);
-//		printf("%d\n", (int)point.y);
 		if (map->grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE] == '1')
 			return (point);
 		point.x += x_step;
@@ -114,7 +111,7 @@ t_point find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	point.y = interceptopn.y;
 	while (true)
 	{
-		if (point.x < 0.0 || (double )map->nb_row * TILE_SIZE < point.x
+		if (point.x < 0.0 || (double )map->nb_row * TILE_SIZE < point.x \
 		|| point.y < 0.0 || (double )map->nb_col * TILE_SIZE < point.y)
 			return (point);
 		if (map->grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE] == '1')
@@ -124,27 +121,27 @@ t_point find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	}
 }
 
-t_point get_horizontal_wall_hit(t_ray *ray, t_map *map)
+t_point	get_horizontal_wall_hit(t_ray *ray, t_map *map)
 {
-	t_point interception;
-	t_point wall_hit;
+	t_point	interception;
+	t_point	wall_hit;
 
 	interception = find_first_horizontal_interception(ray);
 	wall_hit = find_horizontal_wall_hit(ray, map, interception);
 	return (wall_hit);
 }
 
-t_point get_vertical_wall_hit(t_ray *ray, t_map *map)
+t_point	get_vertical_wall_hit(t_ray *ray, t_map *map)
 {
-	t_point interception;
-	t_point wall_hit;
+	t_point	interception;
+	t_point	wall_hit;
 
 	interception = find_first_vertical_interception(ray);
 	wall_hit = find_vertical_wall_hit(ray, map, interception);
 	return (wall_hit);
 }
 
-void get_hit_wall_direction(t_ray *ray)
+void	get_hit_wall_direction(t_ray *ray)
 {
 	if (ray->horizontal_or_vertical == VERTICAL)
 	{
@@ -162,26 +159,25 @@ void get_hit_wall_direction(t_ray *ray)
 	}
 }
 
-t_ray *cast_ray(t_ray *ray, t_cub3d *info, double ray_angle)
+t_ray	*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle)
 {
-	t_point horizotal_wall_hit;
-	t_point vertical_wall_hit;
+	t_point	horizotal_wall_hit;
+	t_point	vertical_wall_hit;
 
 	set_ray_direction(ray, ray_angle);
 	horizotal_wall_hit = get_horizontal_wall_hit(ray, info->map);
 	vertical_wall_hit = get_vertical_wall_hit(ray, info->map);
 	get_closest_wall_hit(ray, &horizotal_wall_hit, &vertical_wall_hit);
-	get_hit_wall_direction(ray);//get  direction that this ray crashed
+	get_hit_wall_direction(ray);
 	return (ray);
 }
 
-t_ray **cast_all_rays(t_cub3d *info, t_ray **ray)
+t_ray	**cast_all_rays(t_cub3d *info, t_ray **ray)
 {
-	double ray_angle;
-	size_t  i;
+	double	ray_angle;
+	size_t	i;
 
 	ray_angle = info->player->angle - (FOV / 2);
-
 	i = 0;
 	while (i < NB_RAYS)
 	{
@@ -193,12 +189,13 @@ t_ray **cast_all_rays(t_cub3d *info, t_ray **ray)
 	return (ray);
 }
 
-t_ray **initialize_ray(t_cub3d *info)
+t_ray	**initialize_ray(t_cub3d *info)
 {
-	t_ray **ray;
+	t_ray	**ray;
+	size_t	i;
 
 	ray = ft_calloc(NB_RAYS, sizeof(t_ray *));
-	size_t i = 0;
+	i = 0;
 	while (i < NB_RAYS)
 	{
 		ray[i] = ft_calloc(1, sizeof(t_ray));
@@ -208,10 +205,8 @@ t_ray **initialize_ray(t_cub3d *info)
 	return (ray);
 }
 
-void initialize_object(t_cub3d *info)
+void	initialize_object(t_cub3d *info)
 {
-	/* 不要 */
-//	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
 	info->texture_image = initialize_texture(info->mlx, info->map->path);
 	info->data = initialize_image_data(info->mlx, info->map);
 	info->player = initialize_player(info);

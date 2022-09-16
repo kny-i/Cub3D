@@ -46,9 +46,9 @@ t_image	*initialize_image_data(void *mlx_ptr, t_map *map)
 	return (image);
 }
 
-t_point *initialize_point(int x, int y, int color)
+t_point	*initialize_point(int x, int y, int color)
 {
-	t_point *point;
+	t_point	*point;
 
 	point = ft_calloc(1, sizeof(t_point));
 	point->x = x;
@@ -56,10 +56,11 @@ t_point *initialize_point(int x, int y, int color)
 	return (point);
 }
 
-t_player  *initialize_player(t_cub3d *info)
+t_player	*initialize_player(t_cub3d *info)
 {
-	t_player *player = info->player;
+	t_player	*player;
 
+	player = info->player;
 	player->rotate_speed = ROTATE_SPEED;
 	player->should_rotate = false;
 	player->should_move = false;
