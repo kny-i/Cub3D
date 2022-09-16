@@ -191,74 +191,77 @@ double		normalize_angle(double angle);
 char		*xstrdup(const char *s1);
 int			ft_isspace(int c);
 int			usage(void);
-char *skip_space_str(char *str);
-double distance_to_btw_points(double x0, double y0, double x1, double y1);
-size_t strs_len(char **strs);
+char		*skip_space_str(char *str);
+double		distance_to_btw_points(double x0, double y0, double x1, double y1);
+size_t		strs_len(char **strs);
 
 /* related_to_is.c */
-bool is_all_specific_char(char *line, char *specific_strs);
-bool is_valid_format_file(char *filename);
-bool is_valid_args(int argc, char **argv);
-int is_nbrs(char *str);
-bool is_one_at_first(char *line);
+bool		is_all_specific_char(char *line, char *specific_strs);
+bool		is_valid_format_file(char *filename);
+bool		is_valid_args(int argc, char **argv);
+int			is_nbrs(char *str);
+bool		is_one_at_first(char *line);
 
 /* related_to_is2.c */
-bool is_screen_edge(t_map *map, double x, double y);
-bool is_wall(t_map *map, int x, int y, char identification);
-bool is_all_strs_space(char *str);
+bool		is_screen_edge(t_map *map, double x, double y);
+bool		is_wall(t_map *map, int x, int y, char identification);
+bool		is_all_strs_space(char *str);
 
 /* is_valid_map.c */
-void is_valid_map(t_map *map);
-void set_player_info_loop(t_cub3d *info);
-bool is_specific_char(char c, char *str);
+void		is_valid_map(t_map *map);
+void		set_player_info_loop(t_cub3d *info);
+bool		is_specific_char(char c, char *str);
 
 /* validate_map_utils.c */
-char **strs_dup(char **strs);
-void	free_strs(char **strs);
+char		**strs_dup(char **strs);
+void		free_strs(char **strs);
 
 /* parse_utils.c" */
-int allocate_color(t_map *map, char *line);
-bool parse_color(t_map *map, char *line);
-void allocate_map(t_map *map, char *line, size_t *map_col_index);
+int			allocate_color(t_map *map, char *line);
+bool		parse_color(t_map *map, char *line);
+void		allocate_map(t_map *map, char *line, size_t *map_col_index);
 
 /* initialize_object.c */
-void initialize_object(t_cub3d *info);
-t_ray **cast_all_rays(t_cub3d *info, t_ray **ray);
-void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit);
-void	get_hit_wall_direction(t_ray *ray);
-void	set_ray_direction(t_ray *ray, double ray_angle);
-t_point	find_first_horizontal_interception(t_ray *ray);
-t_point	find_first_vertical_interception(t_ray *ray);
+void		initialize_object(t_cub3d *info);
+t_ray		**cast_all_rays(t_cub3d *info, t_ray **ray);
+void		get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit);
+void		get_hit_wall_direction(t_ray *ray);
+void		set_ray_direction(t_ray *ray, double ray_angle);
+t_point		find_first_horizontal_interception(t_ray *ray);
+t_point		find_first_vertical_interception(t_ray *ray);
 
 /* play_gaming.c */
-void play_gaming(t_cub3d *info);
+void		play_gaming(t_cub3d *info);
 
 /* rendering.c */
-int rendering(t_cub3d *info);
+int			rendering(t_cub3d *info);
 
 
 /* my_mlx_pixel_put.c */
-void	my_mlx_pixel_put(t_cub3d *info, int x, int y, int color);
+void		my_mlx_pixel_put(t_cub3d *info, int x, int y, int color);
 
 /* update.c */
-int updating(t_cub3d *info);
+int			updating(t_cub3d *info);
 
 /* key_settings.c */
-int key_settings(int key, t_cub3d *info);
-void reset_key(int key, t_cub3d *info);
+int			key_settings(int key, t_cub3d *info);
+void		reset_key(int key, t_cub3d *info);
 
 
 /* moving.c */
-void moving_forward(t_cub3d *info);
-void moving_backward(t_cub3d *info);
-void moving_rightside(t_cub3d *info);
-void moving_leftside(t_cub3d *info);
+void		moving_forward(t_cub3d *info);
+void		moving_backward(t_cub3d *info);
+void		moving_rightside(t_cub3d *info);
+void		moving_leftside(t_cub3d *info);
 
 /* looking.c */
-void looking_rightside(t_cub3d *info);
-void looking_leftside(t_cub3d *info);
+void		looking_rightside(t_cub3d *info);
+void		looking_leftside(t_cub3d *info);
 
 /* raycasting.c */
-t_ray	*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
+t_ray		*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
+
+/* interception.c */
+
 
 #endif

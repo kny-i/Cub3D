@@ -79,8 +79,7 @@ t_point	find_first_vertical_interception(t_ray *ray)
 
 void	get_hit_wall_direction(t_ray *ray)
 {
-	if (ray->horizontal_or_vertical == VERTICAL)
-	{
+	if (ray->horizontal_or_vertical == VERTICAL
 		if (ray->is_face_left)
 			ray->wall_direction = west;
 		else

@@ -1,6 +1,5 @@
 #include "cub3d.h"
 
-
 t_point	find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 {
 	double	x_step;
