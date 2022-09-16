@@ -7,3 +7,9 @@ void error_message(char *message)
 	usage();
 	exit(EXIT_FAILURE);
 }
+
+void the_end(void)
+{
+	ft_putendl_fd("have a nice day!", STDOUT_FILENO);
+	exit(EXIT_SUCCESS);
+}

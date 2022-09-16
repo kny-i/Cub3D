@@ -14,6 +14,7 @@ void move_player(t_cub3d *info)
 		info->player->position = next_point;
 	if (info->map->grid[(int)next_point->y][(int)next_point->x] == '1')
 		info->player->position = next_point;
+	info->player->should_move = false;
 }
 
 void updating_info(t_cub3d *info)

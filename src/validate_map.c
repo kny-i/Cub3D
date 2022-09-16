@@ -54,18 +54,17 @@ void set_player_info_loop(t_cub3d *info)
 		error_message("PLAY DOESN'T EXIST!!");
 }
 
-
-static bool	is_all_closed(char **map, size_t x, size_t y)
+static bool	is_this_prison(char **map, size_t x, size_t y)
 {
 	if (map[y][x] == ' ' || map[y][x] == '\0')
 		return (false);
 	if (map[y][x] == '1' || map[y][x] == 'A')
 		return (true);
 	map[y][x] = 'A';
-	return (is_all_closed(map, x + 1, y)
-			&& is_all_closed(map, x - 1, y)
-			&& is_all_closed(map, x, y + 1)
-			&& is_all_closed(map, x, y - 1));
+	return (is_this_prison(map, x + 1, y)
+			&& is_this_prison(map, x - 1, y)
+			&& is_this_prison(map, x, y + 1)
+			&& is_this_prison(map, x, y - 1));
 }
 
 bool is_map_closed(t_map *map)
@@ -84,7 +83,7 @@ bool is_map_closed(t_map *map)
 		{
 			if (map->grid[y][x] == '0')
 			{
-				if (is_all_closed(tmp_map, x, y) == false)
+				if (is_this_prison(tmp_map, x, y) == false)
 					return (false);
 			}
 			x++;

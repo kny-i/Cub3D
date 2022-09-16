@@ -6,7 +6,7 @@ void initialize_mlx(t_cub3d *info)
 	info->window = mlx_new_window(info->mlx, DEFAULT_WIDTH, DEFAULT_HEIGHT, "team:CRI");
 }
 
-int launch_cub3d(int argc, char **argv)
+int lonely_together(int argc, char **argv)
 {
 	t_cub3d *info;
 
@@ -39,5 +39,5 @@ int main(int argc, char **argv)
 {
 	setbuf(stdout, NULL);
 	setbuf(stderr, NULL);
-	launch_cub3d(argc, argv);
+	lonely_together(argc, argv);
 }
