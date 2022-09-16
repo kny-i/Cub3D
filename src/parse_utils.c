@@ -1,14 +1,16 @@
 #include "cub3d.h"
 
-int allocate_color(t_map *map, char *line)
+int	allocate_color(t_map *map, char *line)
 {
-	char **strs = ft_split(line, ',');
+	char	**strs;
+	size_t i;
+	int	rgb[3];
+
+	strs = ft_split(line, ',');
 	if (strs_len(strs) != 3)
 		error_message("INVALID RGB FORMAT!");
 	free(line);
-	size_t i = 0;
-	int rgb[3];
-
+	i = 0;
 	if (is_nbrs(strs[0]) == false
 		|| is_nbrs(strs[1]) == false
 		|| is_nbrs(strs[2]) == false)
@@ -19,11 +21,10 @@ int allocate_color(t_map *map, char *line)
 	return (rgb[0] + rgb[1] + rgb[2]);
 }
 
-bool parse_color(t_map *map, char *line)
+bool	parse_color(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "F", 1) == 0)
 	{
-
 		map->floor_color = allocate_color(map, xstrdup(skip_space_str(line + 2)));
 		return (SUCCESS);
 	}
