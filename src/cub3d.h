@@ -156,7 +156,7 @@ t_cub3d		*parser(char *file, t_cub3d *map);
 /* message.c */
 void		error_message(char *message);
 int			usage(void);
-void		the_end(void);
+int			the_end(void);
 
 /* debug.c*/
 void		debug_direction_path(t_map *map);
@@ -234,7 +234,7 @@ int			updating(t_cub3d *info);
 
 /* key_settings.c */
 int			key_settings(int key, t_cub3d *info);
-void		reset_key(int key, t_cub3d *info);
+int			reset_key(int key, t_cub3d *info);
 
 
 /* moving.c */

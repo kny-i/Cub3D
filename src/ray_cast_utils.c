@@ -1,4 +1,5 @@
 #include "cub3d.h"
+
 double	normalize_angle(double ray_angle)
 {
 	double	normalized_angle;
@@ -22,7 +23,8 @@ void	set_ray_direction(t_ray *ray, double ray_angle)
 		ray->is_face_right = true;
 }
 
-static double	pythagorean_theorem_for_delta(t_point *light_source, t_point *interception)
+static double	pythagorean_theorem_for_delta(t_point *light_source, \
+													t_point *interception)
 {
 	double	dx;
 	double	dy;
@@ -32,13 +34,16 @@ static double	pythagorean_theorem_for_delta(t_point *light_source, t_point *inte
 	return (sqrt(dx * dx + dy * dy));
 }
 
-void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *vertical_wall_hit)
+void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, \
+													t_point *vertical_wall_hit)
 {
 	double	horiz_distance;
 	double	vert_distance;
 
-	horiz_distance = pythagorean_theorem_for_delta(horizontal_wall_hit, ray->light_source);
-	vert_distance = pythagorean_theorem_for_delta(vertical_wall_hit, ray->light_source);
+	horiz_distance = \
+	pythagorean_theorem_for_delta(horizontal_wall_hit, ray->light_source);
+	vert_distance = \
+	pythagorean_theorem_for_delta(vertical_wall_hit, ray->light_source);
 	if (horiz_distance < vert_distance)
 	{
 		ray->wall_hit = *horizontal_wall_hit;
