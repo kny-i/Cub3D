@@ -12,9 +12,11 @@ void	drawing_ceiling_and_floor(t_cub3d *info)
 		while (scroll_y < DEFAULT_HEIGHT)
 		{
 			if (scroll_y < DEFAULT_HEIGHT / 2)
-				my_mlx_pixel_put(info, scroll_x, scroll_y, info->map->ceiling_color);
+				my_mlx_pixel_put \
+				(info, scroll_x, scroll_y, info->map->ceiling_color);
 			else
-				my_mlx_pixel_put(info, scroll_x, scroll_y, info->map->floor_color);
+				my_mlx_pixel_put \
+				(info, scroll_x, scroll_y, info->map->floor_color);
 			scroll_y++;
 		}
 		scroll_y = 0;
