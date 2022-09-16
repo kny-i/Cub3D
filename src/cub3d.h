@@ -137,14 +137,6 @@ typedef struct s_texture
 	int		width;
 }			t_texture;
 
-/*typedef struct s_minimap {
-	t_map	*map;
-	double	scale;
-	double	tile_size;
-	t_point	player_pos;
-	double	player_radius;
-	int		color;
-}	t_minimap;*/
 
 typedef struct s_cub3d
 {
@@ -158,23 +150,20 @@ typedef struct s_cub3d
 	t_image		**texture_image;
 }	t_cub3d;
 
-
-
-
 /* parser.c */
-t_cub3d	*parser(char *file, t_cub3d *map);
+t_cub3d		*parser(char *file, t_cub3d *map);
 
 /* message.c */
-void	error_message(char *message);
-void	the_end(void);
+void		error_message(char *message);
+void		the_end(void);
 
 /* debug.c*/
-void	debug_direction_path(t_map *map);
-void	debug_parser(t_map *map);
-void	debug_map(t_map *map);
+void		debug_direction_path(t_map *map);
+void		debug_parser(t_map *map);
+void		debug_map(t_map *map);
 
 /* start_game.c */
-void	start_game(t_cub3d *info);
+void		start_game(t_cub3d *info);
 
 /* game_init.c */
 t_image		*initialize_image_data(void *mlx_ptr, t_map *map);
@@ -262,6 +251,7 @@ void		looking_leftside(t_cub3d *info);
 t_ray		*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
 
 /* interception.c */
+t_point	find_first_vertical_interception(t_ray *ray);
 
 
 #endif

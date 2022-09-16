@@ -52,34 +52,12 @@ void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, t_point *ver
 		ray->distance = vert_distance;
 		ray->horizontal_or_vertical = VERTICAL;
 	}
-
-}
-
-t_point	find_first_horizontal_interception(t_ray *ray)
-{
-	t_point	first_horizontal_interception;
-
-	first_horizontal_interception.y = floor(ray->light_source->y / TILE_SIZE) * TILE_SIZE;
-	if (ray->is_face_down == true)
-		first_horizontal_interception.y += TILE_SIZE;
-	first_horizontal_interception.x = ray->light_source->x + (first_horizontal_interception.y - ray->light_source->y) / tan(ray->angle);
-	return (first_horizontal_interception);
-}
-
-t_point	find_first_vertical_interception(t_ray *ray)
-{
-	t_point	first_horizontal_interception;
-
-	first_horizontal_interception.x = floor(ray->light_source->x / TILE_SIZE) * TILE_SIZE;
-	if (ray->is_face_right == true)
-		first_horizontal_interception.x += TILE_SIZE;
-	first_horizontal_interception.y = ray->light_source->y + (first_horizontal_interception.x - ray->light_source->x) * tan(ray->angle);
-	return (first_horizontal_interception);
 }
 
 void	get_hit_wall_direction(t_ray *ray)
 {
-	if (ray->horizontal_or_vertical == VERTICAL
+	if (ray->horizontal_or_vertical == VERTICAL)
+	{
 		if (ray->is_face_left)
 			ray->wall_direction = west;
 		else
