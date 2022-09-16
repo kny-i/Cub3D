@@ -15,6 +15,10 @@
 # define FAILURE 1
 
 /* keys */
+# define RIGHT_ARROW_KEY 0x00ff53
+# define LEFT_ARROW_KEY 0x00ff51
+# define M_KEY 0x006d
+# define ESC_KEY 0x00ff1b
 
 /* colors */
 # define OFFSET 8
@@ -25,12 +29,13 @@
 # define DEFAULT_SPEED 30
 # define ROTATE_SPEED 5 * (M_PI / 180)
 
-# define DEFAULT_WIDTH 649
-# define DEFAULT_HEIGHT 410
-# define TILE_SIZE 32
+# define DEFAULT_WIDTH 640
+# define DEFAULT_HEIGHT 416
+# define TILE_SIZE 64
 
 /* related to math */
-# define FOV 1 / M_PI * 3
+# define FOV 2 / 3 * M_PI
+# define PI 3.1415926535897932384264338327950288419716939937910
 
 # define HORIZONTAL 0
 # define VERTICAL 1
@@ -38,47 +43,33 @@
 # define WALL_WIDTH 1
 # define NB_RAYS DEFAULT_WIDTH
 # define MOVE_STEP 2
-
-/* KEY MACROS */
-# define ESC_KEY	0xff1b
-# define W_KEY		'w'
-# define S_KEY		's'
-# define A_KEY		'a'
-# define D_KEY		'd'
-# define LOOKING_LEFT_KEY	0xff51
-# define LOOKING_RIGHT_KEY	0xff53
-
-# define STRUCTURE_NOTIFY_MASK 131072
-# define WINDOW_DESTROY 17
-
-typedef enum s_ray_direction
+typedef enum
 {
 	ray_up = 0,
 	ray_down = 1,
 	ray_right = 2,
 	ray_left = 3
-}			t_ray_direction;
+} t_ray_direction;
 
-typedef enum s_direction
+typedef enum
 {
 	north = 0,
 	south = 1,
 	east  = 2,
 	west = 3,
-}			t_direction;
+} e_direction;
 
 typedef struct s_image {
-	void	*image;
-	char	*address;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	int		width;
-	int		height;
-}				t_image;
+	void *image;
+	char *address;
+	int bpp;//bits per pixel
+	int size_line;
+	int endian;
+	int width;
+	int height;
+} t_image;
 
-typedef struct	s_point
-{
+typedef struct	s_point {
 	double		x;
 	double		y;
 }				t_point;
@@ -110,7 +101,7 @@ typedef struct s_player {
 	t_point *position;
 	t_point  wall_hit;
 //	long long turn_direction;
-	double walk_direction;
+	long long walk_direction;
 	double angle;
 	double rotate_speed;
 	//double player_to_plane_distance;
@@ -193,12 +184,12 @@ t_cub3d *parser(char *file, t_cub3d *map);
 
 /* message.c */
 void error_message(char *message);
-void the_end(void);
 
 /* debug.c*/
 void debug_direction_path(t_map *map);
 void debug_parser(t_map *map);
 void debug_map(t_map *map);
+
 
 /* start_game.c */
 void start_game(t_cub3d *info);
@@ -220,7 +211,6 @@ int ft_isspace(int c);
 int usage(void);
 char *skip_space_str(char *str);
 double distance_to_btw_points(double x0, double y0, double x1, double y1);
-size_t strs_len(char **strs);
 
 /* related_to_is.c */
 bool is_all_specific_char(char *line, char *specific_strs);
@@ -259,27 +249,19 @@ void play_gaming(t_cub3d *info);
 /* rendering.c */
 int rendering(t_cub3d *info);
 
+size_t strs_len(char **strs);//where?
 
 /* my_mlx_pixel_put.c */
 void	my_mlx_pixel_put(t_cub3d *info, int x, int y, int color);
-
 /* update.c */
 int updating(t_cub3d *info);
 
-/* key_settings.c */
-int key_settings(int key, t_cub3d *info);
-void reset_key(int key, t_cub3d *info);
-
-
-/* moving.c */
-void moving_forward(t_cub3d *info);
-void moving_backward(t_cub3d *info);
-void moving_rightside(t_cub3d *info);
-void moving_leftside(t_cub3d *info);
-
-/* looking.c */
-void looking_rightside(t_cub3d *info);
-void looking_leftside(t_cub3d *info);
-
+/* init.c */
+//void init_map(t_cub3d *info);
+//void init(t_cub3d *info);
+//void init_player(t_player *player);
+//void init_ray(t_ray **ray);
+//void init_texture(t_texture **texture);
+//void init_sprite(t_sprite **sprite);
 
 #endif

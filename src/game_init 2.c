@@ -1,26 +1,32 @@
 #include "cub3d.h"
 
-t_image	*load_texture(void *mlx_ptr, char *path)
+t_image *load_texture(void *mlx_ptr, char *path)
 {
 	t_image	*texture;
 
 	texture = ft_calloc(1, sizeof(t_image));
-	texture->image = \
-			mlx_xpm_file_to_image(mlx_ptr, path, &texture->width, &texture->height);
+	texture->image =
+			mlx_xpm_file_to_image(mlx_ptr,
+								  path,
+								  &texture->width,
+								  &texture->height);
 	if (texture->image == NULL)
 		return (NULL);
-	texture->address = \
-	mlx_get_data_addr(texture->image, &texture->bpp, &texture->size_line, &texture->endian);
+	texture->address = mlx_get_data_addr(texture->image,
+											   &texture->bpp,
+											   &texture->size_line,
+											   &texture->endian);
 	if (texture == NULL)
 		return (NULL);
 	return (texture);
 }
 
-t_image	**initialize_texture(void *mlx_ptr, char **path)
+t_image **initialize_texture(void *mlx_ptr, char **path)
 {
 	t_image	**texture_image;
 
 	texture_image = ft_calloc(4, sizeof(t_image *));
+
 	texture_image[north] = load_texture(mlx_ptr, path[north]);
 	texture_image[south] = load_texture(mlx_ptr, path[south]);
 	texture_image[east] = load_texture(mlx_ptr, path[east]);
@@ -29,14 +35,14 @@ t_image	**initialize_texture(void *mlx_ptr, char **path)
 		|| (texture_image[south] == NULL)
 		|| (texture_image[east] == NULL)
 		|| (texture_image[west] == NULL))
-		error_message("INVALID TEXTURE PATH!" \
+		error_message("INVALID TEXTURE PATH!"
 					  " OR INVALID DIRECTION FORMAT!");
 	return (texture_image);
 }
 
-t_image	*initialize_image_data(void *mlx_ptr, t_map *map)
+t_image *initialize_image_data(void *mlx_ptr, t_map *map)
 {
-	t_image	*image;
+	t_image *image;
 
 	map->width = DEFAULT_WIDTH;
 	map->height = DEFAULT_HEIGHT;

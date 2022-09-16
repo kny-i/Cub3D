@@ -1,0 +1,17 @@
+**/**tmp
+**/tmp**
+**/actual
+**/expected
+**/*Cmake*
+**/*.s
+**/*.d
+**/*.o
+**/a.out
+/ex02
+**/**idea
+**/idea**
+**/**idea**
+**/*sample*
+**/**shimaecub3d**
+**/**shimaecub3d
+**/shimaecub3d**
