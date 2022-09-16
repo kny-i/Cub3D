@@ -146,22 +146,22 @@ typedef struct s_texture
 	int		color;
 }	t_minimap;*/
 
-typedef struct s_cub3d {
+typedef struct s_cub3d
+{
 
-	void	*mlx;
-	void	*window;
-
+	void		*mlx;
+	void		*window;
 	/* basic info */
-	t_image *data;
+	t_image		*data;
 
 	/* map info */
-	t_map *map;
+	t_map		*map;
 
 	/* point info */
-	t_point *point;
+	t_point		*point;
 
 	/* player info */
-	t_player *player;
+	t_player	*player;
 
 	/* ray info */
 	t_ray **ray;
@@ -275,7 +275,5 @@ void looking_leftside(t_cub3d *info);
 
 /* raycasting.c */
 t_ray	*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
-t_point	get_horizontal_wall_hit(t_ray *ray, t_map *map);
-t_point	get_vertical_wall_hit(t_ray *ray, t_map *map);
 
 #endif
