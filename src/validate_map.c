@@ -60,7 +60,7 @@ static bool	is_this_prison(char **map, size_t x, size_t y)
 	if (map[y][x] == '1' || map[y][x] == 'A')
 		return (true);
 	map[y][x] = 'A';
-	return (is_this_prison(map, x + 1, y
+	return (is_this_prison(map, x + 1, y)
 			&& is_this_prison(map, x - 1, y)
 			&& is_this_prison(map, x, y + 1)
 			&& is_this_prison(map, x, y - 1));

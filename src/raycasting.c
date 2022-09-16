@@ -37,7 +37,7 @@ t_point	find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 		if (point.x < 0.0 || (double )map->nb_row * TILE_SIZE < point.x \
 		|| point.y < 0.0 || (double )map->nb_col * TILE_SIZE < point.y)
 			return (point);
-		if (map->grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE \
+		if (map->grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE] \
 		== '1')
 			return (point);
 		point.x += x_step;
