@@ -1,23 +1,5 @@
 #include "cub3d.h"
 
-void	get_nb_col(int fd, t_map *map, size_t *nb_col)
-{
-	char	*line;
-
-	while (true)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		if (is_all_strs_space(line) == true)
-			continue ;
-		if (is_one_at_first(line) == false)
-			continue ;
-		if (is_all_specific_char(line, "NSEW 01\0") == true)
-			(*nb_col)++;
-	}
-}
-
 bool	parst_direction(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "NO", 2) == 0)

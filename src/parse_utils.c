@@ -44,3 +44,21 @@ void	allocate_map(t_map *map, char *line, size_t *map_col_index)
 	map->grid[*map_col_index] = xstrdup(line);
 	(*map_col_index)++;
 }
+
+void	get_nb_col(int fd, t_map *map, size_t *nb_col)
+{
+	char	*line;
+
+	while (true)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		if (is_all_strs_space(line) == true)
+			continue ;
+		if (is_one_at_first(line) == false)
+			continue ;
+		if (is_all_specific_char(line, "NSEW 01\0") == true)
+			(*nb_col)++;
+	}
+}
