@@ -47,12 +47,14 @@ int	get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 
 	texture_offset_x = calc_texture_offset_x(ray, texture);
 	distance_from_top = y + (strip.height / 2) - (DEFAULT_HEIGHT / 2);
-	texture_offset_y = distance_from_top * ((double)texture->height / strip.height);
-	color = get_pixel_from_texture(texture, texture_offset_x, texture_offset_y);
+	texture_offset_y = \
+	distance_from_top * ((double)texture->height / strip.height);
+	color = get_pixel_from_texture \
+	(texture, texture_offset_x, texture_offset_y);
 	return (color);
 }
 
-void put_wallpaper(t_cub3d *info)
+void	put_wallpaper(t_cub3d *info)
 {
 	int		scroll_x;
 	int		scroll_y;
@@ -78,7 +80,7 @@ void put_wallpaper(t_cub3d *info)
 
 int	rendering(t_cub3d *info)
 {
-	cast_all_rays(info,info->ray);
+	cast_all_rays(info, info->ray);
 	drawing_ceiling_and_floor(info);
 	put_wallpaper(info);
 	mlx_put_image_to_window(info->mlx, info->window, info->data->image, 0, 0);
