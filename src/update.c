@@ -17,12 +17,12 @@ void move_player(t_cub3d *info)
 		return ;
 	}
 		info->player->position = next_point;
-//	if (info->map->grid[(int)next_point->y][(int)next_point->x] == '1')
-//	{
-//		printf("x:[%lf]\n", info->player->position->x);
-//		printf("y:[%lf]\n", info->player->position->y);
-//		info->player->should_move = false;
-//	}
+	if (info->map->grid[(int)next_point->y / TILE_SIZE][(int)next_point->x / TILE_SIZE] == '1')
+	{
+		printf("x:[%lf]\n", info->player->position->x);
+		printf("y:[%lf]\n", info->player->position->y);
+		info->player->should_move = false;
+	}
 }
 
 void updating_info(t_cub3d *info)

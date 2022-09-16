@@ -25,13 +25,12 @@
 # define DEFAULT_SPEED 30
 # define ROTATE_SPEED 5 * (M_PI / 180)
 
-# define DEFAULT_WIDTH 1600
-# define DEFAULT_HEIGHT 800
-# define TILE_SIZE 64
+# define DEFAULT_WIDTH 649
+# define DEFAULT_HEIGHT 410
+# define TILE_SIZE 32
 
 /* related to math */
-# define FOV 2.5
-# define PI 3.1415926535897932384264338327950288419716939937910
+# define FOV 1 / M_PI * 3
 
 # define HORIZONTAL 0
 # define VERTICAL 1

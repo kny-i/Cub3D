@@ -27,14 +27,14 @@ t_strip get_strip_info(t_cub3d *info, t_ray *ray)
 
 	projected_distance = (DEFAULT_WIDTH / 2) / tan(FOV / 2);
 	ray_to_wall_distance = ray->distance * cos(ray->angle - info->player->angle);
-//	printf("distance[%lf]\n", ray->distance);
-//	printf("ray->angle:%lf\n", ray->angle);
-//	printf("info->player->angle:%lf\n", info->player->angle);
+//	printf("ray->distance:%lf\n", ray->distance);
+//	printf("ray->distance:%lf\n", ray_to_wall_distance);
+
 	strip.height = (TILE_SIZE / ray_to_wall_distance) * projected_distance;
 	strip.top_pixel = (DEFAULT_HEIGHT / 2) - (strip.height / 2);
 	if (strip.top_pixel < 0)
 		strip.top_pixel = 0;
-	strip.bottom_pixel = (DEFAULT_HEIGHT/ 2) + (strip.height / 2);
+	strip.bottom_pixel = (DEFAULT_HEIGHT / 2) + (strip.height / 2);
 	if (strip.bottom_pixel > DEFAULT_HEIGHT)
 		strip.bottom_pixel = DEFAULT_HEIGHT;
 	return (strip);
@@ -50,8 +50,8 @@ t_image *choose_texture_image(t_cub3d *info, t_ray *ray)
 		return (info->texture_image[west]);
 	if (ray->wall_direction == east)
 		return (info->texture_image[east]);
-//	else
-//		return (NULL);
+	else
+		return (NULL);
 }
 
 static int	get_pixel_from_texture(t_image *tex, int x, int y)

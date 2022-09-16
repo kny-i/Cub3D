@@ -60,7 +60,7 @@ t_point	find_first_horizontal_interception(t_ray *ray)
 	t_point	first_horizontal_interception;
 
 	first_horizontal_interception.y = floor(ray->light_source->y / TILE_SIZE) * TILE_SIZE;
-	if (ray->is_face_down)
+	if (ray->is_face_down == true)
 		first_horizontal_interception.y += TILE_SIZE;
 	first_horizontal_interception.x = ray->light_source->x + (first_horizontal_interception.y - ray->light_source->y) / tan(ray->angle);
 	return (first_horizontal_interception);
@@ -71,7 +71,7 @@ t_point find_first_vertical_interception(t_ray *ray)
 	t_point	first_horizontal_interception;
 
 	first_horizontal_interception.x = floor(ray->light_source->x / TILE_SIZE) * TILE_SIZE;
-	if (ray->is_face_right)
+	if (ray->is_face_right == true)
 		first_horizontal_interception.x += TILE_SIZE;
 	first_horizontal_interception.y = ray->light_source->y + (first_horizontal_interception.x - ray->light_source->x) * tan(ray->angle);
 	return (first_horizontal_interception);
@@ -90,10 +90,12 @@ t_point find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	point.y = interceptopn.y;
 	while (true)
 	{
-		if (point.x < 0.0 || (double)map->nb_row < point.x
-		|| point.y < 0.0 || (double)map->nb_col < point.y)
+		if (point.x < 0.0 || (double)map->nb_row * TILE_SIZE < point.x
+		|| point.y < 0.0 || (double)map->nb_col * TILE_SIZE < point.y)
 			return (point);
-		if (map->grid[(int)point.y][(int)point.x] == '1')
+//		printf("%d\n", (int)point.x);
+//		printf("%d\n", (int)point.y);
+		if (map->grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE] == '1')
 			return (point);
 		point.x += x_step;
 		point.y += y_step;
@@ -112,10 +114,10 @@ t_point find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	point.y = interceptopn.y;
 	while (true)
 	{
-		if (point.x < 0.0 || (double )map->nb_row < point.x
-		|| point.y < 0.0 || (double )map->nb_col < point.y)
+		if (point.x < 0.0 || (double )map->nb_row * TILE_SIZE < point.x
+		|| point.y < 0.0 || (double )map->nb_col * TILE_SIZE < point.y)
 			return (point);
-		if (map->grid[(int)point.y][(int)point.x] == '1')
+		if (map->grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE] == '1')
 			return (point);
 		point.x += x_step;
 		point.y += y_step;
