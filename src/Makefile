@@ -43,6 +43,7 @@ norm:
 	norminette $(srcs) $(hsrcs)
 	@echo $(green)"[exit status = $?]\n"$(no)
 
+
 #################[easy compile && debug]####################
 success1: all
 	cat ../test/normal/00_simple_20_13.cub
