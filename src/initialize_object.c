@@ -121,26 +121,6 @@ t_point find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	}
 }
 
-t_point	get_horizontal_wall_hit(t_ray *ray, t_map *map)
-{
-	t_point	interception;
-	t_point	wall_hit;
-
-	interception = find_first_horizontal_interception(ray);
-	wall_hit = find_horizontal_wall_hit(ray, map, interception);
-	return (wall_hit);
-}
-
-t_point	get_vertical_wall_hit(t_ray *ray, t_map *map)
-{
-	t_point	interception;
-	t_point	wall_hit;
-
-	interception = find_first_vertical_interception(ray);
-	wall_hit = find_vertical_wall_hit(ray, map, interception);
-	return (wall_hit);
-}
-
 void	get_hit_wall_direction(t_ray *ray)
 {
 	if (ray->horizontal_or_vertical == VERTICAL)
@@ -157,19 +137,6 @@ void	get_hit_wall_direction(t_ray *ray)
 		else
 			ray->wall_direction = south;
 	}
-}
-
-t_ray	*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle)
-{
-	t_point	horizotal_wall_hit;
-	t_point	vertical_wall_hit;
-
-	set_ray_direction(ray, ray_angle);
-	horizotal_wall_hit = get_horizontal_wall_hit(ray, info->map);
-	vertical_wall_hit = get_vertical_wall_hit(ray, info->map);
-	get_closest_wall_hit(ray, &horizotal_wall_hit, &vertical_wall_hit);
-	get_hit_wall_direction(ray);
-	return (ray);
 }
 
 t_ray	**cast_all_rays(t_cub3d *info, t_ray **ray)
@@ -207,6 +174,8 @@ t_ray	**initialize_ray(t_cub3d *info)
 
 void initialize_object(t_cub3d *info)
 {
+	/* 不要 */
+//	info->point = initialize_point(OFFSET, OFFSET, WALL_COLOR);
 	info->texture_image = initialize_texture(info->mlx, info->map->path);
 	info->data = initialize_image_data(info->mlx, info->map);
 	info->player = initialize_player(info);

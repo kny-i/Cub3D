@@ -92,45 +92,37 @@ typedef struct s_map
 	int		max_height;
 	size_t	nb_col;
 	size_t	nb_row;
+	bool	is_filled_start_position;
+	int		ceiling_color;
+	int		floor_color;
+	char	*path[4];
+	t_image	*texture_image[4];
+}				t_map;
 
-	//t_point *start_position;
-	bool is_filled_start_position;
-	//double angle;
-//	size_t nb_ray;
-	int ceiling_color;
-	int floor_color;
-	char *path[4];
-	t_image *texture_image[4];
-
-//	size_t nb_sprites;
-//	t_point **sprite_position;
-} t_map;
-
-typedef struct s_player {
-	t_point *position;
-	t_point  wall_hit;
-//	long long turn_direction;
-	double walk_direction;
-	double angle;
-	double rotate_speed;
-	//double player_to_plane_distance;
+typedef struct s_player
+{
+	t_point	*position;
+	t_point	wall_hit;
+	double	walk_direction;
+	double	angle;
+	double	rotate_speed;
 	bool	should_move;
 	bool	should_rotate;
-} t_player;
+}				t_player;
 
 typedef struct s_ray {
-	double angle;
-	t_point *light_source;
-	t_point wall_hit;
-	double distance;
-	bool horizontal_or_vertical;
-	bool hit_vertical_flag;
-	bool is_face_up;
-	bool is_face_down;
-	bool is_face_left;
-	bool is_face_right;
-	t_direction wall_direction;
-} t_ray;
+	double		angle;
+	t_point		*light_source;
+	t_point		wall_hit;
+	double		distance;
+	bool		horizontal_or_vertical;
+	bool		hit_vertical_flag;
+	bool		is_face_up;
+	bool		is_face_down;
+	bool		is_face_left;
+	bool		is_face_right;
+	t_direction	wall_direction;
+}				t_ray;
 
 typedef struct s_wall_strip {
 	int	height;
@@ -138,11 +130,12 @@ typedef struct s_wall_strip {
 	int	bottom_pixel;
 }	t_strip;
 
-typedef struct s_texture {
-	t_image *data;
-	int height;
-	int width;
-} t_texture;
+typedef struct s_texture
+{
+	t_image	*data;
+	int		height;
+	int		width;
+}			t_texture;
 
 /*typedef struct s_minimap {
 	t_map	*map;
@@ -155,9 +148,8 @@ typedef struct s_texture {
 
 typedef struct s_cub3d {
 
-	/*mlx info*/
-	void *mlx;
-	void *window;
+	void	*mlx;
+	void	*window;
 
 	/* basic info */
 	t_image *data;
@@ -282,7 +274,8 @@ void looking_rightside(t_cub3d *info);
 void looking_leftside(t_cub3d *info);
 
 /* raycasting.c */
-
-
+t_ray	*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
+t_point	get_horizontal_wall_hit(t_ray *ray, t_map *map);
+t_point	get_vertical_wall_hit(t_ray *ray, t_map *map);
 
 #endif
