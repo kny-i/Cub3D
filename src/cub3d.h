@@ -254,5 +254,10 @@ t_ray		*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
 t_point		find_first_vertical_interception(t_ray *ray);
 t_point		find_first_horizontal_interception(t_ray *ray);
 
+/* ray_cast_utils*/
+void		get_hit_wall_direction(t_ray *ray);
+/*init ray*/
+t_ray		**initialize_ray(t_cub3d *info);
+
 
 #endif
