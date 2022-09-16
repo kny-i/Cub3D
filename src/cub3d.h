@@ -252,6 +252,7 @@ t_ray		*cast_ray(t_ray *ray, t_cub3d *info, double ray_angle);
 
 /* interception.c */
 t_point	find_first_vertical_interception(t_ray *ray);
+t_point	find_first_horizontal_interception(t_ray *ray);
 
 
 #endif
