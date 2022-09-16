@@ -1,12 +1,12 @@
 #include "cub3d.h"
 
-void get_nb_col(int fd, t_map *map, size_t *nb_col)
+void	get_nb_col(int fd, t_map *map, size_t *nb_col)
 {
-	char *line;
+	char	*line;
+
 	while (true)
 	{
-
-		line = get_next_line(fd);
+		{line = get_next_line(fd);
 		if (line == NULL)
 			break ;
 		if (is_all_strs_space(line) == true)
