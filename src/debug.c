@@ -31,6 +31,13 @@ void	debug_nb(t_map *map)
 	fprintf(stderr, "nb_row::%zu\n", map->nb_row);
 }
 
+ void debug_strip(t_strip strip)
+{
+	printf("height = [%d]\n", strip.height);
+	printf("bottom = [%d]\n", strip.bottom_pixel);
+	printf("top = [%d]\n", strip.top_pixel);
+}
+
 void	debug_parser(t_map *map)
 {
 

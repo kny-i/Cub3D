@@ -1,60 +1,5 @@
 #include "cub3d.h"
 
-void	drawing_ceiling_and_floor(t_cub3d *info)
-{
-	int	scroll_x;
-	int	scroll_y;
-
-	scroll_x = 0;
-	scroll_y = 0;
-	while (scroll_x < NB_RAYS)
-	{
-		while (scroll_y < DEFAULT_HEIGHT)
-		{
-			if (scroll_y < DEFAULT_HEIGHT / 2)
-				my_mlx_pixel_put(info, scroll_x, scroll_y, info->map->ceiling_color);
-			else
-				my_mlx_pixel_put(info, scroll_x, scroll_y, info->map->floor_color);
-			scroll_y++;
-		}
-		scroll_y = 0;
-		scroll_x++;
-	}
-}
-
-t_strip get_strip_info(t_cub3d *info, t_ray *ray)
-{
-	t_strip strip;
-	double projected_distance;
-	double ray_to_wall_distance;
-
-	projected_distance = (DEFAULT_WIDTH / 2) / tan(FOV / 2);
-	ray_to_wall_distance = ray->distance * cos(ray->angle - info->player->angle);
-
-	strip.height = (TILE_SIZE / ray_to_wall_distance) * projected_distance;
-	strip.top_pixel = (DEFAULT_HEIGHT / 2) - (strip.height / 2);
-	if (strip.top_pixel < 0)
-		strip.top_pixel = 0;
-	strip.bottom_pixel = (DEFAULT_HEIGHT / 2) + (strip.height / 2);
-	if (strip.bottom_pixel > DEFAULT_HEIGHT)
-		strip.bottom_pixel = DEFAULT_HEIGHT;
-	return (strip);
-}
-
-t_image *choose_texture_image(t_cub3d *info, t_ray *ray)
-{
-	if (ray->wall_direction == north)
-		return (info->texture_image[north]);
-	if (ray->wall_direction == south)
-		return (info->texture_image[south]);
-	if (ray->wall_direction == west)
-		return (info->texture_image[west]);
-	if (ray->wall_direction == east)
-		return (info->texture_image[east]);
-	else
-		return (NULL);
-}
-
 static int	get_pixel_from_texture(t_image *tex, int x, int y)
 {
 	int		color;
@@ -107,30 +52,25 @@ int	get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 	return (color);
 }
 
-void debug_strip(t_strip strip)
-{
-	printf("height = [%d]\n", strip.height);
-	printf("bottom = [%d]\n", strip.bottom_pixel);
-	printf("top = [%d]\n", strip.top_pixel);
-}
-
 void put_wallpaper(t_cub3d *info)
 {
-	int scroll_x;
-	t_strip strip;
-	int texture_color;
-	t_image *texture;
+	int		scroll_x;
+	int		scroll_y;
+	t_strip	strip;
+	int		texture_color;
+	t_image	*texture;
 
 	scroll_x = 0;
-	while(scroll_x < NB_RAYS)
+	while (scroll_x < NB_RAYS)
 	{
 		strip = get_strip_info(info, info->ray[scroll_x]);
-		int scroll_y = strip.top_pixel;
+		scroll_y = strip.top_pixel;
 		while (scroll_y < strip.bottom_pixel)
 		{
 			texture = choose_texture_image(info, info->ray[scroll_x]);
-			texture_color = get_texture_pixel(texture, info->ray[scroll_x], scroll_y, strip);
-			my_mlx_pixel_put(info, scroll_x, scroll_y++,  texture_color);
+			texture_color = \
+			get_texture_pixel(texture, info->ray[scroll_x], scroll_y, strip);
+			my_mlx_pixel_put(info, scroll_x, scroll_y++, texture_color);
 		}
 		scroll_x++;
 	}

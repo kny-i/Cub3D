@@ -258,6 +258,8 @@ t_point		find_first_horizontal_interception(t_ray *ray);
 void		get_hit_wall_direction(t_ray *ray);
 /*init ray*/
 t_ray		**initialize_ray(t_cub3d *info);
-
-
+/* rendering_utils.c */
+t_strip		get_strip_info(t_cub3d *info, t_ray *ray);
+t_image		*choose_texture_image(t_cub3d *info, t_ray *ray);
+void		drawing_ceiling_and_floor(t_cub3d *info);
 #endif
