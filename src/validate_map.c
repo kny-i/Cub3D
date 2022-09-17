@@ -96,5 +96,5 @@ bool	is_map_closed(t_map *map)
 void	is_valid_map(t_map *map)
 {
 	if (is_map_closed(map) == false)
-		error_message("INVALID MAP: NOT CLOSED");
+		error_message("INVALID MAP: NOT CLOSED!");
 }
