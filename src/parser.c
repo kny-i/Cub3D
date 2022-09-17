@@ -26,7 +26,7 @@ bool	parst_direction(t_map *map, char *line)
 		return (FAILURE);
 }
 
-bool	parse_map(t_map *map, char *line, size_t *map_col_index)
+bool	parse_map(t_map *map, char *line, int *map_col_index)
 {
 	if (is_all_specific_char(line, "NSEW 01") == false)
 		return (FAILURE);
@@ -37,7 +37,7 @@ bool	parse_map(t_map *map, char *line, size_t *map_col_index)
 	}
 }
 
-void	parse_cub3d_file(t_map *map, char *line, size_t *map_col_index)
+void	parse_cub3d_file(t_map *map, char *line, int *map_col_index)
 {
 	if (parst_direction(map, line) == SUCCESS \
 	|| parse_color(map, line) == SUCCESS \
