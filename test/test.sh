@@ -36,7 +36,6 @@ echo -e $red"[invalid filename case]"$no
 $execpath ./test/ko/cub.cub.42
 echo -e $red"[invalid filename case]"$no
 
-
-
-
+$execpath ./test/ko/invalid_rgb.cub
+echo -e $red"[invalid rgb case]"$no
 

@@ -72,14 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-###########[ko case]#############
-cko: all
-	@echo $(red)"[invalid filename case]"$(no)
-	@./$(NAME) ../test/ko/cub.cub.42
-
-dko: all
-	@echo $(red)"[invalid rgb case]"$(no)
-	@./$(NAME) ../test/ko/invalid_rgb.cub
 
 eko: all
 	@echo $(red)"[invalid argument count case]"$(no)
