@@ -58,7 +58,7 @@ void	parse_setup(t_cub3d *info, char *file)
 	if (fd < 0)
 		error_message("OPEN FAILURE!");
 	nb_col = 0;
-	get_nb_col(fd, info->map, &nb_col);
+	get_nb_col(fd, &nb_col);
 	close(fd);
 	info->map = xcalloc(1, sizeof(t_map));
 	info->map->is_filled_start_position = false;

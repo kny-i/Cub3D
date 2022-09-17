@@ -11,7 +11,7 @@ int	lonely_together(int argc, char **argv)
 {
 	t_cub3d	*info;
 
-	if (argc == 2)
+	if (argc != 2)
 		return (usage());
 	info = xcalloc(1, sizeof(t_cub3d));
 	info = parser(argv[1], info);

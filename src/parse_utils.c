@@ -3,7 +3,7 @@
 int	allocate_color(t_map *map, char *line)
 {
 	char	**strs;
-	size_t	i;
+	int		i;
 	int		rgb[3];
 
 	strs = ft_split(line, ',');
@@ -45,7 +45,7 @@ void	allocate_map(t_map *map, char *line, size_t *map_col_index)
 	(*map_col_index)++;
 }
 
-void	get_nb_col(int fd, t_map *map, size_t *nb_col)
+void	get_nb_col(int fd, size_t *nb_col)
 {
 	char	*line;
 
