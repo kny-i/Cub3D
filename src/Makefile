@@ -13,7 +13,6 @@ CFLAGS = -Wextra
 
 debug_flag = -g3 -fsanitize=address
 CC = cc
-TEST = -g
 
 ifeq ($(MAKECMDGOALS), test)
 TEST = -D TEST=0
@@ -31,6 +30,9 @@ $(NAME): $(mlxpath) $(objs)
 
 mlx:
 	@$(mlxmake)
+
+ok: all
+	./$(NAME) ../test/ok/dup.cub
 
 clean:
 	@$(mlxmake) clean;
