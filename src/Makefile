@@ -19,7 +19,7 @@ TEST = -D TEST=0
 endif
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(debug_flag) $(TEST) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(debug_flag) $(TEST) -c -o $@ $<
 
 all: $(NAME)
 
