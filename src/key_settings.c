@@ -16,7 +16,7 @@ int	key_settings(int key, t_cub3d *info)
 		looking_leftside(info);
 	if (key == LOOKING_RIGHT_KEY)
 		looking_rightside(info);
-	return (0);
+	return (42);
 }
 
 int	reset_key(int key, t_cub3d *info)
