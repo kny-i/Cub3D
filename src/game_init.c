@@ -10,6 +10,7 @@ t_image	*load_texture(void *mlx_ptr, char *path)
 	(mlx_ptr, path, &texture->width, &texture->height);
 	if (texture->image == NULL)
 		return (NULL);
+	texture->address = NULL;
 	texture->address = \
 	mlx_get_data_addr \
 	(texture->image, &texture->bpp, &texture->size_line, &texture->endian);

@@ -1,12 +1,12 @@
 #include "cub3d.h"
 
-static int	get_pixel_from_texture(t_image *tex, int x, int y)
+static int	get_pixel_from_texture(t_image *texture, int x, int y)
 {
 	int		color;
 	char	*color_addr;
 
 	color_addr = \
-		tex->address + (y * tex->size_line + x * (tex->bpp / 8));
+		texture->address + (y * texture->size_line + x * (texture->bpp / 8));
 	color = *(unsigned int *)color_addr;
 	return (color);
 }
@@ -70,6 +70,7 @@ void	put_wallpaper(t_cub3d *info)
 		while (scroll_y < strip.bottom_pixel)
 		{
 			texture = choose_texture_image(info, info->ray[scroll_x]);
+//			printf("%p\n", texture->address);
 			texture_color = \
 			get_texture_pixel(texture, info->ray[scroll_x], scroll_y, strip);
 			my_mlx_pixel_put(info, scroll_x, scroll_y++, texture_color);

@@ -15,6 +15,7 @@ int	lonely_together(int argc, char **argv)
 		error_message("INVALID ARGUMENT COUNT!");
 	info = xcalloc(1, sizeof(t_cub3d));
 	info = parser(argv[1], info);
+//	info = (t_cub3d *){0};
 	is_valid_map(info->map);
 	if (TEST == true)
 	{
