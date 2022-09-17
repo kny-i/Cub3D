@@ -62,27 +62,7 @@ failure2: all
 leaks: all
 	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
 
-
-###########[tester]#####################
-red='\033[0;31m'
-green='\033[32m'
-no='\033[0m'
-###########[ok case]############
-
 test: all
 	bash ../test/test.sh
 
-gko: all
-	@echo $(red)"[invalid map duplicate player]"$(no)
-	@./$(NAME) ../test/ko/invalid_map_dup_player.cub
-
-hko: all
-	@echo $(red)"[invalid map not closed]"$(no)
-	@./$(NAME) ../test/ko/invalid_map_not_closed.cub
-
-iko: all
-	@echo $(red)"[invalid map player outside map]"$(no)
-	@./$(NAME) ../test/ko/invalid_map_player_outside.cub
-
-
-.PHONY: all clean fclean mlx re test
+.PHONY: all clean fclean mlx re test leaks

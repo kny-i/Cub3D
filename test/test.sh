@@ -50,3 +50,9 @@ echo -e $red"[invalid map char]"$no
 
 $execpath ../test/ko/invalid_map_dup_player.cub
 echo -e $red"[invalid map duplicate player]"$no
+
+$execpath ../test/ko/invalid_map_not_closed.cub
+echo -e $red"[invalid map not closed]"$no
+
+$execpath ../test/ko/invalid_map_player_outside.cub
+echo -e $red"[invalid map player outside map]"$no
