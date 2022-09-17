@@ -48,4 +48,5 @@ echo -e $red"[invalid argument count case]"$no
 $execpath ../test/ko/invalid_map_char.cub
 echo -e $red"[invalid map char]"$no
 
-
+$execpath ../test/ko/invalid_map_dup_player.cub
+echo -e $red"[invalid map duplicate player]"$no

@@ -72,10 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-fko: all
-	@echo $(red)"[invalid map char]"$(no)
-	@./$(NAME) ../test/ko/invalid_map_char.cub
-
 gko: all
 	@echo $(red)"[invalid map duplicate player]"$(no)
 	@./$(NAME) ../test/ko/invalid_map_dup_player.cub
