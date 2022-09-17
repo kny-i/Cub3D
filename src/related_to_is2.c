@@ -25,7 +25,7 @@ bool	is_wall(t_map *map, int x, int y, char identification)
 	return (false);
 }
 
-bool	is_valid_format_file(char *filename)
+bool	is_valid_format_file(const char *filename)
 {
 	while (*filename)
 		filename++;

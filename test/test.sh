@@ -6,6 +6,7 @@ no='\033[0m'
 
 execpath="../src/cub3d"
 
+#################!!!!!!!!!OK!!!!!!!!!!!###################
 $execpath ../test/normal/00_simple_20_13.cub
 echo -e $green"[ok case]"$no
 
@@ -27,6 +28,7 @@ echo -e $green"[order is not important]"$no
 $execpath ../test/ok/space_in_map.cub
 echo -e $green"[No problem with closed map]"$no
 
+#################!!!!!!!!!KO!!!!!!!!!!!###################
 $execpath ../test/ko/not_nbrs.cub
 echo -e $red"[not nbrs case]"$no
 
@@ -56,3 +58,6 @@ echo -e $red"[invalid map not closed]"$no
 
 $execpath ../test/ko/invalid_map_player_outside.cub
 echo -e $red"[invalid map player outside map]"$no
+
+$execpath ../test/ko/directory.cub
+echo -e $red"direcotry dot cubfile"$no

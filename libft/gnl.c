@@ -1,4 +1,5 @@
 #include "libft.h"
+#include "../src/cub3d.h"
 
 static char	*get_output_line(char *save)
 {
@@ -66,6 +67,7 @@ static char	*read_line(int fd, char *save)
 		if (n == READ_ERROR)
 		{
 			free(buf);
+			error_message("READ ERROR!");
 			return (NULL);
 		}
 		buf[n] = '\0';

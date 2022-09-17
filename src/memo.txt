@@ -8,4 +8,3 @@ xpmの変更
 
 <testerのcheck・error_handling関連>
 .cubがディレクトリだった時未対応
-

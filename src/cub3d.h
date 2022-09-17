@@ -188,7 +188,7 @@ size_t		strs_len(char **strs);
 
 /* related_to_is.c */
 bool		is_all_specific_char(char *line, char *specific_strs);
-bool		is_valid_format_file(char *filename);
+bool		is_valid_format_file(const char *filename);
 bool		is_valid_args(int argc, char **argv);
 int			is_nbrs(char *str);
 bool		is_one_at_first(char *line);
