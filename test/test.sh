@@ -12,6 +12,8 @@ echo -e $green"[ok case]"$no
 $execpath ../test/ok/spact_direction.cub
 echo -e $green"[space direction format case]"$no
 
+$execpath ../test/ok/space_FC.cub
+echo -e $green"[space F C format case]"$no
 
 #echo -e ${green}"<OK TEST>"${no}
 #make -C ../src aok ;

@@ -73,7 +73,7 @@ test: all
 	bash ../test/test.sh
 
 cok: all
-	@./$(NAME) ../test/ok/space_FC.cub
+	@./$(NAME)
 	@echo $(green)"[space F C format case]"$(no)
 
 dok: all
