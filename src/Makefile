@@ -20,7 +20,7 @@ TEST = -D TEST=0
 endif
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(TEST) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(TEST) -c -o $@ $<
 
 all: $(NAME)
 
@@ -28,9 +28,9 @@ clone:
 	$(gitmlx)
 
 $(NAME): $(mlxpath) $(objs)
-	$(mlxmake) 2> /dev/null
-	make -C ../libft
-	$(CC) $(objs) ../libft/libft.a $(CFLAGS) $(mlxflag) $(debug_flag) -o $(NAME)
+	@$(mlxmake) 2> /dev/null
+	@make -C ../libft
+	@$(CC) $(objs) ../libft/libft.a $(CFLAGS) $(mlxflag) $(debug_flag) -o $(NAME)
 
 mlx:
 	$(mlxmake)
@@ -50,7 +50,8 @@ leaks: all
 	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
 
 test: re
-	bash ../test/test.sh
+	@bash ../test/test.sh
+	@make fclean >/dev/null
 
 norm:
 	@chmod -R 777 ../test/norm.sh
