@@ -15,20 +15,5 @@ echo -e $green"[space direction format case]"$no
 $execpath ../test/ok/space_FC.cub
 echo -e $green"[space F C format case]"$no
 
-#echo -e ${green}"<OK TEST>"${no}
-#make -C ../src aok ;
-#make -C ../src bok ;
-#make -C ../src cok ;
-#make -C ../src dok ;
-#make -C ../src eok ;
-#make -C ../src fok
-#echo -e ${red}"<KO TEST>"${no}
-#make -C ../src ako ;
-#make -C ../src bko ;
-#make -C ../src cko ;
-#make -C ../src dko ;
-#make -C ../src eko ;
-#make -C ../src fko ;
-#make -C ../src gko ;
-#make -C ../src hko ;
-#make -C ../src iko
+$execpath ../test/ok/dup.cub
+echo -e $green"[Priority is given to the one below]"$no

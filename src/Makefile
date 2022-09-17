@@ -72,10 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-cok: all
-	@./$(NAME)
-	@echo $(green)"[space F C format case]"$(no)
-
 dok: all
 	@./$(NAME) ../test/ok/dup.cub
 	@echo $(green)"[Priority is given to the one below]"$(no)
