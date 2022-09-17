@@ -72,7 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-
 eko: all
 	@echo $(red)"[invalid argument count case]"$(no)
 	@./$(NAME)

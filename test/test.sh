@@ -39,3 +39,5 @@ echo -e $red"[invalid filename case]"$no
 $execpath ./test/ko/invalid_rgb.cub
 echo -e $red"[invalid rgb case]"$no
 
+$execpath
+echo -e $red"[invalid argument count case]"$no
