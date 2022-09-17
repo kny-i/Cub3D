@@ -40,8 +40,8 @@ t_image	*initialize_image_data(void *mlx_ptr, t_map *map)
 {
 	t_image	*image;
 
-	map->width = DEFAULT_WIDTH;
-	map->height = DEFAULT_HEIGHT;
+	map->width = WINDOW_WIDTH;
+	map->height = WINDOW_HEIGHT;
 	image = xcalloc(1, sizeof (t_image));
 	image->image = mlx_new_image(mlx_ptr, map->width, map->height);
 	image->address = mlx_get_data_addr \

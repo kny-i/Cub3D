@@ -9,9 +9,9 @@ void	drawing_ceiling_and_floor(t_cub3d *info)
 	scroll_y = 0;
 	while (scroll_x < NB_RAYS)
 	{
-		while (scroll_y < DEFAULT_HEIGHT)
+		while (scroll_y < WINDOW_HEIGHT)
 		{
-			if (scroll_y < DEFAULT_HEIGHT / 2)
+			if (scroll_y < WINDOW_HEIGHT / 2)
 				my_mlx_pixel_put \
 				(info, scroll_x, scroll_y, info->map->ceiling_color);
 			else
@@ -30,16 +30,16 @@ t_strip	get_strip_info(t_cub3d *info, t_ray *ray)
 	double	projected_distance;
 	double	ray_to_wall_distance;
 
-	projected_distance = (DEFAULT_WIDTH / 2) / tan(FOV / 2);
+	projected_distance = (WINDOW_WIDTH / 2) / tan(FOV / 2);
 	ray_to_wall_distance = \
 	ray->distance * cos(ray->angle - info->player->angle);
 	strip.height = (TILE_SIZE / ray_to_wall_distance) * projected_distance;
-	strip.top_pixel = (DEFAULT_HEIGHT / 2) - (strip.height / 2);
+	strip.top_pixel = (WINDOW_HEIGHT / 2) - (strip.height / 2);
 	if (strip.top_pixel < 0)
 		strip.top_pixel = 0;
-	strip.bottom_pixel = (DEFAULT_HEIGHT / 2) + (strip.height / 2);
-	if (strip.bottom_pixel > DEFAULT_HEIGHT)
-		strip.bottom_pixel = DEFAULT_HEIGHT;
+	strip.bottom_pixel = (WINDOW_HEIGHT / 2) + (strip.height / 2);
+	if (strip.bottom_pixel > WINDOW_HEIGHT)
+		strip.bottom_pixel = WINDOW_HEIGHT;
 	return (strip);
 }
 

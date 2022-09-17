@@ -46,7 +46,7 @@ int	get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 	int	distance_from_top;
 
 	texture_offset_x = calc_texture_offset_x(ray, texture);
-	distance_from_top = y + (strip.height / 2) - (DEFAULT_HEIGHT / 2);
+	distance_from_top = y + (strip.height / 2) - (WINDOW_HEIGHT / 2);
 	texture_offset_y = \
 	distance_from_top * ((double)texture->height / strip.height);
 	color = get_pixel_from_texture \
@@ -84,5 +84,5 @@ int	rendering(t_cub3d *info)
 	drawing_ceiling_and_floor(info);
 	put_wallpaper(info);
 	mlx_put_image_to_window(info->mlx, info->window, info->data->image, 0, 0);
-	return (0);
+	return (42);
 }

@@ -28,8 +28,8 @@
 # define DEFAULT_SPEED 30
 /*  5 * (M_PI / 180)  */
 # define ROTATE_SPEED 0.087
-# define DEFAULT_WIDTH 649
-# define DEFAULT_HEIGHT 410
+# define WINDOW_WIDTH 649
+# define WINDOW_HEIGHT 410
 # define TILE_SIZE 32
 
 /* related to math */
@@ -39,7 +39,7 @@
 # define VERTICAL 1
 
 # define WALL_WIDTH 1
-# define NB_RAYS DEFAULT_WIDTH
+# define NB_RAYS WINDOW_WIDTH
 # define MOVE_STEP 2
 
 /* KEY MACROS */

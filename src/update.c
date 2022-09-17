@@ -35,5 +35,5 @@ int	updating(t_cub3d *info)
 {
 	updating_info(info);
 	rendering(info);
-	return (0);
+	return (42);
 }
