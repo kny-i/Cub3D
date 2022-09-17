@@ -16,10 +16,10 @@ int	lonely_together(int argc, char **argv)
 	info = ft_calloc(1, sizeof(t_cub3d));
 	info = parser(argv[1], info);
 	is_valid_map(info->map);
-	initialize_mlx(info);
-	initialize_object(info);
-	play_gaming(info);
-	mlx_loop(info->mlx);
+//	initialize_mlx(info);
+//	initialize_object(info);
+//	play_gaming(info);
+//	mlx_loop(info->mlx);
 	return (SUCCESS);
 }
 

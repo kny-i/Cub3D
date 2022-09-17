@@ -69,8 +69,8 @@ green='\033[32m'
 no='\033[0m'
 ###########[ok case]############
 
-alltest: all
-	bash ../test/test.sh 2>/dev/null
+test: all
+	bash ../test/test.sh
 
 aok: all
 	@./$(NAME) ../test/normal/00_simple_20_13.cub
