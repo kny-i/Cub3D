@@ -72,11 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-###########[ko case]#############
-ako: all
-	@echo $(red)"[not nbrs case]"$(no)
-	@./$(NAME) ../test/ko/not_nbrs.cub
-
 bko: all
 	@echo $(red)"[invalid filename case]"$(no)
 	@./$(NAME) ../test/ko/invalid_filename.abc

@@ -26,3 +26,7 @@ echo -e $green"[order is not important]"$no
 
 $execpath ../test/ok/space_in_map.cub
 echo -e $green"[No problem with closed map]"$no
+
+$execpath ../test/ko/not_nbrs.cub
+echo -e $red"[not nbrs case]"$no
+
