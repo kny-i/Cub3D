@@ -41,3 +41,6 @@ echo -e $red"[invalid rgb case]"$no
 
 $execpath
 echo -e $red"[invalid argument count case]"$no
+
+$execpath ../test/ok/ok.cub ../test/ok/ok.cub
+echo -e $red"[invalid argument count case]"$no
