@@ -30,3 +30,6 @@ echo -e $green"[No problem with closed map]"$no
 $execpath ../test/ko/not_nbrs.cub
 echo -e $red"[not nbrs case]"$no
 
+$execpath ../test/ko/not_nbrs.cub
+echo -e $red"[not nbrs case]"$no
+
