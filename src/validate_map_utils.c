@@ -25,8 +25,8 @@ void	free_strs(char **strs)
 	i = 0;
 	while (strs[i] != NULL)
 	{
-		free(strs[i]);
+		str_free(&strs[i]);
 		i += 1;
 	}
-	free(strs);
+	str_free(strs);
 }

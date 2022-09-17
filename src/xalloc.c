@@ -22,7 +22,7 @@ void	*xcalloc(size_t count, size_t size)
 	return (ptr);
 }
 
-void	strfree(char **ptr)
+void	str_free(char **ptr)
 {
 	free(*ptr);
 	*ptr = NULL;

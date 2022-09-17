@@ -253,6 +253,6 @@ void		drawing_ceiling_and_floor(t_cub3d *info);
 /* xalloc.c */
 void		*xmalloc(size_t len);
 void		*xcalloc(size_t count, size_t len);
-void		strfree(char **ptr);
+void		str_free(char **ptr);
 
 #endif

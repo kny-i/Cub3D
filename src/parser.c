@@ -83,11 +83,11 @@ t_cub3d	*parser(char *file, t_cub3d *info)
 		if (is_all_strs_space(line) == true)
 			continue ;
 		parse_cub3d_file(info->map, line, &map_col_index);
-		free(line);
+		str_free(&line);
 	}
 	info->map->grid[map_col_index] = NULL;
 	info->map->nb_col = map_col_index;
-	free(line);
+	str_free(&line);
 	set_player_info_loop(info);
 	return (info);
 }
