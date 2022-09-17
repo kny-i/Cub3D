@@ -35,6 +35,9 @@ mlx:
 ok: all
 	./$(NAME) ../test/ok/dup.cub
 
+mini: all
+	./$(NAME) ../test/ok/mini.cub
+
 clean:
 	@$(mlxmake) clean;
 	@$(RM) $(objs)

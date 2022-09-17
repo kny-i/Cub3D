@@ -15,6 +15,7 @@ t_point	find_first_horizontal_interception(t_ray *ray)
 	return (first_horizontal_interception);
 }
 
+
 t_point	find_first_vertical_interception(t_ray *ray)
 {
 	t_point	first_horizontal_interception;

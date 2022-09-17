@@ -1,0 +1,15 @@
+NO ../texture/rat.xpm
+SO ../texture/horse.xpm
+WE ../texture/dog.xpm
+EA ../texture/rabbit.xpm
+
+F 100,100,40
+F 1,1,1
+F 0,0,0
+C 211,237,2511
+
+11111
+10001
+10N01
+10001
+11111

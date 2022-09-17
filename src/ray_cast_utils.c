@@ -13,7 +13,6 @@ double	normalize_angle(double ray_angle)
 void	set_ray_direction(t_ray *ray, double ray_angle)
 {
 	ray->angle = normalize_angle(ray_angle);
-	printf("ray->angle:%lf\n", ray->angle);
 	ray->is_face_down = ray_angle > 0 && ray->angle < M_PI;
 	ray->is_face_up = !ray->is_face_down;
 	ray->is_face_right = ray->angle < M_PI / 2 || 3 * M_PI / 2 < ray->angle;
@@ -43,12 +42,14 @@ void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, \
 	pythagorean_theorem_for_delta(vertical_wall_hit, ray->light_source);
 	if (horiz_distance < vert_distance)
 	{
+		printf("vert\n");
 		ray->wall_hit = *horizontal_wall_hit;
 		ray->distance = horiz_distance;
 		ray->horizontal_or_vertical = HORIZONTAL;
 	}
 	else
 	{
+		printf("hori\n");
 		ray->wall_hit = *vertical_wall_hit;
 		ray->distance = vert_distance;
 		ray->horizontal_or_vertical = VERTICAL;
@@ -76,7 +77,6 @@ void	get_hit_wall_direction(t_ray *ray)
 		{
 //			printf("north\n");
 			ray->wall_direction = north;
-
 		}
 		else
 		{
