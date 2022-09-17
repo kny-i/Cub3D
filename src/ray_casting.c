@@ -19,8 +19,11 @@ t_point	find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 		if (map-> \
 		grid[(int)check.y / TILE_SIZE][(int)check.x / TILE_SIZE] == '1')
 			return (interceptopn);
-		interceptopn.x += x_step;
-		interceptopn.y += y_step;
+		else
+		{
+			interceptopn.x += x_step;
+			interceptopn.y += y_step;
+		}
 	}
 }
 
@@ -43,8 +46,11 @@ t_point	find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interception)
 		if (map->grid[(int)check.y / TILE_SIZE][(int)check.x / TILE_SIZE] \
 		== '1')
 			return (interception);
-		interception.x += x_step;
-		interception.y += y_step;
+		else
+		{
+			interception.x += x_step;
+			interception.y += y_step;
+		}
 	}
 }
 

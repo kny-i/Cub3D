@@ -10,10 +10,13 @@ void	move_player(t_cub3d *info)
 	normalize_angle(info->player->angle + info->player->walk_direction);
 	next_point->x = info->player->position->x + cos(move_angle) * MOVE_STEP;
 	next_point->y = info->player->position->y + sin(move_angle) * MOVE_STEP;
+
+	if (is_wall_conflict(next_point) == false)
+		;
 	if (next_point->x < 0.0 || \
 	(double)info->map->nb_row * TILE_SIZE < next_point->x || \
 	next_point->y < 0.0 || \
-	(double)info->map->nb_col * TILE_SIZE < next_point->y)
+	(double)info->map->nb_col * TILE_SIZE < next_point->y || )
 	{
 		info->player->should_move = false;
 		return ;

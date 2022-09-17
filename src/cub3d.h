@@ -263,5 +263,7 @@ double	vertical_x_step(t_ray *ray);
 double	vertical_y_step(t_ray *ray);
 double	horizontal_x_step(t_ray *ray);
 double	horizontal_y_step(t_ray *ray);
+/* judge_wall.c */
+bool is_wall_conflict(t_cub3d *info, t_point *point);
 
 #endif
