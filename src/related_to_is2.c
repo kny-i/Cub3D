@@ -34,11 +34,6 @@ bool	is_valid_format_file(char *filename)
 	return (false);
 }
 
-bool	is_valid_args(int argc, char **argv)
-{
-	return (argc == 2);
-}
-
 int	is_nbrs(char *str)
 {
 	size_t	i;
