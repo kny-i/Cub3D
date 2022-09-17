@@ -44,3 +44,8 @@ echo -e $red"[invalid argument count case]"$no
 
 $execpath ../test/ok/ok.cub ../test/ok/ok.cub
 echo -e $red"[invalid argument count case]"$no
+
+$execpath ../test/ko/invalid_map_char.cub
+echo -e $red"[invalid map char]"$no
+
+
