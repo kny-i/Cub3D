@@ -24,5 +24,5 @@ int	reset_key(int key, t_cub3d *info)
 	(void)key;
 	info->player->walk_direction = 0;
 	info->player->should_move = false;
-	return (0);
+	return (42);
 }

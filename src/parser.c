@@ -69,7 +69,7 @@ t_cub3d	*parser(char *file, t_cub3d *info)
 {
 	char	*line;
 	int		fd;
-	size_t	map_col_index;
+	int		map_col_index;
 
 	parse_setup(info, file);
 	info->map->grid = xcalloc(info->map->nb_col + 1, sizeof(char *));
