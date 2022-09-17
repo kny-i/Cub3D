@@ -4,7 +4,7 @@ t_image	*load_texture(void *mlx_ptr, char *path)
 {
 	t_image	*texture;
 
-	texture = ft_calloc(1, sizeof(t_image));
+	texture = xcalloc(1, sizeof(t_image));
 	texture->image = \
 	mlx_xpm_file_to_image \
 	(mlx_ptr, path, &texture->width, &texture->height);
@@ -22,7 +22,7 @@ t_image	**initialize_texture(void *mlx_ptr, char **path)
 {
 	t_image	**texture_image;
 
-	texture_image = ft_calloc(4, sizeof(t_image *));
+	texture_image = xcalloc(4, sizeof(t_image *));
 	texture_image[north] = load_texture(mlx_ptr, path[north]);
 	texture_image[south] = load_texture(mlx_ptr, path[south]);
 	texture_image[east] = load_texture(mlx_ptr, path[east]);
@@ -42,7 +42,7 @@ t_image	*initialize_image_data(void *mlx_ptr, t_map *map)
 
 	map->width = DEFAULT_WIDTH;
 	map->height = DEFAULT_HEIGHT;
-	image = ft_calloc(1, sizeof (t_image));
+	image = xcalloc(1, sizeof (t_image));
 	image->image = mlx_new_image(mlx_ptr, map->width, map->height);
 	image->address = mlx_get_data_addr \
 	(image->image, &image->bpp, &image->size_line, &image->endian);
@@ -53,7 +53,7 @@ t_point	*initialize_point(int x, int y, int color)
 {
 	t_point	*point;
 
-	point = ft_calloc(1, sizeof(t_point));
+	point = xcalloc(1, sizeof(t_point));
 	point->x = x;
 	point->y = y;
 	return (point);

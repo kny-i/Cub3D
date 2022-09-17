@@ -22,11 +22,11 @@ t_ray	**initialize_ray(t_cub3d *info)
 	t_ray	**ray;
 	size_t	i;
 
-	ray = ft_calloc(NB_RAYS, sizeof(t_ray *));
+	ray = xcalloc(NB_RAYS, sizeof(t_ray *));
 	i = 0;
 	while (i < NB_RAYS)
 	{
-		ray[i] = ft_calloc(1, sizeof(t_ray));
+		ray[i] = xcalloc(1, sizeof(t_ray));
 		i++;
 	}
 	ray = cast_all_rays(info, ray);

@@ -10,8 +10,8 @@ void	set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
 {
 	if (info->map->is_filled_start_position == true)
 		error_message("INVALID MAP: MULTIPLE PLAYER");
-	info->player = ft_calloc(1, sizeof(t_player));
-	info->player->position = ft_calloc(1, sizeof (t_point));
+	info->player = xcalloc(1, sizeof(t_player));
+	info->player->position = xcalloc(1, sizeof (t_point));
 	info->player->position->x = x * TILE_SIZE + TILE_SIZE / 2;
 	info->player->position->y = y * TILE_SIZE + TILE_SIZE / 2;
 	if (direction == 'N')

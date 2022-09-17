@@ -11,7 +11,7 @@ char	*xstrdup(const char *s1)
 	size_t	len;
 	size_t	i;
 
-	ret = calloc(ft_strlen(s1) + 1, sizeof(char));
+	ret = xcalloc(ft_strlen(s1) + 1, sizeof(char));
 	i = 0;
 	while (s1[i] != '\0' && s1[i] != '\n')
 	{

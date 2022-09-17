@@ -9,7 +9,7 @@ int	allocate_color(t_map *map, char *line)
 	strs = ft_split(line, ',');
 	if (strs_len(strs) != 3)
 		error_message("INVALID RGB FORMAT!");
-	free(line);
+	str_free(&line);
 	i = 0;
 	if (is_nbrs(strs[0]) == false
 		|| is_nbrs(strs[1]) == false

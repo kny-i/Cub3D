@@ -60,9 +60,9 @@ void	parse_setup(t_cub3d *info, char *file)
 	nb_col = 0;
 	get_nb_col(fd, info->map, &nb_col);
 	close(fd);
-	info->map = ft_calloc(1, sizeof(t_map));
+	info->map = xcalloc(1, sizeof(t_map));
 	info->map->is_filled_start_position = false;
-	info->map->grid = ft_calloc(info->map->nb_col + 1, sizeof(char *));
+	info->map->grid = xcalloc(info->map->nb_col + 1, sizeof(char *));
 }
 
 t_cub3d	*parser(char *file, t_cub3d *info)
@@ -72,7 +72,7 @@ t_cub3d	*parser(char *file, t_cub3d *info)
 	size_t	map_col_index;
 
 	parse_setup(info, file);
-	info->map->grid = ft_calloc(info->map->nb_col + 1, sizeof(char *));
+	info->map->grid = xcalloc(info->map->nb_col + 1, sizeof(char *));
 	map_col_index = 0;
 	fd = open(file, O_RDONLY);
 	while (true)

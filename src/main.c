@@ -13,7 +13,7 @@ int	lonely_together(int argc, char **argv)
 
 	if (is_valid_args(argc, argv) == false)
 		return (usage());
-	info = ft_calloc(1, sizeof(t_cub3d));
+	info = xcalloc(1, sizeof(t_cub3d));
 	info = parser(argv[1], info);
 	is_valid_map(info->map);
 	initialize_mlx(info);
