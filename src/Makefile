@@ -73,8 +73,7 @@ test: all
 	bash ../test/test.sh
 
 dok: all
-	@./$(NAME) ../test/ok/dup.cub
-	@echo $(green)"[Priority is given to the one below]"$(no)
+
 
 eok: all
 	@./$(NAME) ../test/ok/jumbled_order.cub

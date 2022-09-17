@@ -17,3 +17,6 @@ echo -e $green"[space F C format case]"$no
 
 $execpath ../test/ok/dup.cub
 echo -e $green"[Priority is given to the one below]"$no
+
+$execpath ../test/ok/dup.cub
+echo -e $green"[Priority is given to the one below]"$no
