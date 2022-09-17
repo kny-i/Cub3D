@@ -16,10 +16,13 @@ int	lonely_together(int argc, char **argv)
 	info = xcalloc(1, sizeof(t_cub3d));
 	info = parser(argv[1], info);
 	is_valid_map(info->map);
-	initialize_mlx(info);
-	initialize_object(info);
-	play_gaming(info);
-	mlx_loop(info->mlx);
+	if (TEST == true)
+	{
+		initialize_mlx(info);
+		initialize_object(info);
+		play_gaming(info);
+		mlx_loop(info->mlx);
+	}
 	return (SUCCESS);
 }
 

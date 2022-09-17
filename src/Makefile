@@ -43,14 +43,11 @@ leaks: all
 	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
 
 test: all
+	#$(CC) -D TEST=0 $(objs) ../libft/libft.a $(CFLAGS) $(mlxflag) $(debug_flag) -o $(NAME)
 	bash ../test/test.sh
 
 norm:
 	@chmod -R 777 ../test/norm.sh
 	@bash ../test/norm.sh
-
-#norm:
-#	@norminette $(srcs) $(headers) > /dev/null
-#	@echo $(green)"norm OK!"$(no)
 
 .PHONY: all clean fclean mlx re test leaks

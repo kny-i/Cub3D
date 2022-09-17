@@ -10,6 +10,10 @@
 # include <limits.h>
 # include <float.h>
 
+# ifndef TEST
+#  define TEST true
+# endif
+
 # define SUCCESS 0
 # define FAILURE 1
 
