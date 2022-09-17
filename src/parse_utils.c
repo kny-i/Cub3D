@@ -43,9 +43,7 @@ void	allocate_map(t_map *map, char *line, int *map_col_index)
 {
 	printf("%d\n", *map_col_index);
 	map->grid[*map_col_index] = xstrdup(line);
-	printf("hoge\n");
 	(*map_col_index)++;
-	printf("B");
 }
 
 void	get_nb_col(int fd, int *nb_col)

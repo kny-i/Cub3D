@@ -258,5 +258,10 @@ void		drawing_ceiling_and_floor(t_cub3d *info);
 void		*xmalloc(size_t len);
 void		*xcalloc(size_t count, size_t len);
 void		str_free(char **ptr);
+/* get_step.c */
+double	vertical_x_step(t_ray *ray);
+double	vertical_y_step(t_ray *ray);
+double	horizontal_x_step(t_ray *ray);
+double	horizontal_y_step(t_ray *ray);
 
 #endif

@@ -6,8 +6,8 @@ t_point	find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	double	y_step;
 	t_point	point;
 
-	x_step = TILE_SIZE / tan(ray->angle);
-	y_step = TILE_SIZE;
+	x_step = horizontal_x_step(ray);
+	y_step = horizontal_y_step(ray);
 	point.x = interceptopn.x;
 	point.y = interceptopn.y;
 	while (true)
@@ -15,13 +15,13 @@ t_point	find_horizontal_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 		if (point.x < 0.0 || (double)map->nb_row * TILE_SIZE < point.x \
 		|| point.y < 0.0 || (double)map->nb_col * TILE_SIZE < point.y)
 		{
-			printf("out of range\n");
+			//printf("out of range\n");
 			return (point);
 		}
 		if (map-> \
 		grid[(int)point.y / TILE_SIZE][(int)point.x / TILE_SIZE] == '1')
 		{
-			printf("crash wall\n");
+			//printf("crash wall\n");
 			return (point);
 		}
 		point.x += x_step;
@@ -35,8 +35,8 @@ t_point	find_vertical_wall_hit(t_ray *ray, t_map *map, t_point interceptopn)
 	double	y_step;
 	t_point	point;
 
-	x_step = TILE_SIZE;
-	y_step = TILE_SIZE * tan(ray->angle);
+	x_step = vertical_x_step(ray);
+	y_step = vertical_y_step(ray);
 	point.x = interceptopn.x;
 	point.y = interceptopn.y;
 	while (true)

@@ -42,14 +42,12 @@ void	get_closest_wall_hit(t_ray *ray, t_point *horizontal_wall_hit, \
 	pythagorean_theorem_for_delta(vertical_wall_hit, ray->light_source);
 	if (horiz_distance < vert_distance)
 	{
-		printf("vert\n");
 		ray->wall_hit = *horizontal_wall_hit;
 		ray->distance = horiz_distance;
 		ray->horizontal_or_vertical = HORIZONTAL;
 	}
 	else
 	{
-		printf("hori\n");
 		ray->wall_hit = *vertical_wall_hit;
 		ray->distance = vert_distance;
 		ray->horizontal_or_vertical = VERTICAL;
@@ -61,27 +59,15 @@ void	get_hit_wall_direction(t_ray *ray)
 	if (ray->horizontal_or_vertical == VERTICAL)
 	{
 		if (ray->is_face_left)
-		{
-//			printf("west\n");
 			ray->wall_direction = west;
-		}
 		else
-		{
-//			printf("east\n");
 			ray->wall_direction = east;
-		}
 	}
 	else
 	{
 		if (ray->is_face_up)
-		{
-//			printf("north\n");
 			ray->wall_direction = north;
-		}
 		else
-		{
 			ray->wall_direction = south;
-//			printf("south\n");
-		}
 	}
 }
