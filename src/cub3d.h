@@ -208,7 +208,7 @@ char		**strs_dup(char **strs);
 void		free_strs(char **strs);
 
 /* parse_utils.c" */
-int			allocate_color(t_map *map, char *line);
+int			allocate_color(char *line);
 bool		parse_color(t_map *map, char *line);
 void		allocate_map(t_map *map, char *line, size_t *map_col_index);
 void		get_nb_col(int fd, size_t *nb_col);

@@ -49,16 +49,6 @@ t_image	*initialize_image_data(void *mlx_ptr, t_map *map)
 	return (image);
 }
 
-t_point	*initialize_point(int x, int y, int color)
-{
-	t_point	*point;
-
-	point = xcalloc(1, sizeof(t_point));
-	point->x = x;
-	point->y = y;
-	return (point);
-}
-
 t_player	*initialize_player(t_cub3d *info)
 {
 	t_player	*player;

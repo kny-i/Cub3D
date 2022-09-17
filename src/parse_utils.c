@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-int	allocate_color(t_map *map, char *line)
+int	allocate_color(char *line)
 {
 	char	**strs;
 	int		i;
@@ -26,13 +26,13 @@ bool	parse_color(t_map *map, char *line)
 	if (ft_strncmp(line, "F", 1) == 0)
 	{
 		map->floor_color = \
-		allocate_color(map, xstrdup(skip_space_str(line + 2)));
+		allocate_color(xstrdup(skip_space_str(line + 2)));
 		return (SUCCESS);
 	}
 	if (ft_strncmp(line, "C", 1) == 0)
 	{
 		map->ceiling_color = \
-		allocate_color(map, xstrdup(skip_space_str(line + 2)));
+		allocate_color(xstrdup(skip_space_str(line + 2)));
 		return (SUCCESS);
 	}
 	else
