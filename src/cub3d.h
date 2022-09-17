@@ -93,8 +93,8 @@ typedef struct s_map
 	int		height;
 	int		max_width;
 	int		max_height;
-	size_t	nb_col;
-	size_t	nb_row;
+	int		nb_col;
+	int		nb_row;
 	bool	is_filled_start_position;
 	int		ceiling_color;
 	int		floor_color;
