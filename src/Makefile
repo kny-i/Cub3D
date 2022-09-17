@@ -46,8 +46,8 @@ test: all
 	bash ../test/test.sh
 
 norm:
-	chmod -R 777 ../test/norm.sh
-	bash ../test/norm.sh
+	@chmod -R 777 ../test/norm.sh
+	@bash ../test/norm.sh
 
 #norm:
 #	@norminette $(srcs) $(headers) > /dev/null
