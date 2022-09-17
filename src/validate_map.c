@@ -28,9 +28,9 @@ void	set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
 
 void	set_player_info_loop(t_cub3d *info)
 {
-	int		y;
-	int 	x;
-	int		tmp;
+	int	y;
+	int	x;
+	int	tmp;
 
 	y = 0;
 	while (info->map->grid[y] != NULL)

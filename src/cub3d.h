@@ -11,7 +11,7 @@
 # include <float.h>
 
 # ifndef TEST
-#  define TEST true
+#  define TEST 1
 # endif
 
 # define SUCCESS 0
