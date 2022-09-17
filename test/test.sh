@@ -9,6 +9,9 @@ execpath="../src/cub3d"
 $execpath ../test/normal/00_simple_20_13.cub
 echo -e $green"[ok case]"$no
 
+$execpath ../test/ok/spact_direction.cub
+echo -e $green"[space direction format case]"$no
+
 
 #echo -e ${green}"<OK TEST>"${no}
 #make -C ../src aok ;

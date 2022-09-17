@@ -72,14 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-aok: all
-	@./$(NAME) ../test/normal/00_simple_20_13.cub
-	@echo $(green)"[ok case]"$(no)
-
-bok: all
-	@./$(NAME) ../test/ok/spact_direction.cub
-	@echo $(green)"[space direction format case]"$(no)
-
 cok: all
 	@./$(NAME) ../test/ok/space_FC.cub
 	@echo $(green)"[space F C format case]"$(no)
