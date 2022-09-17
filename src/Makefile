@@ -52,4 +52,8 @@ norm:
 	@chmod -R 777 ../test/norm.sh
 	@bash ../test/norm.sh
 
-.PHONY: all clean fclean mlx re test leaks
+leak:
+	@chmod -R 777 ../leak_check.sh
+	@../leaks_check.sh
+
+.PHONY: all clean fclean mlx re test leak
