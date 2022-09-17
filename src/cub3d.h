@@ -250,4 +250,9 @@ t_ray		**initialize_ray(t_cub3d *info);
 t_strip		get_strip_info(t_cub3d *info, t_ray *ray);
 t_image		*choose_texture_image(t_cub3d *info, t_ray *ray);
 void		drawing_ceiling_and_floor(t_cub3d *info);
+/* xalloc.c */
+void		*xmalloc(size_t len);
+void		*xcalloc(size_t count, size_t len);
+void		strfree(char **ptr);
+
 #endif

@@ -21,3 +21,9 @@ void	*xcalloc(size_t count, size_t size)
 		"calloc failure");
 	return (ptr);
 }
+
+void	strfree(char **ptr)
+{
+	free(*ptr);
+	*ptr = NULL;
+}
