@@ -8,7 +8,7 @@ objs = $(srcs:.c=.o)
 mlxpath = ./mlx_linux/
 mlxflag = -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
 mlxmake = make -C $(mlxpath)
-gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
+#gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 CFLAGS = -Wextra
 
 debug_flag = -g3 -fsanitize=address
@@ -24,30 +24,23 @@ endif
 
 all: $(NAME)
 
-clone:
-	$(gitmlx)
-
 $(NAME): $(mlxpath) $(objs)
 	@$(mlxmake) 2> /dev/null
 	@make -C ../libft
 	@$(CC) $(objs) ../libft/libft.a $(CFLAGS) $(mlxflag) $(debug_flag) -o $(NAME)
 
 mlx:
-	$(mlxmake)
+	@$(mlxmake)
 
 clean:
-	$(mlxmake) clean;
-	$(RM) $(objs)
+	@$(mlxmake) clean;
+	@$(RM) $(objs)
 
 fclean: clean
-	$(RM) $(mlxpath)/libmlx.a
-	$(RM) $(NAME) $(objs)
+	@$(RM) $(mlxpath)/libmlx.a
+	@$(RM) $(NAME) $(objs)
 
 re:	fclean all
-
-
-leaks: all
-	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
 
 test: re
 	@bash ../test/test.sh
