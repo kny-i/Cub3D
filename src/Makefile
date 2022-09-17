@@ -11,6 +11,7 @@ mlxmake = make -C $(mlxpath)
 #gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 CFLAGS = -Wextra
 
+#######まさかのsanitizerをつけないとプログラムが正常に動かない#$
 debug_flag = -g3 -fsanitize=address
 CC = cc
 
@@ -19,7 +20,7 @@ TEST = -D TEST=0
 endif
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(TEST) -c -o $@ $<
+	$(CC) $(CFLAGS) $(debug_flag) $(TEST) -c -o $@ $<
 
 all: $(NAME)
 
@@ -54,6 +55,6 @@ norm:
 
 leak:
 	@chmod -R 777 ../leak_check.sh
-	@../leaks_check.sh
+	@../leak_check.sh
 
 .PHONY: all clean fclean mlx re test leak

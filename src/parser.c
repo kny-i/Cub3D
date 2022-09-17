@@ -49,7 +49,7 @@ void	parse_cub3d_file(t_map *map, char *line, int *map_col_index)
 
 void	parse_setup(t_cub3d *info, char *file)
 {
-	size_t	nb_col;
+	int	nb_col;
 	int		fd;
 
 	if (is_valid_format_file(file) == false)
@@ -61,6 +61,7 @@ void	parse_setup(t_cub3d *info, char *file)
 	get_nb_col(fd, &nb_col);
 	close(fd);
 	info->map = xcalloc(1, sizeof(t_map));
+	info->map->nb_col = nb_col;
 	info->map->is_filled_start_position = false;
 	info->map->grid = xcalloc(info->map->nb_col + 1, sizeof(char *));
 }
