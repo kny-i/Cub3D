@@ -72,10 +72,7 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-bko: all
-	@echo $(red)"[invalid filename case]"$(no)
-	@./$(NAME) ../test/ko/invalid_filename.abc
-
+###########[ko case]#############
 cko: all
 	@echo $(red)"[invalid filename case]"$(no)
 	@./$(NAME) ../test/ko/cub.cub.42

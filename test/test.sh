@@ -33,3 +33,10 @@ echo -e $red"[not nbrs case]"$no
 $execpath ../test/ko/invalid_filename.abc
 echo -e $red"[invalid filename case]"$no
 
+$execpath ./test/ko/cub.cub.42
+echo -e $red"[invalid filename case]"$no
+
+
+
+
+
