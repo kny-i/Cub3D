@@ -72,18 +72,6 @@ no='\033[0m'
 test: all
 	bash ../test/test.sh
 
-dok: all
-
-
-eok: all
-	@./$(NAME) ../test/ok/jumbled_order.cub
-	@echo $(green)"[order is not important]"$(no)
-
-fok: all
-	@./$(NAME) ../test/ok/space_in_map.cub
-	@echo $(green)"[No problem with closed map]"$(no)
-
-
 ###########[ko case]#############
 ako: all
 	@echo $(red)"[not nbrs case]"$(no)

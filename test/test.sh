@@ -20,3 +20,9 @@ echo -e $green"[Priority is given to the one below]"$no
 
 $execpath ../test/ok/dup.cub
 echo -e $green"[Priority is given to the one below]"$no
+
+$execpath ../test/ok/jumbled_order.cub
+echo -e $green"[order is not important]"$no
+
+$execpath ../test/ok/space_in_map.cub
+echo -e $green"[No problem with closed map]"$no
