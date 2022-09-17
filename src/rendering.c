@@ -70,7 +70,6 @@ void	put_wallpaper(t_cub3d *info)
 		while (scroll_y < strip.bottom_pixel)
 		{
 			texture = choose_texture_image(info, info->ray[scroll_x]);
-//			printf("%p\n", texture->address);
 			texture_color = \
 			get_texture_pixel(texture, info->ray[scroll_x], scroll_y, strip);
 			my_mlx_pixel_put(info, scroll_x, scroll_y++, texture_color);
