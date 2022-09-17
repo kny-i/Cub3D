@@ -9,11 +9,18 @@ mlxpath = ./mlx_linux/
 mlxflag = -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
 mlxmake = make -C $(mlxpath)
 gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
-#CFLAGS = -Wall -Werror -Wextra
-############
+CFLAGS = -Wextra
 
 debug_flag = -g3 -fsanitize=address
 CC = cc
+TEST = -g
+
+ifeq ($(MAKECMDGOALS), test)
+TEST = -D TEST=0
+endif
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(TEST) -c -o $@ $<
 
 all: $(NAME)
 
@@ -42,8 +49,7 @@ re:	fclean all
 leaks: all
 	leaks -q --atExit -- ./$(NAME) ../test/test0.cub
 
-test: all
-	#$(CC) -D TEST=0 $(objs) ../libft/libft.a $(CFLAGS) $(mlxflag) $(debug_flag) -o $(NAME)
+test: re
 	bash ../test/test.sh
 
 norm:
