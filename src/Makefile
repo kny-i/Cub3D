@@ -1,8 +1,8 @@
 NAME = cub3d
 
 srcs = $(wildcard *.c)
+headers = $(wildcard *.h)
 objs = $(srcs:.c=.o)
-hsrcs = $(wildcard *.h)
 
 ### mlx ###
 mlxpath = ./mlx_linux/
@@ -13,7 +13,6 @@ gitmlx	= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 ############
 
 debug_flag = -g3 -fsanitize=address
-
 CC = cc
 
 all: $(NAME)
@@ -40,9 +39,8 @@ fclean: clean
 re:	fclean all
 
 norm:
-	norminette $(srcs) $(hsrcs)
-	@echo $(green)"[exit status = $?]\n"$(no)
-
+	@norminette $(srcs) $(headers) > /dev/null
+	@echo $(green)"norm OK!"$(no)
 
 #################[easy compile && debug]####################
 success1: all
