@@ -91,8 +91,6 @@ typedef struct s_map
 	char	**grid;
 	int		width;
 	int		height;
-	int		max_width;
-	int		max_height;
 	int		nb_col;
 	int		nb_row;
 	bool	is_filled_start_position;
@@ -110,7 +108,6 @@ typedef struct s_player
 	double	angle;
 	double	rotate_speed;
 	bool	should_move;
-	bool	should_rotate;
 }				t_player;
 
 typedef struct s_ray {
@@ -119,7 +116,6 @@ typedef struct s_ray {
 	t_point		wall_hit;
 	double		distance;
 	bool		horizontal_or_vertical;
-	bool		hit_vertical_flag;
 	bool		is_face_up;
 	bool		is_face_down;
 	bool		is_face_left;
@@ -144,9 +140,8 @@ typedef struct s_cub3d
 {
 	void		*mlx;
 	void		*window;
-	t_image		*data;
+	t_image		*window_data;
 	t_map		*map;
-	t_point		*point;
 	t_player	*player;
 	t_ray		**ray;
 	t_image		**texture_image;

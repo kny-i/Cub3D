@@ -16,24 +16,24 @@ int	usage(void)
 
 void terminate_mlx(t_cub3d *info)
 {
-	if (info->mlx_ptr && info->texture_image[north]->image)
-		mlx_destroy_image(info->mlx_ptr, info->texture_image[north]->image);
-	if (info->mlx_ptr && info->texture_image.south.img_ptr)
-		mlx_destroy_image(info->mlx_ptr, info->texture_image.south.img_ptr);
-	if (info->mlx_ptr && info->texture_image.west.img_ptr)
-		mlx_destroy_image(info->mlx_ptr, info->texture_image.west.img_ptr);
-	if (info->mlx_ptr && info->texture_image.east.img_ptr)
-		mlx_destroy_image(info->mlx_ptr, info->texture_image.east.img_ptr);
-	if (info->mlx_ptr && info->win_img.img_ptr)
-		mlx_destroy_image(info->mlx_ptr, info->win_img.img_ptr);
-	if (info->mlx_ptr && info->win_ptr)
-		mlx_destroy_window(info->mlx_ptr, info->win_ptr);
-	if (info->mlx_ptr)
+	if (info->mlx && info->texture_image[north]->image)
+		mlx_destroy_image(info->mlx, info->texture_image[north]->image);
+	if (info->mlx && info->texture_image[south]->image)
+		mlx_destroy_image(info->mlx, info->texture_image[south]->image);
+	if (info->mlx && info->texture_image[west]->image)
+		mlx_destroy_image(info->mlx, info->texture_image[west]->image);
+	if (info->mlx && info->texture_image[east]->image)
+		mlx_destroy_image(info->mlx, info->texture_image[east]->image);
+	if (info->mlx && info->window)
+		mlx_destroy_image(info->mlx, info->window_data->image);
+	if (info->mlx && info->window)
+		mlx_destroy_window(info->mlx, info->window);
+	if (info->mlx)
 	{
-		mlx_destroy_display(info->mlx_ptr);
-		mlx_loop_end(info->mlx_ptr);
+		mlx_destroy_display(info->mlx);
+		mlx_loop_end(info->mlx);
 	}
-	free(info->mlx_ptr);
+	free(info->mlx);
 }
 int	the_end(t_cub3d *info)
 {
