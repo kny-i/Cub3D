@@ -7,10 +7,10 @@ no='\033[0m'
 execpath="../src/cub3d"
 
 #################!!!!!!!!!OK!!!!!!!!!!!###################
-$execpath ../test/normal/00_simple_20_13.cub
+$execpath ../test/ok/ok.cub
 echo -e $green"[ok case]"$no
 
-$execpath ../test/ok/spact_direction.cub
+$execpath ../test/ok/space_direction.cub
 echo -e $green"[space direction format case]"$no
 
 $execpath ../test/ok/space_FC.cub

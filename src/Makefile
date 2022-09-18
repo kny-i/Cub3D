@@ -1,4 +1,4 @@
-NAME = cub3d
+NAME = cub3D
 
 srcs = free.c \
 		game_init.c \
@@ -29,22 +29,24 @@ srcs = free.c \
 		validate_map_utils.c \
 		xalloc.c
 
-headers = $(wildcard *.h)
 objs = $(srcs:.c=.o)
 
-mlxpath = ./mlx_linux/
-mlxflag = -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
-mlxmake = make -C $(mlxpath)
 CFLAGS = -Wextra -Werror -Wextra
 debug_flag = -g3 -fsanitize=address
 CC = cc
+
+#################mlx######################
+mlxpath = ./mlx_linux/
+mlxflag = -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
+mlxmake = make -C $(mlxpath)
+###########################################
 
 ifeq ($(MAKECMDGOALS), test)
 TEST = -D TEST=0
 endif
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(debug_flag) $(TEST) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(debug_flag) $(TEST) $(DEBUG) -c -o $@ $<
 
 all: $(NAME)
 
@@ -53,24 +55,27 @@ $(NAME): $(mlxpath) $(objs)
 	@make -C ../libft
 	@$(CC) $(objs) ../libft/libft.a $(CFLAGS) $(mlxflag) $(debug_flag) -o $(NAME)
 
+clean:
+	@$(mlxmake) clean;
+	@$(RM) $(objs)
+	@make clean -C ../libft
+
+fclean: clean
+	@$(RM) $(mlxpath)/libmlx.a
+	@$(RM) $(objs)
+	@$(RM) $(NAME)
+	@make fclean -C ../libft/
+
+re:	fclean all
+
 mlx:
 	@$(mlxmake)
 
 ok: all
-	./$(NAME) ../test/ok/dup.cub
+	@./$(NAME) ../test/ok/dup.cub
 
 mini: all
-	./$(NAME) ../test/ok/mini.cub
-
-clean:
-	@$(mlxmake) clean;
-	@$(RM) $(objs)
-
-fclean: clean
-	@$(RM) $(mlxpath)/libmlx.a
-	@$(RM) $(NAME) $(objs)
-
-re:	fclean all
+	@./$(NAME) ../test/ok/mini.cub
 
 test: re
 	@bash ../test/test.sh
@@ -84,4 +89,5 @@ leak:
 	@chmod -R 777 ../leak_check.sh
 	@../leak_check.sh
 
-.PHONY: all clean fclean mlx re test leak
+
+.PHONY: all clean fclean re mlx test leak norm mini

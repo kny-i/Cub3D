@@ -9,24 +9,23 @@ ft_strnstr.c ft_isascii.c ft_memmove.c ft_strdup.c ft_strrchr.c ft_striteri.c\
 ft_printf.c ft_putaddress_len.c ft_putchar_len.c ft_putnbr_convert_base.c\
 ft_putnbr_len.c ft_putstr_len.c ft_atoll.c gnl.c gnl_utils.c
 
-
 OBJS = ${SRCS:.c=.o}
 
-CC		= gcc
-RM		= rm -f
-
 CFLAGS = -Wall -Wextra -Werror
+%.o: %.c
+	@$(CC) $(CFLAGS) -c -o $@ $<
+CC		= cc
 
-$(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+${NAME}: ${OBJS}
+		@ar rcs ${NAME} ${OBJS}
 
 all:	${NAME}
 
 clean:
-		${RM} ${OBJS}
+		@${RM} ${OBJS}
 
 fclean:	clean
-		${RM} ${NAME}
+		@${RM} ${NAME}
 
 re:		fclean all
 

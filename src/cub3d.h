@@ -12,6 +12,7 @@
 
 # ifndef TEST
 #  define TEST 1
+#  define DEBUG 1
 # endif
 
 # define SUCCESS 0

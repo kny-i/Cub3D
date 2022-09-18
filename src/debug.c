@@ -1,4 +1,5 @@
 #include "cub3d.h"
+
 /*
 void	debug_direction_path(t_map *map)
 {
