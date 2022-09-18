@@ -180,6 +180,7 @@ int			ft_isspace(int c);
 char		*skip_space_str(char *str);
 double		distance_to_btw_points(double x0, double y0, double x1, double y1);
 size_t		strs_len(char **strs);
+void 		xfree(void *ptr);
 
 /* related_to_is.c */
 bool		is_all_specific_char(char *line, char *specific_strs);

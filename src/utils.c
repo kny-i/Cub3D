@@ -38,7 +38,8 @@ size_t	strs_len(char **strs)
 	return (len);
 }
 
-double	distance_to_btw_points(double x0, double y0, double x1, double y1)
+void xfree(void *ptr)
 {
-	return (sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
+	free(ptr);
+	ptr = NULL;
 }

@@ -33,12 +33,35 @@ void terminate_mlx(t_cub3d *info)
 		mlx_destroy_display(info->mlx);
 		mlx_loop_end(info->mlx);
 	}
-	free(info->mlx);
+
 }
 
+void free_texture(t_image **texture)
+{
+	size_t i;
+
+	i = 0;
+	while (texture[i] != NULL)
+	{
+		xfree(texture[i]->image);
+		xfree(texture[i]->address);
+		xfree(texture[i]);
+	}
+}
+void free_info(t_cub3d *info)
+{
+	xfree(info->mlx);
+	xfree(info->window);
+	free_texture(info->texture_image);
+	free_rays(info->ray);
+	free_image(info->window_data);
+	free_map(info->map);
+	free_player(info->player);
+}
 int	the_end(t_cub3d *info)
 {
 	terminate_mlx(info);
+	free_info(info);
 	ft_putendl_fd("have a nice day!", STDOUT_FILENO);
 	exit(EXIT_SUCCESS);
 }
