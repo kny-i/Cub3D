@@ -16,19 +16,19 @@ int	usage(void)
 
 void terminate_mlx(t_cub3d *info)
 {
-	if (info->mlx && info->texture_image[north]->image)
+	if (info->mlx != NULL && info->texture_image[north]->image != NULL)
 		mlx_destroy_image(info->mlx, info->texture_image[north]->image);
-	if (info->mlx && info->texture_image[south]->image)
+	if (info->mlx != NULL && info->texture_image[south]->image != NULL)
 		mlx_destroy_image(info->mlx, info->texture_image[south]->image);
-	if (info->mlx && info->texture_image[west]->image)
+	if (info->mlx != NULL&& info->texture_image[west]->image != NULL)
 		mlx_destroy_image(info->mlx, info->texture_image[west]->image);
-	if (info->mlx && info->texture_image[east]->image)
+	if (info->mlx != NULL && info->texture_image[east]->image != NULL)
 		mlx_destroy_image(info->mlx, info->texture_image[east]->image);
-	if (info->mlx && info->window)
+	if (info->mlx != NULL && info->window != NULL)
 		mlx_destroy_image(info->mlx, info->window_data->image);
-	if (info->mlx && info->window)
+	if (info->mlx != NULL && info->window != NULL)
 		mlx_destroy_window(info->mlx, info->window);
-	if (info->mlx)
+	if (info->mlx != NULL)
 	{
 		mlx_destroy_display(info->mlx);
 		mlx_loop_end(info->mlx);
@@ -67,8 +67,6 @@ void free_rays(t_ray **rays)
 
 void free_image(t_image *image)
 {
-	free(image->image);
-	free(image->address);
 	free(image);
 }
 
@@ -83,7 +81,6 @@ void free_map(t_map *map)
 		i++;
 	}
 	free(map->grid);
-	free(map->path);
 	free(map);
 }
 
@@ -102,8 +99,9 @@ void free_info(t_cub3d *info)
 	free_image(info->window_data);
 	free_map(info->map);
 	free_player(info->player);
-	;
+	free(info);
 }
+
 int	the_end(t_cub3d *info)
 {
 	terminate_mlx(info);

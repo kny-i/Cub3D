@@ -51,7 +51,7 @@
 # define LOOKING_LEFT_KEY	0xff51
 # define LOOKING_RIGHT_KEY	0xff53
 
-# define STRUCTURE_NOTIFY_MASK 131072
+# define STRUCTURE_NOTIFY_MASK 1L << 1
 # define WINDOW_DESTROY 17
 
 typedef enum s_ray_direction

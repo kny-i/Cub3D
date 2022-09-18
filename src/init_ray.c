@@ -22,13 +22,14 @@ t_ray	**initialize_ray(t_cub3d *info)
 	t_ray	**ray;
 	size_t	i;
 
-	ray = xcalloc(NB_RAYS, sizeof(t_ray *));
+	ray = xcalloc(NB_RAYS + 1, sizeof(t_ray *));
 	i = 0;
 	while (i < NB_RAYS)
 	{
 		ray[i] = xcalloc(1, sizeof(t_ray));
 		i++;
 	}
+	ray[NB_RAYS] = NULL;
 	ray = cast_all_rays(info, ray);
 	return (ray);
 }

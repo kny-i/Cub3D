@@ -1,11 +1,10 @@
 #!/bin/bash
 
-kill ./cub3d
+ps
 
 while true
 do
-    leaks -q `ps | grep ./cub3d | awk '{print $1}'`
-    leaks -q 94987
-    sleep 2
+    leaks -q `ps | grep './cub3d' | grep 'ok' | awk '{print $1}'`
+    sleep 1
 done
 

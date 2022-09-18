@@ -13,12 +13,13 @@ void	move_player(t_cub3d *info)
 	next_point->y = info->player->position->y + sin(move_angle) * MOVE_STEP;
 	if (is_wall_conflict(info, next_point) == true)
 	{
+		free(next_point);
 		info->player->should_move = false;
 		return ;
 	}
 	tmp = info->player->position;
 	info->player->position = next_point;
-	free(tmp)
+	free(tmp);
 }
 
 void	updating_info(t_cub3d *info)

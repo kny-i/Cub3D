@@ -21,7 +21,6 @@ int	lonely_together(int argc, char **argv)
 		initialize_mlx(info);
 		initialize_object(info);
 		play_gaming(info);
-		mlx_loop(info->mlx);
 	}
 	return (EXIT_SUCCESS);
 }
