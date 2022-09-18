@@ -48,6 +48,19 @@ void free_texture(t_image **texture)
 		xfree(texture[i]);
 	}
 }
+void free_rays(t_ray **rays)
+{
+	size_t i;
+
+	i = 0;
+	while (rays[i] != NULL)
+	{
+		xfree(rays[i]->light_source);
+		xfree(rays[i]);
+	}
+}
+
+
 void free_info(t_cub3d *info)
 {
 	xfree(info->mlx);
