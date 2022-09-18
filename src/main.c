@@ -27,7 +27,5 @@ int	lonely_together(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	setbuf(stdout, NULL);
-	setbuf(stderr, NULL);
 	lonely_together(argc, argv);
 }
