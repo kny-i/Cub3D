@@ -35,6 +35,7 @@ void terminate_mlx(t_cub3d *info)
 	}
 	free(info->mlx);
 }
+
 int	the_end(t_cub3d *info)
 {
 	terminate_mlx(info);
