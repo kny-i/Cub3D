@@ -5,8 +5,8 @@ leak check
 scale/subjectのcheck
 copyして提出する
 xpmの変更
-destroy(ESCの実装)
+destroy(ESCの実装) ok
 進行方向が左右で逆になってしまっているという決定的なバグがあった
 
 <testerのcheck・error_handling関連>
-.cubがディレクトリだった時未対応
+.cubがディレクトリだった時未対応 ok
