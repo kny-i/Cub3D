@@ -1,16 +1,41 @@
 NAME = cub3d
 
-srcs = $(wildcard *.c)
+srcs = free.c \
+		game_init.c \
+		get_step.c \
+		init_ray.c \
+		initialize_object.c \
+		interception.c \
+		judge_wall.c \
+		key_settings.c \
+		looking.c \
+		main.c \
+		message.c \
+		moving.c \
+		my_mlx_pixel_put.c \
+		parse_utils.c \
+		parser.c \
+		play_gaming.c \
+		ray_cast_utils.c \
+		ray_casting.c \
+		related_to_is.c \
+		related_to_is2.c \
+		related_to_is3.c \
+		rendering.c \
+		rendering_utils.c \
+		update.c \
+		utils.c \
+		validate_map.c \
+		validate_map_utils.c \
+		xalloc.c
+
 headers = $(wildcard *.h)
 objs = $(srcs:.c=.o)
 
-### mlx ###
 mlxpath = ./mlx_linux/
 mlxflag = -Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
 mlxmake = make -C $(mlxpath)
 CFLAGS = -Wextra -Werror -Wextra
-
-#######まさかのsanitizerをつけないとプログラムが正常に動かない#$
 debug_flag = -g3 -fsanitize=address
 CC = cc
 
