@@ -3,7 +3,7 @@
 nm -uでのcheckをする<-mlxがあるからft_系だけcheckする
 leak check
 scale/subjectのcheck
-copyして提出する
+copyして提出する ?
 xpmの変更
 destroy(ESCの実装) ok
 進行方向が左右で逆になってしまっているという決定的なバグがあった ok
