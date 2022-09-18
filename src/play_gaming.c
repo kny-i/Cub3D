@@ -7,6 +7,6 @@ void	play_gaming(t_cub3d *info)
 	mlx_hook \
 	(info->mlx, WINDOW_DESTROY, STRUCTURE_NOTIFY_MASK, the_end, info);
 	mlx_loop_hook(info->mlx, rendering, info);
-	mlx_hook(data->mlx_win, 17, 1L << 1, the_end, info);
+	mlx_hook(info->mlx, 17, 1L << 1, the_end, info);
 	mlx_loop_hook(info->mlx, updating, info);
 }

@@ -3,7 +3,7 @@
 int	key_settings(int key, t_cub3d *info)
 {
 	if (key == ESC_KEY)
-		the_end();
+		the_end(info);
 	if (key == W_KEY)
 		moving_forward(info);
 	if (key == S_KEY)

@@ -4,7 +4,7 @@ void	my_mlx_pixel_put(t_cub3d *info, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = info->data->address + \
-	(y * info->data->size_line + x * (info->data->bpp / 8));
+	dst = info->window_data->address + \
+	(y * info->window_data->size_line + x * (info->window_data->bpp / 8));
 	*(unsigned int *)dst = color;
 }

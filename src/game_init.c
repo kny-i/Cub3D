@@ -56,7 +56,6 @@ t_player	*initialize_player(t_cub3d *info)
 
 	player = info->player;
 	player->rotate_speed = ROTATE_SPEED;
-	player->should_rotate = false;
 	player->should_move = false;
 	player->walk_direction = 0;
 	return (player);
