@@ -67,13 +67,13 @@ size_t		ft_putstr_len(char *str);
 size_t		ft_putnbr_convert_base(unsigned long long nb, char *base);
 
 /* gnl_utils.c */
-char	*ft_strchr(const char *s, int c);
-char	*get_next_line(int fd);
-char	*gnl_strjoin(char *s1, char *s2);
+char		*ft_strchr(const char *s, int c);
+char		*get_next_line(int fd);
+char		*gnl_strjoin(char *s1, char *s2);
 
-#define BUFFER_SIZE 100
-#define READ_ERROR -1
-#define END_OF_FILE 0
-#define NOT_EOF 100
+# define BUFFER_SIZE 100
+# define READ_ERROR -1
+# define END_OF_FILE 0
+# define NOT_EOF 100
 
 #endif

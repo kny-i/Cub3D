@@ -4,7 +4,7 @@ void	move_player(t_cub3d *info)
 {
 	t_point	*next_point;
 	double	move_angle;
-	t_point *tmp;
+	t_point	*tmp;
 
 	next_point = xcalloc(1, sizeof(t_point));
 	move_angle = \

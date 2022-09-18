@@ -1,8 +1,8 @@
 #include "cub3d.h"
 
-double vertical_x_step(t_ray *ray)
+double	vertical_x_step(t_ray *ray)
 {
-	double x_step;
+	double	x_step;
 
 	x_step = TILE_SIZE;
 	if (ray->is_face_left == true)
@@ -22,7 +22,7 @@ double	vertical_y_step(t_ray *ray)
 	return (y_step);
 }
 
-double horizontal_x_step(t_ray *ray)
+double	horizontal_x_step(t_ray *ray)
 {
 	double	x_step;
 

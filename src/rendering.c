@@ -83,6 +83,7 @@ int	rendering(t_cub3d *info)
 	cast_all_rays(info, info->ray);
 	drawing_ceiling_and_floor(info);
 	put_wallpaper(info);
-	mlx_put_image_to_window(info->mlx, info->window, info->window_data->image, 0, 0);
+	mlx_put_image_to_window(info->mlx, info->window, \
+	info->window_data->image, 0, 0);
 	return (42);
 }

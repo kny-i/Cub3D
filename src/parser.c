@@ -49,7 +49,7 @@ void	parse_cub3d_file(t_map *map, char *line, int *map_col_index)
 
 void	parse_setup(t_cub3d *info, char *file)
 {
-	int	nb_col;
+	int		nb_col;
 	int		fd;
 
 	if (is_valid_format_file(file) == false)

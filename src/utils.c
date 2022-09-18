@@ -37,5 +37,3 @@ size_t	strs_len(char **strs)
 		len++;
 	return (len);
 }
-
-

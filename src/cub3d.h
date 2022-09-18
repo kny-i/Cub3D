@@ -51,7 +51,6 @@
 # define LOOKING_LEFT_KEY	0xff51
 # define LOOKING_RIGHT_KEY	0xff53
 
-# define STRUCTURE_NOTIFY_MASK 1L << 1
 # define WINDOW_DESTROY 17
 
 typedef enum s_ray_direction
@@ -253,11 +252,12 @@ void		*xmalloc(size_t len);
 void		*xcalloc(size_t count, size_t len);
 void		str_free(char **ptr);
 /* get_step.c */
-double	vertical_x_step(t_ray *ray);
-double	vertical_y_step(t_ray *ray);
-double	horizontal_x_step(t_ray *ray);
-double	horizontal_y_step(t_ray *ray);
+double		vertical_x_step(t_ray *ray);
+double		vertical_y_step(t_ray *ray);
+double		horizontal_x_step(t_ray *ray);
+double		horizontal_y_step(t_ray *ray);
 /* judge_wall.c */
-bool is_wall_conflict(t_cub3d *info, t_point *point);
-
+bool		is_wall_conflict(t_cub3d *info, t_point *point);
+/* free.c */
+void		free_info(t_cub3d *info);
 #endif

@@ -8,7 +8,7 @@ static char	*get_output_line(char *save)
 
 	if (save[0] == '\0')
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(save) + 2));//calloc使って後で改善予定
+	str = ft_calloc(ft_strlen(save) + 2, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
