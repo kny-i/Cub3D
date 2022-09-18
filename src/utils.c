@@ -38,8 +38,4 @@ size_t	strs_len(char **strs)
 	return (len);
 }
 
-void xfree(void *ptr)
-{
-	free(ptr);
-	ptr = NULL;
-}
+

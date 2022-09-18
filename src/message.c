@@ -43,13 +43,15 @@ void free_texture(t_image **texture)
 	i = 0;
 	while (texture[i] != NULL)
 	{
-		xfree(texture[i]->image);
-		xfree(texture[i]->address);
-		xfree(texture[i]);
+		free(texture[i]->image);
+		free(texture[i]->address);
+		free(texture[i]);
 		i++;
 	}
-	xfree(texture);
+	free(texture);
 }
+
+/* light source is form info->player->position so we dont have to free */
 void free_rays(t_ray **rays)
 {
 	size_t i;
@@ -57,18 +59,17 @@ void free_rays(t_ray **rays)
 	i = 0;
 	while (rays[i] != NULL)
 	{
-		xfree(rays[i]->light_source);
-		xfree(rays[i]);
+		free(rays[i]);
 		i++;
 	}
-	xfree(rays);
+	free(rays);
 }
 
 void free_image(t_image *image)
 {
-	xfree(image->image);
-	xfree(image->address);
-	xfree(image);
+	free(image->image);
+	free(image->address);
+	free(image);
 }
 
 void free_map(t_map *map)
@@ -78,20 +79,25 @@ void free_map(t_map *map)
 	i = 0;
 	while (map->grid[i] != NULL)
 	{
-		xfree(map->grid[i]);
+		free(map->grid[i]);
 		i++;
 	}
-	xfree(map->grid);
-	xfree(map->path);
-	xfree(map);
+	free(map->grid);
+	free(map->path);
+	free(map);
 }
 
-voi
+void free_player(t_player *player)
+{
+	free(player->position);
+	free(player);
+}
+
+/* already free contents of texture_image we dont have to free them right now */
 void free_info(t_cub3d *info)
 {
-	xfree(info->mlx);
-	xfree(info->window);
-	free_texture(info->texture_image);
+	free(info->mlx);
+	free(info->texture_image);
 	free_rays(info->ray);
 	free_image(info->window_data);
 	free_map(info->map);
