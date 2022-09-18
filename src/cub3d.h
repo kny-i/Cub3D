@@ -97,7 +97,6 @@ typedef struct s_map
 	int		ceiling_color;
 	int		floor_color;
 	char	*path[4];
-	t_image	*texture_image[4];
 }				t_map;
 
 typedef struct s_player

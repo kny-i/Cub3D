@@ -46,7 +46,9 @@ void free_texture(t_image **texture)
 		xfree(texture[i]->image);
 		xfree(texture[i]->address);
 		xfree(texture[i]);
+		i++;
 	}
+	xfree(texture);
 }
 void free_rays(t_ray **rays)
 {
@@ -57,10 +59,34 @@ void free_rays(t_ray **rays)
 	{
 		xfree(rays[i]->light_source);
 		xfree(rays[i]);
+		i++;
 	}
+	xfree(rays);
 }
 
+void free_image(t_image *image)
+{
+	xfree(image->image);
+	xfree(image->address);
+	xfree(image);
+}
 
+void free_map(t_map *map)
+{
+	size_t i;
+
+	i = 0;
+	while (map->grid[i] != NULL)
+	{
+		xfree(map->grid[i]);
+		i++;
+	}
+	xfree(map->grid);
+	xfree(map->path);
+	xfree(map);
+}
+
+voi
 void free_info(t_cub3d *info)
 {
 	xfree(info->mlx);
