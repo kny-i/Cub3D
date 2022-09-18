@@ -102,6 +102,7 @@ void free_info(t_cub3d *info)
 	free_image(info->window_data);
 	free_map(info->map);
 	free_player(info->player);
+	;
 }
 int	the_end(t_cub3d *info)
 {

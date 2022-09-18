@@ -11,7 +11,7 @@ mlxmake = make -C $(mlxpath)
 CFLAGS = -Wextra
 
 #######まさかのsanitizerをつけないとプログラムが正常に動かない#$
-debug_flag = -g3 -fsanitize=address
+#debug_flag = -g3 -fsanitize=address
 CC = cc
 
 ifeq ($(MAKECMDGOALS), test)
