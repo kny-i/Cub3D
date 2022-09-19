@@ -1,11 +1,5 @@
 #include "cub3d.h"
 
-/* TILEの中心にplayerの位置をおくため */
-/*
- * 方角に関しては絶対的な位置として考えるため
- * x/y座標との対応関係はない
- * example north -> 3/2 PI
- */
 void	set_player_info(t_cub3d *info, size_t x, size_t y, char direction)
 {
 	if (info->map->is_filled_start_position == true)

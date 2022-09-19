@@ -72,7 +72,7 @@ mlx:
 	@$(mlxmake)
 
 ok: all
-	@./$(NAME) ../test/ok/dup.cub
+	@./$(NAME) ../test/ok/ok.cub
 
 mini: all
 	@./$(NAME) ../test/ok/mini.cub

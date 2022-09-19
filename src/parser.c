@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-bool	parst_direction(t_map *map, char *line)
+bool	parse_direction(t_map *map, char *line)
 {
 	if (ft_strncmp(line, "NO ", 3) == 0)
 	{
@@ -44,7 +44,7 @@ bool	parse_map(t_map *map, char *line, int *map_col_index)
 
 void	parse_cub3d_file(t_map *map, char *line, int *map_col_index)
 {
-	if (parst_direction(map, line) == SUCCESS \
+	if (parse_direction(map, line) == SUCCESS \
 	|| parse_color(map, line) == SUCCESS \
 	|| parse_map(map, line, map_col_index) == SUCCESS)
 		return ;
@@ -95,5 +95,6 @@ t_cub3d	*parser(char *file, t_cub3d *info)
 	info->map->nb_col = map_col_index;
 	str_free(&line);
 	set_player_info_loop(info);
+	close(fd);
 	return (info);
 }
