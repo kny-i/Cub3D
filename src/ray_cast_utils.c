@@ -17,12 +17,18 @@ void	set_ray_direction(t_ray *ray, double ray_angle)
 		ray->is_face_down = true;
 	else
 		ray->is_face_down = false;
-	ray->is_face_up = !ray->is_face_down;
+	if (ray->is_face_down == false)
+		ray->is_face_up = true;
+	else
+		ray->is_face_up = false;
 	if ((ray->angle < M_PI / 2 || 3 *M_PI / 2 < ray->angle) == true)
 		ray->is_face_right = true;
 	else
 		ray->is_face_right = false;
-	ray->is_face_left = !ray->is_face_right;
+	if (ray->is_face_right == false)
+		ray->is_face_left = true;
+	else
+		ray->is_face_left = false;
 }
 
 static double	pythagorean_theorem_for_delta(t_point *light_source, \
