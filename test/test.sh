@@ -60,4 +60,4 @@ $execpath ../test/ko/invalid_map_player_outside.cub
 echo -e $red"[invalid map player outside map]"$no
 
 $execpath ../test/ko/directory.cub
-echo -e $red"direcotry dot cubfile"$no
+echo -e $red"[direcotry dot cubfile]"$no

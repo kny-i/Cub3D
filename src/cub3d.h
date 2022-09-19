@@ -29,8 +29,8 @@
 # define DEFAULT_SPEED 200
 /*  5 * (M_PI / 180)  */
 # define ROTATE_SPEED 0.087
-# define WINDOW_WIDTH 1400
-# define WINDOW_HEIGHT 1000
+# define WINDOW_WIDTH 600
+# define WINDOW_HEIGHT 400
 # define TILE_SIZE 32
 
 /* related to math */
@@ -41,7 +41,7 @@
 
 # define WALL_WIDTH 1
 # define NB_RAYS WINDOW_WIDTH
-# define MOVE_STEP 5
+# define MOVE_STEP 2
 
 /* KEY MACROS */
 # define ESC_KEY	0xff1b

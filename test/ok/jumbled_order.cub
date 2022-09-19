@@ -1,10 +1,10 @@
 C        211,237,251
 
 
-SO   ../texture/horse.xpm
+SO   ../texture/mario_player.xpm
 
 
-EA ../texture/rabbit.xpm
+EA ../texture/mario_player.xpm
 
 F                  100,100,40
 
@@ -23,6 +23,6 @@ F                  100,100,40
 10000000000000000001
 11111111111111111111
 
-NO ../texture/rat.xpm
+NO ../texture/mario_player.xpm
 
-WE         ../texture/dog.xpm
+WE         ../texture/mario_player.xpm

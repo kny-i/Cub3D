@@ -1,8 +1,7 @@
-NO ../texture/rat.xpm
-SO ../texture/horse.xpm
-WE ../texture/dog.xpm
-EA ../texture/rabbit.xpm
-
+NO ../texture/collect.xpm
+SO ../texture/collect.xpm
+WE ../texture/collect.xpm
+EA ../texture/collect.xpm
 F 100,100,40
 F 1,1,1
 F 0,0,0
