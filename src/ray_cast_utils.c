@@ -21,7 +21,7 @@ void	set_ray_direction(t_ray *ray, double ray_angle)
 		ray->is_face_up = true;
 	else
 		ray->is_face_up = false;
-	if ((ray->angle < M_PI / 2 || 3 *M_PI / 2 < ray->angle) == true)
+	if ((ray->angle < M_PI / 2 || 3 * M_PI / 2 < ray->angle) == true)
 		ray->is_face_right = true;
 	else
 		ray->is_face_right = false;

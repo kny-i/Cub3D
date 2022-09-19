@@ -17,9 +17,7 @@ static int	calculate_texture_offset_x(t_ray *ray, t_image *texture)
 	int	left_edge;
 
 	if (ray->wall_direction == north)
-	{
 		tex_offset_x = (int)ray->wall_hit.x % TILE_SIZE;
-	}
 	else if (ray->wall_direction == south)
 	{
 		left_edge = ((int)ray->wall_hit.x / TILE_SIZE + 1) * TILE_SIZE - 1;
@@ -31,9 +29,7 @@ static int	calculate_texture_offset_x(t_ray *ray, t_image *texture)
 		tex_offset_x = left_edge - (int)ray->wall_hit.y;
 	}
 	else
-	{
 		tex_offset_x = (int)ray->wall_hit.y % TILE_SIZE;
-	}
 	tex_offset_x *= ((double)texture->width / TILE_SIZE);
 	return (tex_offset_x);
 }

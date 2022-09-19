@@ -15,7 +15,6 @@ void	free_texture(t_image **texture)
 	free(texture);
 }
 
-/* light source is form info->player->position so we dont have to free */
 void	free_rays(t_ray **rays)
 {
 	size_t	i;

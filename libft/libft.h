@@ -42,7 +42,7 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char		*ft_itoa(int n);
 int			ft_tolower(int c);
 char		*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-void		ft_striteri(char *s, void(*f)(unsigned int, char *));
+void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 char		*ft_strchr(const char *s, int c);
 void		ft_putstr_fd(char *s, int fd);
 int			ft_toupper(int c);
