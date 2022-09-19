@@ -1,12 +1,12 @@
-NO ../texture/rat.xpm
-SO ../texture/horse.xpm
-WE ../texture/dog.xpm
-EA ../texture/rabbit.xpm
+NO ../texture/mario_player.xpm
+SO ../texture/naruto.xpm
+WE ../texture/sasuke.xpm
+EA ../texture/mario_player.xpm
 
 F 100,100,40
 F 1,1,1
-F 0,0,0
-C 211,237,2511
+F 50,100,30
+C 20,20,20
 
 11111
 10001
