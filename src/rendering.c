@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static int	get_pixel_from_texture(t_image *texture, int x, int y)
+static int	anti_my_mlx_pixel_put(t_image *texture, int x, int y)
 {
 	int		color;
 	char	*color_addr;
@@ -49,7 +49,7 @@ int	get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 	distance_from_top = y + (strip.height / 2) - (WINDOW_HEIGHT / 2);
 	texture_offset_y = \
 	((double)distance_from_top / strip.height) * texture->height;
-	color = get_pixel_from_texture \
+	color = anti_my_mlx_pixel_put \
 	(texture, texture_offset_x, texture_offset_y);
 	return (color);
 }
