@@ -28,7 +28,7 @@ bool	parst_direction(t_map *map, char *line)
 
 bool	parse_map(t_map *map, char *line, int *map_col_index)
 {
-	if (is_all_specific_char(line, "NSEW 01") == false )
+	if (is_all_specific_char(line, "NSEW 01") == false)
 		return (FAILURE);
 	else if (is_one_at_first(line) == false)
 	{
