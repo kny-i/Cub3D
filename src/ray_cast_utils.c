@@ -13,9 +13,11 @@ double	normalize_angle(double ray_angle)
 void	set_ray_direction(t_ray *ray, double ray_angle)
 {
 	ray->angle = normalize_angle(ray_angle);
-	ray->is_face_down = ray_angle > 0 && ray->angle < M_PI;
+	if (ray_angle > 0 && ray->angle < M_PI)
+		ray->is_face_down = true;
 	ray->is_face_up = !ray->is_face_down;
-	ray->is_face_right = ray->angle < M_PI / 2 || 3 *M_PI / 2 < ray->angle;
+	if (ray->angle < M_PI / 2 || 3 * M_PI / 2 < ray->angle)
+		ray->is_face_right = true;
 	ray->is_face_left = !ray->is_face_right;
 }
 

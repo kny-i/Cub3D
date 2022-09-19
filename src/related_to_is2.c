@@ -3,7 +3,7 @@
 bool	is_screen_edge(t_map *map, double x, double y)
 {
 	if (x < 0 || x >= map->nb_col * TILE_SIZE || \
-	 y < 0 || y >= map->nb_row * TILE_SIZE)
+	y < 0 || y >= map->nb_row * TILE_SIZE)
 		return (true);
 	else
 		return (false);
