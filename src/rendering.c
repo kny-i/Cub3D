@@ -11,7 +11,7 @@ static int	get_pixel_from_texture(t_image *texture, int x, int y)
 	return (color);
 }
 
-static int	calc_texture_offset_x(t_ray *ray, t_image *texture)
+static int	calculate_texture_offset_x(t_ray *ray, t_image *texture)
 {
 	int	tex_offset_x;
 	int	left_edge;
@@ -45,10 +45,10 @@ int	get_texture_pixel(t_image *texture, t_ray *ray, int y, t_strip strip)
 	int	texture_offset_y;
 	int	distance_from_top;
 
-	texture_offset_x = calc_texture_offset_x(ray, texture);
+	texture_offset_x = calculate_texture_offset_x(ray, texture);
 	distance_from_top = y + (strip.height / 2) - (WINDOW_HEIGHT / 2);
 	texture_offset_y = \
-	distance_from_top * ((double)texture->height / strip.height);
+	((double)distance_from_top / strip.height) * texture->height;
 	color = get_pixel_from_texture \
 	(texture, texture_offset_x, texture_offset_y);
 	return (color);

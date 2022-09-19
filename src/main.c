@@ -4,7 +4,7 @@ void	initialize_mlx(t_cub3d *info)
 {
 	info->mlx = mlx_init();
 	info->window = mlx_new_window \
-	(info->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "team:CRI");
+	(info->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "/* CRI */");
 }
 
 int	lonely_together(int argc, char **argv)
