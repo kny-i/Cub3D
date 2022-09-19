@@ -32,7 +32,7 @@ srcs = free.c \
 objs = $(srcs:.c=.o)
 
 CFLAGS = -Wextra -Werror -Wextra
-#debug_flag = -g3 -fsanitize=address
+debug_flag = -g3 -fsanitize=address
 CC = cc
 
 #################mlx######################
