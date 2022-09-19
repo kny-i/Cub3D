@@ -67,4 +67,3 @@ echo -e $red"[big map cubfile]"$no
 
 $execpath ../test/ko/big_rgb.cub
 echo -e $red"[big rgb value cubfile]"$no
-
