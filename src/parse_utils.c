@@ -15,9 +15,9 @@ int	allocate_color(char *line)
 		|| is_nbrs(strs[1]) == false
 		|| is_nbrs(strs[2]) == false)
 		error_message("COLOR INFORMATION IS INVALID FORMAT!");
-	rgb[0] = ft_atoi(strs[0]) << 16;
-	rgb[1] = ft_atoi(strs[1]) << 8;
-	rgb[2] = ft_atoi(strs[2]);
+	rgb[0] = xatoi_for_byte(strs[0]) << 16;
+	rgb[1] = xatoi_for_byte(strs[1]) << 8;
+	rgb[2] = xatoi_for_byte(strs[2]);
 	return (rgb[0] + rgb[1] + rgb[2]);
 }
 
@@ -60,5 +60,7 @@ void	get_nb_col(int fd, int *nb_col)
 			continue ;
 		if (is_all_specific_char(line, "NSEW 01\0") == true)
 			(*nb_col)++;
+		if (*nb_col > MAP_MAX)
+			error_message("TOO HUGE MAP!");
 	}
 }

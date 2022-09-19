@@ -36,6 +36,8 @@ void	set_player_info_loop(t_cub3d *info)
 			if (is_specific_char(info->map->grid[y][x], "NSEW") == true)
 				set_player_info(info, x, y, info->map->grid[y][x]);
 			tmp++;
+			if (tmp > MAP_MAX)
+				error_message("TOO HUGE MAP");
 			if (tmp > info->map->nb_row)
 				info->map->nb_row = tmp;
 			x++;

@@ -53,6 +53,7 @@
 # define LOOKING_RIGHT_KEY	0xff53
 
 # define WINDOW_DESTROY 17
+# define MAP_MAX 9999
 
 typedef enum s_ray_direction
 {
@@ -190,6 +191,9 @@ bool		is_one_at_first(char *line);
 /* related_to_is2.c */
 bool		is_screen_edge(t_map *map, double x, double y);
 bool		is_wall(t_map *map, int x, int y, char identification);
+
+/* related_is3.c */
+int			xatoi_for_byte(const char *str);
 bool		is_all_strs_space(char *str);
 
 /* is_valid_map.c */

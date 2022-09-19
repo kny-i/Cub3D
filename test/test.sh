@@ -61,3 +61,10 @@ echo -e $red"[invalid map player outside map]"$no
 
 $execpath ../test/ko/directory.cub
 echo -e $red"[direcotry dot cubfile]"$no
+
+$execpath ../test/ko/big_map.cub
+echo -e $red"[big map cubfile]"$no
+
+$execpath ../test/ko/big_rgb.cub
+echo -e $red"[big rgb value cubfile]"$no
+
