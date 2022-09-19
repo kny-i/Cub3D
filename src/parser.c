@@ -2,22 +2,22 @@
 
 bool	parst_direction(t_map *map, char *line)
 {
-	if (ft_strncmp(line, "NO", 2) == 0)
+	if (ft_strncmp(line, "NO ", 3) == 0)
 	{
 		map->path[north] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
-	if (ft_strncmp(line, "SO", 2) == 0)
+	if (ft_strncmp(line, "SO ", 3) == 0)
 	{
 		map->path[south] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
-	if (ft_strncmp(line, "WE", 2) == 0)
+	if (ft_strncmp(line, "WE ", 3) == 0)
 	{
 		map->path[west] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
 	}
-	if (ft_strncmp(line, "EA", 2) == 0)
+	if (ft_strncmp(line, "EA ", 3) == 0)
 	{
 		map->path[east] = xstrdup(skip_space_str(line + 3));
 		return (SUCCESS);
@@ -28,9 +28,13 @@ bool	parst_direction(t_map *map, char *line)
 
 bool	parse_map(t_map *map, char *line, int *map_col_index)
 {
-	if (is_all_specific_char(line, "NSEW 01") == false || \
-										is_one_at_first(line) == false)
+	if (is_all_specific_char(line, "NSEW 01") == false )
 		return (FAILURE);
+	else if (is_one_at_first(line) == false)
+	{
+		error_message("INVALID MAP");
+		return (FAILURE);
+	}
 	else
 	{
 		allocate_map(map, line, map_col_index);

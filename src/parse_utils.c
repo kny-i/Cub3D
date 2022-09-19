@@ -23,13 +23,13 @@ int	allocate_color(char *line)
 
 bool	parse_color(t_map *map, char *line)
 {
-	if (ft_strncmp(line, "F", 1) == 0)
+	if (ft_strncmp(line, "F ", 2) == 0)
 	{
 		map->floor_color = \
 		allocate_color(xstrdup(skip_space_str(line + 2)));
 		return (SUCCESS);
 	}
-	if (ft_strncmp(line, "C", 1) == 0)
+	if (ft_strncmp(line, "C ", 2) == 0)
 	{
 		map->ceiling_color = \
 		allocate_color(xstrdup(skip_space_str(line + 2)));
