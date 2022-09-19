@@ -15,12 +15,12 @@ void	set_ray_direction(t_ray *ray, double ray_angle)
 	ray->angle = normalize_angle(ray_angle);
 	ray->is_face_down = ray_angle > 0 && ray->angle < M_PI;
 	ray->is_face_up = !ray->is_face_down;
-	ray->is_face_right = ray->angle < M_PI / 2 || 3 * M_PI / 2 < ray->angle;
+	ray->is_face_right = ray->angle < M_PI / 2 || 3 *M_PI / 2 < ray->angle;
 	ray->is_face_left = !ray->is_face_right;
 }
 
 static double	pythagorean_theorem_for_delta(t_point *light_source, \
-													t_point *interception)
+t_point *interception)
 {
 	double	dx;
 	double	dy;

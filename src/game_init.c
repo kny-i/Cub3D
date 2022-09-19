@@ -33,7 +33,7 @@ t_image	**initialize_texture(void *mlx_ptr, char **path)
 		|| (texture_image[east] == NULL)
 		|| (texture_image[west] == NULL))
 		error_message("INVALID TEXTURE PATH!" \
-					  " OR INVALID DIRECTION FORMAT!");
+		" OR INVALID DIRECTION FORMAT!");
 	return (texture_image);
 }
 
