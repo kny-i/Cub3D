@@ -1,9 +1,9 @@
-NO ../texture/rat.xpm
-SO ../texture/horse.xpm
-WE ../texture/dog.xpm
-EA ../texture/rabbit.xpm
+NO ../texture/wall_texture.xpm
+SO ../texture/wall_texture.xpm
+WE ../texture/wall_texture.xpm
+EA ../texture/wall_texture.xpm
 
-F 255,255,255
+F 0,0,0
 C 0,0,0
 
 11111111111111111111
