@@ -1,7 +1,7 @@
-NO ../texture/collect.xpm
-SO ../texture/collect.xpm
-WE ../texture/collect.xpm
-EA ../texture/collect.xpm
+NO ../texture/naruto.xpm
+SO ../texture/mario_player.xpm
+WE ../texture/sasuke.xpm
+EA ../texture/naruto_kyuubi.xpm
 
 F 20,100,40
 F 1,1,1
