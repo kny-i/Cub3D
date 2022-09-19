@@ -26,11 +26,11 @@
 # define RAYS_COLOR 0xffff66
 
 /* speeds */
-# define DEFAULT_SPEED 30
+# define DEFAULT_SPEED 200
 /*  5 * (M_PI / 180)  */
 # define ROTATE_SPEED 0.087
-# define WINDOW_WIDTH 649
-# define WINDOW_HEIGHT 410
+# define WINDOW_WIDTH 1400
+# define WINDOW_HEIGHT 1000
 # define TILE_SIZE 32
 
 /* related to math */
@@ -41,7 +41,7 @@
 
 # define WALL_WIDTH 1
 # define NB_RAYS WINDOW_WIDTH
-# define MOVE_STEP 2
+# define MOVE_STEP 5
 
 /* KEY MACROS */
 # define ESC_KEY	0xff1b
